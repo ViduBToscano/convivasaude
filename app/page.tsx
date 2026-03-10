@@ -110,9 +110,9 @@ const testimonials = [
   {
     quote:
       "Tenho artrite e dificuldade para me locomover. A equipe da Conviva me ajuda nas atividades do dia a dia sem me tirar a independência. Me sinto respeitado.",
-    author: "Sr. Antônio Costa",
-    role: "Paciente, 76 anos",
-    initials: "AC",
+    author: "Laudelina Ferraz",
+    role: "Paciente, 78 anos",
+    initials: "LF",
     stars: 5,
   },
   {
