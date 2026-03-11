@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
-import { Poppins, Geist_Mono } from "next/font/google";
+import { Urbanist, Plus_Jakarta_Sans, Nunito, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const urbanist = Urbanist({
+  variable: "--font-urbanist",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const nunito = Nunito({
+  variable: "--font-nunito",
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
 });
@@ -24,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${poppins.variable} ${geistMono.variable}`}>
+    <html lang="pt-BR" className={`${urbanist.variable} ${plusJakartaSans.variable} ${nunito.variable} ${geistMono.variable}`}>
       <body className="antialiased">
         {children}
       </body>

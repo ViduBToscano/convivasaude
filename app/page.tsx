@@ -150,7 +150,7 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/logo.svg" alt="Conviva Saúde" className="h-12 w-auto" />
+            <img src="/logo.svg" alt="Conviva Saúde" className="h-24 w-auto" />
           </div>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -566,7 +566,7 @@ export default function HomePage() {
             {/* Brand */}
             <div className="sm:col-span-2 md:col-span-1">
               <div className="flex items-center mb-3">
-                <img src="/logo.svg" alt="Conviva Saúde" className="h-7 w-auto" />
+                <img src="/logo.svg" alt="Conviva Saúde" className="h-14 w-auto" />
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
                 Cuidado domiciliar especializado para idosos, com carinho, segurança e respeito à dignidade.

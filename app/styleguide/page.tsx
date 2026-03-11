@@ -117,48 +117,78 @@ export default function StyleguidePage() {
       {/* ── Typography ── */}
       <Section
         title="Tipografia"
-        description="Poppins é uma fonte geométrica sem serifa, ideal para aplicações de saúde — legível, moderna e acessível para usuários idosos."
+        description="Urbanist é a fonte principal — geométrica, moderna e de alta legibilidade. Plus Jakarta Sans e Nunito estão disponíveis como fontes de suporte para variações de estilo ou componentes específicos."
       >
-        <div className="flex flex-col gap-8">
-          <div className="flex items-center gap-12">
-            <div className="flex flex-col items-center">
-              <span className="text-7xl font-bold leading-none" style={{ color: "var(--secondary)" }}>
-                Aa
-              </span>
-              <span className="text-2xl font-semibold mt-2">Poppins</span>
-            </div>
-            <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-10">
+
+          {/* Font families overview */}
+          <div className="grid grid-cols-3 gap-6">
+            {[
+              {
+                name: "Urbanist",
+                role: "Principal",
+                cssVar: "--font-urbanist",
+                style: { fontFamily: "var(--font-urbanist)" },
+                desc: "Geométrica e limpa. Usada em toda a interface como fonte padrão.",
+              },
+              {
+                name: "Plus Jakarta Sans",
+                role: "Suporte",
+                cssVar: "--font-jakarta",
+                style: { fontFamily: "var(--font-jakarta)" },
+                desc: "Humanista e amigável. Ideal para depoimentos e textos de cuidado.",
+              },
+              {
+                name: "Nunito",
+                role: "Suporte",
+                cssVar: "--font-nunito",
+                style: { fontFamily: "var(--font-nunito)" },
+                desc: "Arredondada e acolhedora. Boa para alertas, badges e labels.",
+              },
+            ].map(({ name, role, cssVar, style, desc }) => (
+              <div key={name} className="flex flex-col gap-3 p-5 rounded-xl border border-border bg-card">
+                <div>
+                  <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">{role}</span>
+                  <p className="text-2xl font-bold mt-0.5" style={style}>{name}</p>
+                </div>
+                <div className="flex flex-col gap-1.5" style={style}>
+                  {["Regular", "Médio", "Semibold", "Negrito"].map((w, i) => (
+                    <span
+                      key={w}
+                      className="text-sm"
+                      style={{ fontWeight: [400, 500, 600, 700][i] }}
+                    >
+                      {w} — Aa Bb Cc Dd 0123
+                    </span>
+                  ))}
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{desc}</p>
+                <code className="text-[10px] text-muted-foreground font-mono">{cssVar}</code>
+              </div>
+            ))}
+          </div>
+
+          {/* Type scale */}
+          <div>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Escala tipográfica — Urbanist</p>
+            <div className="flex flex-col gap-0.5">
               {[
-                { weight: "Regular", cls: "font-normal" },
-                { weight: "Médio", cls: "font-medium" },
-                { weight: "Negrito", cls: "font-bold" },
-              ].map(({ weight, cls }) => (
-                <div key={weight} className="flex items-baseline gap-6">
-                  <span className="text-sm text-muted-foreground w-16">{weight}</span>
-                  <span className={`text-sm ${cls}`}>
-                    Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
-                  </span>
+                { size: "text-4xl", weight: "font-bold", label: "Título 1 — 36px / 700", sample: "Cuidado Completo para Idosos" },
+                { size: "text-3xl", weight: "font-bold", label: "Título 2 — 30px / 700", sample: "Contratar Plano de Saúde" },
+                { size: "text-2xl", weight: "font-semibold", label: "Título 3 — 24px / 600", sample: "Sua Saúde, Nossa Prioridade" },
+                { size: "text-xl", weight: "font-semibold", label: "Título 4 — 20px / 600", sample: "Plano Bem-Estar Sênior" },
+                { size: "text-base", weight: "font-normal", label: "Corpo — 16px / 400", sample: "Acompanhamento personalizado com cuidadores especializados em geriatria e saúde do idoso." },
+                { size: "text-sm", weight: "font-normal", label: "Pequeno — 14px / 400", sample: "Clínica Geral · 8 anos de experiência" },
+                { size: "text-xs", weight: "font-medium", label: "Legenda — 12px / 500", sample: "Visita domiciliar disponível" },
+              ].map(({ size, weight, label, sample }) => (
+                <div key={label} className="flex items-baseline gap-6 py-2.5 border-b border-border/40 last:border-0">
+                  <span className="text-[10px] text-muted-foreground font-mono w-48 shrink-0">{label}</span>
+                  <span className={`${size} ${weight}`}>{sample}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="flex flex-col gap-2">
-            {[
-              { size: "text-4xl", weight: "font-bold", label: "Título 1 — 36px Negrito", sample: "Cuidado Completo para Idosos" },
-              { size: "text-3xl", weight: "font-bold", label: "Título 2 — 30px Negrito", sample: "Contratar Plano de Saúde" },
-              { size: "text-2xl", weight: "font-semibold", label: "Título 3 — 24px Semibold", sample: "Sua Saúde, Nossa Prioridade" },
-              { size: "text-xl", weight: "font-semibold", label: "Título 4 — 20px Semibold", sample: "Plano Bem-Estar Sênior" },
-              { size: "text-base", weight: "font-normal", label: "Corpo — 16px Regular", sample: "Acompanhamento personalizado com cuidadores especializados em geriatria e saúde do idoso." },
-              { size: "text-sm", weight: "font-normal", label: "Pequeno — 14px Regular", sample: "Clínica Geral · 8 anos de experiência" },
-              { size: "text-xs", weight: "font-medium", label: "Legenda — 12px Médio", sample: "Visita domiciliar disponível" },
-            ].map(({ size, weight, label, sample }) => (
-              <div key={label} className="flex items-baseline gap-6 py-2 border-b border-border/40 last:border-0">
-                <span className="text-[10px] text-muted-foreground font-mono w-48 shrink-0">{label}</span>
-                <span className={`${size} ${weight}`}>{sample}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </Section>
 
@@ -445,7 +475,8 @@ export default function StyleguidePage() {
                 ["Cor primária", "#4A83C2 — Azul Sereno"],
                 ["Cor secundária", "#374D72 — Ardósia Profundo"],
                 ["Acento", "#DAD5EF — Lavanda Suave"],
-                ["Fonte", "Poppins (400 / 500 / 600 / 700)"],
+                ["Fonte principal", "Urbanist (400 / 500 / 600 / 700 / 800)"],
+                ["Fontes de suporte", "Plus Jakarta Sans · Nunito"],
                 ["Estilo", "Saúde Serena / Clean Minimal"],
                 ["Borda arredondada", "10px base (--radius: 0.625rem)"],
                 ["Sensação geral", "Sereno, confiante, acolhedor"],
