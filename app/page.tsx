@@ -149,11 +149,8 @@ export default function HomePage() {
       {/* ── Navbar ──────────────────────────────────────────────────────── */}
       <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2.5">
-            <div className="size-8 rounded-xl bg-primary flex items-center justify-center shrink-0">
-              <Heart className="size-4 text-primary-foreground" strokeWidth={2.5} />
-            </div>
-            <span className="text-lg font-bold tracking-tight">Conviva Saúde</span>
+          <div className="flex items-center">
+            <img src="/logo.svg" alt="Conviva Saúde" className="h-9 w-auto" />
           </div>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -579,11 +576,8 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
             {/* Brand */}
             <div className="sm:col-span-2 md:col-span-1">
-              <div className="flex items-center gap-2 mb-3">
-                <div className="size-7 rounded-lg bg-primary flex items-center justify-center shrink-0">
-                  <Heart className="size-3.5 text-primary-foreground" strokeWidth={2.5} />
-                </div>
-                <span className="font-bold">Conviva Saúde</span>
+              <div className="flex items-center mb-3">
+                <img src="/logo.svg" alt="Conviva Saúde" className="h-7 w-auto" />
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
                 Cuidado domiciliar especializado para idosos, com carinho, segurança e respeito à dignidade.

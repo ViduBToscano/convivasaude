@@ -17,10 +17,10 @@ export default function StyleguideLayout({
       {/* Sidebar - Fixed */}
       <aside className="w-64 border-r bg-card p-6 flex flex-col gap-6 fixed top-0 left-0 h-screen overflow-y-auto">
         <div>
-          <Link href="/styleguide" className="text-xl font-bold tracking-tight">
-            Conviva Saúde
+          <Link href="/styleguide" className="block">
+            <img src="/logo.svg" alt="Conviva Saúde" className="h-8 w-auto" />
           </Link>
-          <p className="text-xs text-muted-foreground mt-1">Sistema de Design</p>
+          <p className="text-xs text-muted-foreground mt-2">Sistema de Design</p>
         </div>
 
         <nav className="flex flex-col gap-6">
