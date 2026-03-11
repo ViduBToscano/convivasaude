@@ -185,6 +185,15 @@ export default function StyleguidePage() {
             <PaletteSwatch hex="#DAD5EF" cssVar="--accent" light />
             <PaletteSwatch hex="#F4F4FB" cssVar="--background" light />
           </div>
+
+          <div className="grid grid-cols-5 gap-3">
+            <div className="col-span-2">
+              <PaletteSwatch hex="#79AB74" label="Verde Identidade" cssVar="--green" />
+            </div>
+            <PaletteSwatch hex="#4E8F4A" cssVar="--success" />
+            <PaletteSwatch hex="#C97B4B" cssVar="--warning" />
+            <PaletteSwatch hex="#B34A38" cssVar="--destructive" />
+          </div>
         </div>
       </Section>
 
@@ -220,11 +229,12 @@ export default function StyleguidePage() {
           </div>
           <div>
             <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Semântico</p>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-5 gap-3">
               <TokenSwatch label="Sucesso" cssVar="--success" />
               <TokenSwatch label="Alerta" cssVar="--warning" />
               <TokenSwatch label="Destrutivo" cssVar="--destructive" />
               <TokenSwatch label="Info" cssVar="--info" />
+              <TokenSwatch label="Verde" cssVar="--green" />
             </div>
           </div>
           <div>
@@ -443,6 +453,7 @@ export default function StyleguidePage() {
                 ["Alerta", "oklch(0.74 0.12 58) — Pêssego Âmbar"],
                 ["Destrutivo", "oklch(0.60 0.20 25) — Coral Suave"],
                 ["Info", "oklch(0.57 0.135 240) — Igual ao primário"],
+                ["Verde", "#79AB74 — Verde Identidade (logotipo)"],
               ].map(([key, val]) => (
                 <div key={key} className="flex gap-3 py-2 border-b border-border/40 last:border-0">
                   <span className="text-xs font-medium text-muted-foreground w-36 shrink-0">{key}</span>
