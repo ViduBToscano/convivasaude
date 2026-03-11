@@ -21,25 +21,25 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 // ── Data ─────────────────────────────────────────────────────────────────────
 
 const packages = [
-  {
-    name: "Plano Essencial",
-    badge: null,
-    price: "R$ 390",
-    period: "/mês",
-    description: "Cuidado básico e acompanhamento regular para idosos independentes.",
-    color: "default" as const,
-    features: [
-      "2 visitas domiciliares por semana",
-      "Monitoramento de sinais vitais",
-      "Relatório mensal de saúde",
-      "Suporte por telefone (seg–sex)",
-      "App para familiares",
-    ],
-    cta: "Começar agora",
-  },
+  // {
+  //   name: "Plano Essencial",
+  //   badge: null,
+  //   price: "R$ 390",
+  //   period: "/mês",
+  //   description: "Cuidado básico e acompanhamento regular para idosos independentes.",
+  //   color: "default" as const,
+  //   features: [
+  //     "2 visitas domiciliares por semana",
+  //     "Monitoramento de sinais vitais",
+  //     "Relatório mensal de saúde",
+  //     "Suporte por telefone (seg–sex)",
+  //     "App para familiares",
+  //   ],
+  //   cta: "Começar agora",
+  // },
   {
     name: "Plano Bem-Estar",
-    badge: "Mais popular",
+    badge: null,
     price: "R$ 690",
     period: "/mês",
     description: "Cuidado completo com acompanhamento diário e suporte a família.",
@@ -54,24 +54,24 @@ const packages = [
     ],
     cta: "Contratar plano",
   },
-  {
-    name: "Plano Premium",
-    badge: null,
-    price: "R$ 1.190",
-    period: "/mês",
-    description: "Cuidado integral com cuidador dedicado e serviços completos de saúde.",
-    color: "default" as const,
-    features: [
-      "Cuidador dedicado todos os dias",
-      "Médico geriatra vinculado ao plano",
-      "Teleconsultas ilimitadas",
-      "Transporte a consultas e exames",
-      "Terapia ocupacional semanal",
-      "Suporte emocional ao cuidador familiar",
-      "Relatório em tempo real",
-    ],
-    cta: "Falar com consultor",
-  },
+  // {
+  //   name: "Plano Premium",
+  //   badge: null,
+  //   price: "R$ 1.190",
+  //   period: "/mês",
+  //   description: "Cuidado integral com cuidador dedicado e serviços completos de saúde.",
+  //   color: "default" as const,
+  //   features: [
+  //     "Cuidador dedicado todos os dias",
+  //     "Médico geriatra vinculado ao plano",
+  //     "Teleconsultas ilimitadas",
+  //     "Transporte a consultas e exames",
+  //     "Terapia ocupacional semanal",
+  //     "Suporte emocional ao cuidador familiar",
+  //     "Relatório em tempo real",
+  //   ],
+  //   cta: "Falar com consultor",
+  // },
 ]
 
 const steps = [
@@ -150,7 +150,7 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/logo.svg" alt="Conviva Saúde" className="h-9 w-auto" />
+            <img src="/logo.svg" alt="Conviva Saúde" className="h-12 w-auto" />
           </div>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -337,24 +337,13 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="flex justify-center">
             {packages.map((pkg) => (
               <Card
                 key={pkg.name}
-                className={
-                  pkg.color === "featured"
-                    ? "border-primary ring-2 ring-primary/20 relative"
-                    : "relative"
-                }
+                className="border-primary ring-2 ring-primary/20 relative w-full max-w-md"
               >
-                {pkg.badge && (
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                    <Badge className="shadow-sm px-3">
-                      {pkg.badge}
-                    </Badge>
-                  </div>
-                )}
-                <CardHeader className={pkg.color === "featured" ? "pt-8" : ""}>
+                <CardHeader>
                   <CardTitle className="text-lg">{pkg.name}</CardTitle>
                   <CardDescription>{pkg.description}</CardDescription>
                   <div className="flex items-baseline gap-1 pt-2">
