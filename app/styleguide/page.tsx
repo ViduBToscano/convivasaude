@@ -195,34 +195,37 @@ export default function StyleguidePage() {
       {/* ── Color Palette ── */}
       <Section
         title="Paleta de Cores"
-        description="Azul sereno transmite confiança, cuidado e estabilidade — essencial para saúde do idoso. Complementado por ardósia profundo, lavanda suave, verde sage e pêssego, formando uma paleta tranquila mas não fraca."
+        description="Navy profundo (#374D72) ancora a paleta com confiança e dignidade. Verde sage (#79AB74) traz vitalidade e cura natural. Lavanda suave, pêssego âmbar e coral completam um sistema sereno, acolhedor e acessível."
       >
         <div className="flex flex-col gap-4">
+          {/* Row 1 — neutrals */}
           <div className="grid grid-cols-5 gap-3">
             <div className="col-span-2">
-              <PaletteSwatch hex="#1C2236" label="Esquema de Cores" cssVar="--foreground" />
+              <PaletteSwatch hex="#1E2B42" label="Texto" cssVar="--foreground" />
             </div>
-            <PaletteSwatch hex="#748098" cssVar="--muted-foreground" />
-            <PaletteSwatch hex="#C5C7E2" cssVar="--border" light />
-            <PaletteSwatch hex="#EDECF8" cssVar="--muted" light />
+            <PaletteSwatch hex="#6F7EA0" cssVar="--muted-foreground" />
+            <PaletteSwatch hex="#D3D6E9" cssVar="--border" light />
+            <PaletteSwatch hex="#E8EBF5" cssVar="--muted" light />
           </div>
 
+          {/* Row 2 — brand */}
           <div className="grid grid-cols-5 gap-3">
             <div className="col-span-2">
-              <PaletteSwatch hex="#4A83C2" label="Primário" cssVar="--primary" />
+              <PaletteSwatch hex="#374D72" label="Primário — Navy" cssVar="--primary" />
             </div>
-            <PaletteSwatch hex="#374D72" label="Secundário" cssVar="--secondary" />
-            <PaletteSwatch hex="#DAD5EF" cssVar="--accent" light />
-            <PaletteSwatch hex="#F4F4FB" cssVar="--background" light />
+            <PaletteSwatch hex="#79AB74" label="Secundário — Sage" cssVar="--secondary" />
+            <PaletteSwatch hex="#D4CFE8" cssVar="--accent" light />
+            <PaletteSwatch hex="#F4F5FA" cssVar="--background" light />
           </div>
 
+          {/* Row 3 — semantic */}
           <div className="grid grid-cols-5 gap-3">
             <div className="col-span-2">
-              <PaletteSwatch hex="#79AB74" label="Verde Identidade" cssVar="--green" />
+              <PaletteSwatch hex="#79AB74" label="Verde / Sucesso" cssVar="--success" />
             </div>
-            <PaletteSwatch hex="#4E8F4A" cssVar="--success" />
-            <PaletteSwatch hex="#C97B4B" cssVar="--warning" />
-            <PaletteSwatch hex="#B34A38" cssVar="--destructive" />
+            <PaletteSwatch hex="#C97B3A" label="Alerta" cssVar="--warning" />
+            <PaletteSwatch hex="#B34038" label="Destrutivo" cssVar="--destructive" />
+            <PaletteSwatch hex="#374D72" cssVar="--info" />
           </div>
         </div>
       </Section>
@@ -472,19 +475,19 @@ export default function StyleguidePage() {
           <CardContent className="pt-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-3">
               {[
-                ["Cor primária", "#4A83C2 — Azul Sereno"],
-                ["Cor secundária", "#374D72 — Ardósia Profundo"],
-                ["Acento", "#DAD5EF — Lavanda Suave"],
+                ["Cor primária", "#374D72 — Navy Profundo"],
+                ["Cor secundária", "#79AB74 — Verde Sage"],
+                ["Acento", "oklch(0.895 0.040 290) — Lavanda Suave"],
+                ["Fundo", "oklch(0.982 0.006 255) — Branco azulado"],
+                ["Texto", "oklch(0.18 0.028 255) — Navy escuro"],
                 ["Fonte principal", "Urbanist (400 / 500 / 600 / 700 / 800)"],
                 ["Fontes de suporte", "Plus Jakarta Sans · Nunito"],
-                ["Estilo", "Saúde Serena / Clean Minimal"],
+                ["Estilo", "Sereno, Confiante, Acolhedor"],
                 ["Borda arredondada", "10px base (--radius: 0.625rem)"],
-                ["Sensação geral", "Sereno, confiante, acolhedor"],
-                ["Sucesso", "oklch(0.58 0.10 150) — Verde Sage"],
+                ["Sucesso", "#79AB74 — Verde Sage (idêntico ao secundário)"],
                 ["Alerta", "oklch(0.74 0.12 58) — Pêssego Âmbar"],
                 ["Destrutivo", "oklch(0.60 0.20 25) — Coral Suave"],
-                ["Info", "oklch(0.57 0.135 240) — Igual ao primário"],
-                ["Verde", "#79AB74 — Verde Identidade (logotipo)"],
+                ["Verde (logotipo)", "#79AB74 — identidade visual"],
               ].map(([key, val]) => (
                 <div key={key} className="flex gap-3 py-2 border-b border-border/40 last:border-0">
                   <span className="text-xs font-medium text-muted-foreground w-36 shrink-0">{key}</span>
