@@ -216,8 +216,8 @@ export default function HomePage() {
             <div className="relative hidden md:block">
               <div className="relative rounded-2xl overflow-hidden h-[480px] shadow-xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800"
-                  alt="Idosa feliz em família sendo cuidada em casa"
+                  src="https://images.unsplash.com/photo-2RXJ-VuJ7Bk?w=1200&q=90"
+                  alt="Casal idoso de mãos dadas caminhando ao ar livre"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 0px, 50vw"
@@ -228,18 +228,6 @@ export default function HomePage() {
                   className="absolute inset-0"
                   style={{ background: "color-mix(in oklch, var(--primary) 10%, transparent)" }}
                 />
-              </div>
-              {/* Floating badge */}
-              <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl p-4 shadow-lg">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="size-3 fill-warning text-warning" />
-                    ))}
-                  </div>
-                  <span className="text-xs font-semibold">5.0</span>
-                </div>
-                <p className="text-xs text-muted-foreground leading-snug max-w-[160px]">"Finalmente um cuidado que cabe no bolso e cuida de verdade."</p>
               </div>
             </div>
           </div>
@@ -306,18 +294,6 @@ export default function HomePage() {
                   <p className="text-2xl font-bold text-primary">+10 anos</p>
                   <p className="text-sm text-muted-foreground mt-1">cuidando de idosos em BH e região</p>
                 </div>
-              </div>
-              {/* Floating card */}
-              <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl p-4 shadow-lg max-w-[200px]">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star key={i} className="size-3 fill-warning text-warning" />
-                    ))}
-                  </div>
-                  <span className="text-xs font-semibold">5.0</span>
-                </div>
-                <p className="text-xs text-muted-foreground leading-snug">"Finalmente um cuidado que entende o idoso de verdade."</p>
               </div>
             </div>
           </div>
