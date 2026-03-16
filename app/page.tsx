@@ -23,44 +23,44 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 const packages = [
   {
-    name: "Mais60 Essencial",
+    name: "Conviva Essencial",
     badge: null,
     price: "R$ 329",
     period: "/mês",
-    description: "Cuidado geriátrico coordenado com enfermeiro navegador e equipe multidisciplinar em BH.",
+    description: "O cuidado completo que seu familiar merece — num pacote fixo e transparente.",
     color: "featured" as const,
     features: [
-      "Enfermeiro navegador dedicado",
-      "Equipe com 10 especialidades (geriatra, nutricionista, fisioterapeuta e mais)",
-      "Pronto Cuidar — suporte 24h para urgências",
-      "Atendimento presencial em até 48h",
-      "6 unidades em Belo Horizonte",
-      "Sem carência e sem fidelidade",
+      "Médico de referência dedicado",
+      "Enfermeiro de referência",
+      "Equipe multidisciplinar (10 especialidades)",
+      "Pronto Cuidar 24h (com coparticipação)",
+      "Acompanhamento preventivo e contínuo",
+      "Suporte à família por WhatsApp",
     ],
-    cta: "Falar pelo WhatsApp",
+    cta: "Falar com a equipe",
   },
 ]
 
 const steps = [
   {
     number: "01",
-    title: "Fale com nossa equipe",
+    title: "Fale com a equipe",
     description:
-      "Entre em contato pelo WhatsApp ou telefone. Em poucos minutos, um de nossos enfermeiros entende a situação do seu familiar e orienta os próximos passos.",
+      "Entre em contato pelo WhatsApp. Em minutos, nossa equipe entende a situação do seu familiar e orienta os próximos passos — sem compromisso.",
     icon: Users,
   },
   {
     number: "02",
-    title: "Consulta de avaliação em até 48h",
+    title: "Avaliação em até 48h",
     description:
-      "Agendamos uma consulta de avaliação na unidade mais próxima de você. Nosso geriatra e o enfermeiro navegador montam um plano de cuidado personalizado.",
+      "Agendamos uma avaliação com médico e enfermeiro de referência, que montam juntos um plano de cuidado personalizado.",
     icon: CheckCircle,
   },
   {
     number: "03",
-    title: "Cuidado coordenado começa",
+    title: "O cuidado começa",
     description:
-      "O enfermeiro navegador passa a coordenar toda a saúde do seu familiar — consultas, exames, medicações e comunicação com a família em tempo real.",
+      "Seu familiar passa a ter uma equipe dedicada cuidando da saúde dele — com a família informada em tempo real.",
     icon: Heart,
   },
 ]
@@ -68,43 +68,43 @@ const steps = [
 const testimonials = [
   {
     quote:
-      "Minha mãe tem 68 anos e morava sozinha no Savassi. Depois do Mais60, ela tem um enfermeiro que acompanha tudo. Pela primeira vez em anos me sinto tranquila.",
-    author: "Dona Aparecida",
-    role: "Paciente, 68 anos — Savassi, BH",
-    initials: "DA",
+      "Minha mãe tem 71 anos e vivia com medo de precisar de atendimento e não ter para onde correr. Com a Conviva, sei que tem alguém cuidando dela — e sem pagar R$ 1.500 por mês.",
+    author: "Fernanda A.",
+    role: "Filha de paciente — BH",
+    initials: "FA",
     stars: 5,
   },
   {
     quote:
-      "Moro em Nova Lima e meu pai está em BH. O enfermeiro navegador me liga toda semana com um resumo. É como ter alguém de confiança cuidando dele quando não posso estar lá.",
-    author: "Renata",
-    role: "Filha de paciente, 42 anos — Nova Lima",
-    initials: "RE",
-    stars: 5,
-  },
-  {
-    quote:
-      "Tenho 76 anos e achei que plano de saúde era só para jovens. O Mais60 cabe no meu bolso e tem médico geriatra de verdade. Me sinto cuidado como nunca.",
-    author: "Seu Geraldo",
-    role: "Paciente, 76 anos — Contagem, BH",
+      "Eu mesmo escolhi entrar na Conviva. Queria um médico que me conhecesse, não ficar esperando meses. Me sinto acompanhado, não só atendido quando fico doente.",
+    author: "Seu Geraldo, 74 anos",
+    role: "Paciente — Contagem, MG",
     initials: "SG",
     stars: 5,
   },
   {
     quote:
-      "Como enfermeira navegadora, acompanho cada paciente de perto. Quando coordenamos o cuidado, os resultados são impressionantes — menos internações, mais qualidade de vida.",
-    author: "Enf. Patrícia",
-    role: "Enfermeira Navegadora — Mais60 Saúde",
+      "Trabalhar com foco no idoso faz toda a diferença. Os pacientes chegam com medo e saem confiantes. Isso é o que a Conviva propõe desde o início.",
+    author: "Enf. Patrícia R.",
+    role: "Equipe Conviva Saúde",
     initials: "PR",
+    stars: 5,
+  },
+  {
+    quote:
+      "Meu pai precisava de acompanhamento após um susto de saúde. A Conviva resolveu rápido, com uma equipe que entende de idoso de verdade.",
+    author: "Ricardo M.",
+    role: "Filho de paciente — Nova Lima, MG",
+    initials: "RM",
     stars: 5,
   },
 ]
 
 const stats = [
-  { value: "3.000+", label: "Pacientes atendidos" },
-  { value: "6", label: "Unidades em BH" },
+  { value: "460 mil+", label: "Idosos em BH" },
+  { value: "R$ 329", label: "Para qualquer idade" },
+  { value: "24h", label: "Pronto Cuidar" },
   { value: "10", label: "Especialidades" },
-  { value: "+10 anos", label: "Cuidando de idosos" },
 ]
 
 // ── Page ─────────────────────────────────────────────────────────────────────
@@ -117,7 +117,7 @@ export default function HomePage() {
       <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
           <div className="flex items-center">
-            <img src="/logo.svg" alt="Mais60 Saúde" className="h-24 w-auto" />
+            <img src="/logo.svg" alt="Conviva Saúde" className="h-24 w-auto" />
           </div>
 
           <nav className="hidden md:flex items-center gap-1">
@@ -143,7 +143,7 @@ export default function HomePage() {
               Entrar
             </Button>
             <Button size="sm" asChild>
-              <Link href="#contato">Falar pelo WhatsApp</Link>
+              <Link href="#contato">Falar com a equipe</Link>
             </Button>
           </div>
         </div>
@@ -169,30 +169,30 @@ export default function HomePage() {
                 style={{ background: "color-mix(in oklch, var(--primary) 12%, transparent)", color: "var(--primary)", border: "1px solid color-mix(in oklch, var(--primary) 25%, transparent)" }}
               >
                 <Heart className="size-3" strokeWidth={2.5} />
-                Saúde coordenada para maiores de 60 em BH
+                Saúde completa para quem tem 60+ em BH e região
               </Badge>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-                Cuidado geriátrico{" "}
-                <span className="text-primary">coordenado</span>
-                {" "}para quem você{" "}
-                <span style={{ color: "var(--secondary)" }}>mais ama</span>
+                Saúde de qualidade para o seu familiar —{" "}
+                <span className="text-primary">sem fila</span>
+                {", "}sem burocracia,{" "}
+                <span style={{ color: "var(--secondary)" }}>sem custo absurdo</span>
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-                O Mais60 Saúde oferece planos de saúde geriátrica com enfermeiro navegador, equipe multidisciplinar e Pronto Cuidar 24h — 5,5× mais acessível que planos convencionais, com 6 unidades em Belo Horizonte.
+                A Conviva Saúde é um pacote completo de cuidado para idosos em BH e região. Médico de referência, enfermeiros, equipe multidisciplinar e Pronto Cuidar 24h — tudo por R$ 329/mês, independente da idade.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-12">
                 <Button size="lg" className="gap-2 text-base" asChild>
                   <Link href="#contato">
-                    Falar com a equipe pelo WhatsApp
+                    Quero conhecer o plano
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
                 <Button size="lg" variant="outline" className="gap-2 text-base" asChild>
-                  <Link href="#planos">
-                    Ver o plano
+                  <Link href="#como-funciona">
+                    Como funciona
                   </Link>
                 </Button>
               </div>
@@ -202,7 +202,7 @@ export default function HomePage() {
                 {[
                   { icon: Shield, text: "Sem carência" },
                   { icon: Clock, text: "Pronto Cuidar 24h" },
-                  { icon: CheckCircle, text: "Atendimento em 48h" },
+                  { icon: CheckCircle, text: "Mesmo preço para qualquer idade" },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-1.5 text-sm text-muted-foreground">
                     <Icon className="size-4 text-primary shrink-0" />
@@ -239,7 +239,7 @@ export default function HomePage() {
                   </div>
                   <span className="text-xs font-semibold">5.0</span>
                 </div>
-                <p className="text-xs text-muted-foreground leading-snug max-w-[160px]">"Finalmente alguém que cuida de tudo com a gente."</p>
+                <p className="text-xs text-muted-foreground leading-snug max-w-[160px]">"Finalmente um cuidado que cabe no bolso e cuida de verdade."</p>
               </div>
             </div>
           </div>
@@ -265,22 +265,22 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <SectionLabel>Sobre nós</SectionLabel>
+              <SectionLabel>Quem somos</SectionLabel>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-5">
-                A saúde do idoso merece coordenação de verdade
+                A Conviva Saúde nasceu para resolver o que os planos de saúde não resolvem
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                O Mais60 Saúde nasceu para resolver um problema real: idosos com múltiplas condições crônicas, sem um profissional que coordene toda a sua saúde. Com o enfermeiro navegador, cada paciente tem um ponto de contato que acompanha consultas, exames e medicações.
+                Criamos a Conviva Saúde com uma missão clara: oferecer ao idoso de BH um cuidado completo, humano e acessível — sem as filas, sem a burocracia e sem os reajustes abusivos dos planos tradicionais.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Presente em 6 unidades em Belo Horizonte e com parceria com a Unimed-BH, reunimos mais de 10 especialidades em um único plano acessível — sem fidelidade, sem carência e com atendimento presencial em até 48 horas.
+                Não somos um plano de saúde. Somos um pacote de benefícios pensado 360º para o envelhecimento saudável, com equipe dedicada exclusivamente ao público 60+.
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Heart, title: "Enfermeiro navegador", desc: "Um profissional dedicado que coordena toda a saúde do seu familiar." },
-                  { icon: Users, title: "Equipe multidisciplinar", desc: "Geriatra, nutricionista, fisioterapeuta e mais 10 especialidades." },
-                  { icon: Activity, title: "Pronto Cuidar 24h", desc: "Suporte de urgência disponível a qualquer hora do dia." },
-                  { icon: Headphones, title: "Família conectada", desc: "Comunicação contínua com familiares sobre a saúde do idoso." },
+                  { icon: Heart, title: "Médico de referência", desc: "Um médico que te conhece e acompanha sua saúde de forma contínua e preventiva." },
+                  { icon: Users, title: "Equipe multidisciplinar", desc: "Nutricionista, fisioterapeuta, psicólogo e mais 10 especialidades num único pacote." },
+                  { icon: Activity, title: "Pronto Cuidar 24h", desc: "Pronto atendimento exclusivo para idosos, disponível a qualquer hora do dia." },
+                  { icon: Headphones, title: "Família informada", desc: "Comunicação contínua com familiares sobre a saúde do idoso por WhatsApp." },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-muted/50">
                     <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -304,7 +304,7 @@ export default function HomePage() {
                     <Heart className="size-10 text-primary" strokeWidth={1.5} />
                   </div>
                   <p className="text-2xl font-bold text-primary">+10 anos</p>
-                  <p className="text-sm text-muted-foreground mt-1">cuidando de idosos em Belo Horizonte</p>
+                  <p className="text-sm text-muted-foreground mt-1">cuidando de idosos em BH e região</p>
                 </div>
               </div>
               {/* Floating card */}
@@ -317,7 +317,7 @@ export default function HomePage() {
                   </div>
                   <span className="text-xs font-semibold">5.0</span>
                 </div>
-                <p className="text-xs text-muted-foreground leading-snug">"Finalmente alguém que cuida de tudo com a gente."</p>
+                <p className="text-xs text-muted-foreground leading-snug">"Finalmente um cuidado que entende o idoso de verdade."</p>
               </div>
             </div>
           </div>
@@ -331,10 +331,10 @@ export default function HomePage() {
             className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4"
             style={{ color: "var(--primary-foreground)" }}
           >
-            Seu familiar merece o melhor cuidado — sem pagar caro por isso
+            Seu familiar merece cuidado de verdade. Sem fila. Sem surpresa no bolso.
           </h2>
           <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}>
-            Fale agora com nossa equipe e receba uma recomendação personalizada de plano. Gratuito e sem compromisso.
+            Fale agora com nossa equipe e descubra como a Conviva Saúde pode cuidar de quem você ama — com um pacote fixo de R$ 329/mês para qualquer idade.
           </p>
           <Button
             size="lg"
@@ -357,12 +357,12 @@ export default function HomePage() {
       <section id="planos" className="py-20 md:py-28 bg-muted/30">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-14">
-            <SectionLabel>Nosso plano</SectionLabel>
+            <SectionLabel>Nosso pacote</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Saúde geriátrica completa por R$ 329/mês
+              Um pacote. Um preço. Para qualquer idade.
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Um único plano com tudo que o seu familiar precisa — 5,5× mais acessível que planos convencionais e sem burocracia.
+              Sem reajuste por faixa etária. Sem letra miúda. Sem surpresa.
             </p>
           </div>
 
@@ -410,7 +410,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-center text-xs text-muted-foreground mt-8">
-            Sem carência · Sem fidelidade mínima · Atendimento presencial em até 48h · Parceria Unimed-BH
+            Sem carência · Sem fidelidade · Mesmo valor para qualquer idade · BH e região até 50km
           </p>
         </div>
       </section>
@@ -421,10 +421,10 @@ export default function HomePage() {
           <div className="text-center mb-14">
             <SectionLabel>Como funciona</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Três passos para o cuidado coordenado começar
+              Três passos para o cuidado começar
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Do primeiro contato até a consulta de avaliação, nossa equipe cuida de tudo com agilidade e atenção.
+              Do primeiro contato à primeira consulta, nossa equipe cuida de tudo com agilidade e atenção.
             </p>
           </div>
 
@@ -471,10 +471,10 @@ export default function HomePage() {
           <div className="text-center mb-14">
             <SectionLabel>Depoimentos</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Quem confia no Mais60 Saúde
+              Quem confia na Conviva Saúde
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Pacientes, familiares e profissionais de BH compartilham suas experiências com o nosso cuidado.
+              Pacientes e familiares de BH e região compartilham suas experiências.
             </p>
           </div>
 
@@ -516,18 +516,18 @@ export default function HomePage() {
             <div>
               <SectionLabel>Entre em contato</SectionLabel>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5">
-                Vamos cuidar juntos
+                Vamos cuidar juntos de quem você ama
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Nossa equipe está pronta para entender a situação do seu familiar e indicar o melhor caminho. O primeiro contato é gratuito e sem compromisso.
+                Nossa equipe está pronta para entender a situação do seu familiar e apresentar o pacote Conviva. O primeiro contato é gratuito e sem compromisso.
               </p>
 
               <div className="flex flex-col gap-4 mb-8">
                 {[
                   { icon: Phone, label: "Telefone / WhatsApp", value: "(31) 99999-0000" },
-                  { icon: Mail, label: "E-mail", value: "contato@mais60saude.com.br" },
-                  { icon: MapPin, label: "Cobertura", value: "Belo Horizonte e Região Metropolitana" },
-                  { icon: Clock, label: "Atendimento", value: "Seg–Sex 7h–19h · Pronto Cuidar 24h" },
+                  { icon: Mail, label: "E-mail", value: "contato@convivasaude.com.br" },
+                  { icon: MapPin, label: "Cobertura", value: "BH e região até 50km" },
+                  { icon: Clock, label: "Atendimento", value: "Seg–Sex 7h–21h · Sáb 8h–18h" },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-start gap-3">
                     <div className="size-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -556,7 +556,7 @@ export default function HomePage() {
                 </div>
                 <CardTitle className="text-xl">Fale com nossa equipe</CardTitle>
                 <CardDescription>
-                  Preencha abaixo e entraremos em contato em até 48 horas úteis.
+                  Preencha abaixo e entraremos em contato em até 2 horas úteis.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col gap-3">
@@ -595,10 +595,10 @@ export default function HomePage() {
             {/* Brand */}
             <div className="sm:col-span-2 md:col-span-1">
               <div className="flex items-center mb-3">
-                <img src="/logo.svg" alt="Mais60 Saúde" className="h-14 w-auto" />
+                <img src="/logo.svg" alt="Conviva Saúde" className="h-14 w-auto" />
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
-                Saúde geriátrica coordenada para maiores de 60 em Belo Horizonte — com enfermeiro navegador, equipe multidisciplinar e Pronto Cuidar 24h.
+                Pacote completo de cuidado para idosos em BH e região — com médico de referência, equipe multidisciplinar e Pronto Cuidar 24h.
               </p>
             </div>
 
@@ -606,7 +606,7 @@ export default function HomePage() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Serviços</p>
               <ul className="flex flex-col gap-2">
-                {["Mais60 Essencial", "Enfermeiro Navegador", "Pronto Cuidar 24h", "Consulta Geriátrica", "Equipe Multidisciplinar"].map((item) => (
+                {["Conviva Essencial", "Médico de Referência", "Pronto Cuidar 24h", "Equipe Multidisciplinar", "Enfermeiro de Referência"].map((item) => (
                   <li key={item}>
                     <Link href="#planos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       {item}
@@ -619,7 +619,7 @@ export default function HomePage() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Empresa</p>
               <ul className="flex flex-col gap-2">
-                {["Sobre nós", "Como funciona", "Nossas unidades", "Trabalhe conosco", "Parceria Unimed-BH"].map((item) => (
+                {["Sobre nós", "Como funciona", "Nossas unidades", "Trabalhe conosco", "Blog de saúde"].map((item) => (
                   <li key={item}>
                     <Link href="#sobre" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       {item}
@@ -645,7 +645,7 @@ export default function HomePage() {
 
           <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-muted-foreground">
-              © 2025 Mais60 Saúde. Todos os direitos reservados.
+              © 2025 Conviva Saúde. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-4">
               <Badge variant="outline" className="text-[10px] gap-1">
