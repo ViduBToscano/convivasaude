@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
@@ -160,52 +161,86 @@ export default function HomePage() {
         />
 
         <div className="mx-auto max-w-6xl px-6 pt-20 pb-24 md:pt-28 md:pb-32">
-          <div className="max-w-3xl">
-            <Badge
-              className="mb-6 gap-1.5 px-3 py-1 text-xs font-medium"
-              style={{ background: "color-mix(in oklch, var(--primary) 12%, transparent)", color: "var(--primary)", border: "1px solid color-mix(in oklch, var(--primary) 25%, transparent)" }}
-            >
-              <Heart className="size-3" strokeWidth={2.5} />
-              Saúde coordenada para maiores de 60 em BH
-            </Badge>
+          <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+            {/* Text column */}
+            <div>
+              <Badge
+                className="mb-6 gap-1.5 px-3 py-1 text-xs font-medium"
+                style={{ background: "color-mix(in oklch, var(--primary) 12%, transparent)", color: "var(--primary)", border: "1px solid color-mix(in oklch, var(--primary) 25%, transparent)" }}
+              >
+                <Heart className="size-3" strokeWidth={2.5} />
+                Saúde coordenada para maiores de 60 em BH
+              </Badge>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-              Cuidado geriátrico{" "}
-              <span className="text-primary">coordenado</span>
-              {" "}para quem você{" "}
-              <span style={{ color: "var(--secondary)" }}>mais ama</span>
-            </h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+                Cuidado geriátrico{" "}
+                <span className="text-primary">coordenado</span>
+                {" "}para quem você{" "}
+                <span style={{ color: "var(--secondary)" }}>mais ama</span>
+              </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl">
-              O Mais60 Saúde oferece planos de saúde geriátrica com enfermeiro navegador, equipe multidisciplinar e Pronto Cuidar 24h — 5,5× mais acessível que planos convencionais, com 6 unidades em Belo Horizonte.
-            </p>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+                O Mais60 Saúde oferece planos de saúde geriátrica com enfermeiro navegador, equipe multidisciplinar e Pronto Cuidar 24h — 5,5× mais acessível que planos convencionais, com 6 unidades em Belo Horizonte.
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-12">
-              <Button size="lg" className="gap-2 text-base" asChild>
-                <Link href="#contato">
-                  Falar com a equipe pelo WhatsApp
-                  <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" className="gap-2 text-base" asChild>
-                <Link href="#planos">
-                  Ver o plano
-                </Link>
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-3 mb-12">
+                <Button size="lg" className="gap-2 text-base" asChild>
+                  <Link href="#contato">
+                    Falar com a equipe pelo WhatsApp
+                    <ArrowRight className="size-4" />
+                  </Link>
+                </Button>
+                <Button size="lg" variant="outline" className="gap-2 text-base" asChild>
+                  <Link href="#planos">
+                    Ver o plano
+                  </Link>
+                </Button>
+              </div>
+
+              {/* Trust signals */}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+                {[
+                  { icon: Shield, text: "Sem carência" },
+                  { icon: Clock, text: "Pronto Cuidar 24h" },
+                  { icon: CheckCircle, text: "Atendimento em 48h" },
+                ].map(({ icon: Icon, text }) => (
+                  <div key={text} className="flex items-center gap-1.5 text-sm text-muted-foreground">
+                    <Icon className="size-4 text-primary shrink-0" />
+                    {text}
+                  </div>
+                ))}
+              </div>
             </div>
 
-            {/* Trust signals */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              {[
-                { icon: Shield, text: "Sem carência" },
-                { icon: Clock, text: "Pronto Cuidar 24h" },
-                { icon: CheckCircle, text: "Atendimento em 48h" },
-              ].map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-center gap-1.5 text-sm text-muted-foreground">
-                  <Icon className="size-4 text-primary shrink-0" />
-                  {text}
+            {/* Image column */}
+            <div className="relative hidden md:block">
+              <div className="relative rounded-2xl overflow-hidden h-[480px] shadow-xl">
+                <Image
+                  src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=800"
+                  alt="Idosa feliz em família sendo cuidada em casa"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 0px, 50vw"
+                  priority
+                />
+                {/* Subtle overlay to blend with brand palette */}
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "color-mix(in oklch, var(--primary) 10%, transparent)" }}
+                />
+              </div>
+              {/* Floating badge */}
+              <div className="absolute -bottom-4 -left-4 bg-card border border-border rounded-xl p-4 shadow-lg">
+                <div className="flex items-center gap-2 mb-1">
+                  <div className="flex gap-0.5">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="size-3 fill-warning text-warning" />
+                    ))}
+                  </div>
+                  <span className="text-xs font-semibold">5.0</span>
                 </div>
-              ))}
+                <p className="text-xs text-muted-foreground leading-snug max-w-[160px]">"Finalmente alguém que cuida de tudo com a gente."</p>
+              </div>
             </div>
           </div>
         </div>
@@ -286,6 +321,35 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── CTA Banner ──────────────────────────────────────────────────── */}
+      <section className="py-16 md:py-20" style={{ background: "var(--primary)" }}>
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4"
+            style={{ color: "var(--primary-foreground)" }}
+          >
+            Seu familiar merece o melhor cuidado — sem pagar caro por isso
+          </h2>
+          <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}>
+            Fale agora com nossa equipe e receba uma recomendação personalizada de plano. Gratuito e sem compromisso.
+          </p>
+          <Button
+            size="lg"
+            className="gap-2 text-base px-8"
+            style={{ background: "var(--primary-foreground)", color: "var(--primary)" }}
+            asChild
+          >
+            <Link href="#contato">
+              Quero falar com a equipe
+              <ArrowRight className="size-4" />
+            </Link>
+          </Button>
+          <p className="mt-5 text-xs" style={{ color: "color-mix(in oklch, var(--primary-foreground) 60%, transparent)" }}>
+            Respondemos em até 2 horas úteis · Sem fidelidade · Cancele quando quiser
+          </p>
         </div>
       </section>
 
