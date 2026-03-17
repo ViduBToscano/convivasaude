@@ -105,10 +105,10 @@ const testimonials = [
 ]
 
 const stats = [
-  { value: "460 mil+", label: "Idosos em BH" },
-  { value: "R$ 329", label: "Para qualquer idade" },
-  { value: "24h", label: "Pronto Cuidar" },
-  { value: "10", label: "Especialidades" },
+  { value: "Médico de Referência", label: "Acompanha sua saúde de forma contínua" },
+  { value: "Equipe Multidisciplinar", label: "Cuidado integrado em um só lugar" },
+  { value: "Pronto Cuidar 24h", label: "Emergência do idoso, sempre que precisar" },
+  { value: "Plano Mensal", label: "Valor fixo, independente da idade" },
 ]
 
 // ── Page ─────────────────────────────────────────────────────────────────────
@@ -239,9 +239,9 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-6 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-0 md:divide-x divide-border">
             {stats.map(({ value, label }) => (
-              <div key={label} className="flex flex-col items-center text-center px-6">
-                <p className="text-3xl font-bold text-primary">{value}</p>
-                <p className="text-sm text-muted-foreground mt-1">{label}</p>
+              <div key={label} className="flex flex-col items-center text-center px-4">
+                <p className="text-base font-bold text-primary leading-snug">{value}</p>
+                <p className="text-xs text-muted-foreground mt-1 leading-snug">{label}</p>
               </div>
             ))}
           </div>
@@ -307,8 +307,7 @@ export default function HomePage() {
             className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4"
             style={{ color: "var(--primary-foreground)" }}
           >
-            Cuidado certo para viver com mais saúde e tranquilidade.<br />
-            Sem filas nos hospitais. Sem burocracia.
+            Cuidado certo para viver com mais saúde e tranquilidade. Sem filas nos hospitais. Sem burocracia.
           </h2>
           <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}>
             Fale com nossa equipe e entenda como a Conviva Saúde organiza o cuidado no dia a dia.<br />
