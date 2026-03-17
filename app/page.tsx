@@ -27,21 +27,21 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 const packages = [
   {
-    name: "Conviva Essencial",
+    name: "Conviva Saúde",
     badge: null,
     price: "R$ 329",
     period: "/mês",
-    description: "O cuidado completo que seu familiar merece — num pacote fixo e transparente.",
+    description: "O cuidado completo que seu familiar merece, em um pacote fixo, transparente e sem burocracia.",
     color: "featured" as const,
     features: [
       "Médico de referência dedicado",
       "Enfermeiro de referência",
-      "Equipe multidisciplinar (10 especialidades)",
+      "Equipe multidisciplinar",
       "Pronto Cuidar 24h (com coparticipação)",
       "Acompanhamento preventivo e contínuo",
-      "Suporte à família por WhatsApp",
+      "Suporte com a nossa equipe pelo WhatsApp",
     ],
-    cta: "Falar com a equipe",
+    cta: "Quero saber mais sobre o pacote",
   },
 ]
 
@@ -105,10 +105,10 @@ const testimonials = [
 ]
 
 const stats = [
-  { value: "Médico de Referência", label: "Acompanha sua saúde de forma contínua" },
-  { value: "Equipe Multidisciplinar", label: "Cuidado integrado em um só lugar" },
-  { value: "Pronto Cuidar 24h", label: "Emergência do idoso, sempre que precisar" },
-  { value: "Plano Mensal", label: "Valor fixo, independente da idade" },
+  { value: "460 mil+", label: "Idosos em BH" },
+  { value: "R$ 329", label: "Para qualquer idade" },
+  { value: "24h", label: "Pronto Cuidar" },
+  { value: "10", label: "Especialidades" },
 ]
 
 // ── Page ─────────────────────────────────────────────────────────────────────
@@ -143,9 +143,6 @@ export default function HomePage() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" className="hidden sm:flex">
-              Entrar
-            </Button>
             <Button size="sm" asChild>
               <Link href="#contato">Falar com a equipe</Link>
             </Button>
@@ -182,7 +179,8 @@ export default function HomePage() {
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-                A Conviva Saúde é um pacote completo de cuidado para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar 24h. Tudo por R$ 329/mês, independente da idade.
+                A Conviva Saúde é um pacote completo de cuidado para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar 24h.{" "}
+                <strong>Tudo por R$ 329/mês, independente da idade.</strong>
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-12">
@@ -309,20 +307,22 @@ export default function HomePage() {
             className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4"
             style={{ color: "var(--primary-foreground)" }}
           >
-            Cuidado certo para viver com mais saúde e tranquilidade. Sem filas nos hospitais. Sem burocracia!
+            Cuidado certo para viver com mais saúde e tranquilidade.<br />
+            Sem filas nos hospitais. Sem burocracia.
           </h2>
           <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}>
-            Fale com nossa equipe e entenda como a Conviva Saúde organiza o cuidado no dia a dia, com acompanhamento médico, equipe especializada e um plano mensal que cabe no bolso! 
+            Fale com nossa equipe e entenda como a Conviva Saúde organiza o cuidado no dia a dia.<br />
+            Acompanhamento médico, equipe especializada e um plano mensal que cabe no bolso.
           </p>
           <Button
             size="lg"
-            className="gap-2 text-base px-8"
+            className="gap-2 text-base px-10 py-6 text-lg"
             style={{ background: "var(--primary-foreground)", color: "var(--primary)" }}
             asChild
           >
             <Link href="#contato">
               Quero saber mais sobre a Conviva Saúde
-              <ArrowRight className="size-4" />
+              <ArrowRight className="size-5" />
             </Link>
           </Button>
           <p className="mt-5 text-xs" style={{ color: "color-mix(in oklch, var(--primary-foreground) 60%, transparent)" }}>
@@ -373,13 +373,14 @@ export default function HomePage() {
                 </CardContent>
                 <CardFooter>
                   <Button
-                    className="w-full"
+                    className="w-full py-6 text-base"
+                    size="lg"
                     variant={pkg.color === "featured" ? "default" : "outline"}
                     asChild
                   >
                     <Link href="#contato">
                       {pkg.cta}
-                      <ChevronRight className="size-4 ml-1" />
+                      <ChevronRight className="size-5 ml-1" />
                     </Link>
                   </Button>
                 </CardFooter>
@@ -540,17 +541,26 @@ export default function HomePage() {
               <CardContent className="flex flex-col gap-3">
                 <input
                   type="text"
-                  placeholder="Seu nome"
+                  placeholder="Seu nome *"
+                  required
+                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
+                />
+                <input
+                  type="email"
+                  placeholder="Seu e-mail *"
+                  required
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
                 />
                 <input
                   type="tel"
-                  placeholder="Seu telefone/WhatsApp"
+                  placeholder="Seu telefone/WhatsApp *"
+                  required
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
                 />
                 <textarea
                   rows={3}
-                  placeholder="Conta um pouco sobre você e quais são suas dúvidas"
+                  placeholder="Conta um pouco sobre você e quais são suas dúvidas *"
+                  required
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground resize-none"
                 />
                 <Button size="lg" className="w-full gap-2 mt-1">
