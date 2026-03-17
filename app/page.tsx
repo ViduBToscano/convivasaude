@@ -7,6 +7,10 @@ import {
   Heart, Shield, Clock, Star, CheckCircle,
   Phone, Mail, MapPin, ArrowRight, Users,
   ChevronRight, Activity, Headphones,
+  Hospital,
+  Cross,
+  CreditCard,
+  MailIcon,
 } from "lucide-react"
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -46,21 +50,21 @@ const steps = [
     number: "01",
     title: "Fale com a equipe",
     description:
-      "Entre em contato pelo WhatsApp. Em minutos, nossa equipe entende a situação do seu familiar e orienta os próximos passos — sem compromisso.",
+      "Entre em contato pelo WhatsApp, tire suas dúvidas e entenda como a Conviva Saúde pode acompanhar sua rotina de cuidado.",
     icon: Users,
   },
   {
     number: "02",
-    title: "Avaliação em até 48h",
+    title: "Avaliação inicial",
     description:
-      "Agendamos uma avaliação com médico e enfermeiro de referência, que montam juntos um plano de cuidado personalizado.",
+      "Após a contratação, nossa equipe médica e de enfermagem avaliará seu momento de saúde para estruturar um plano de cuidado personalizado.",
     icon: CheckCircle,
   },
   {
     number: "03",
-    title: "O cuidado começa",
+    title: "Siga com o seu cuidado",
     description:
-      "Seu familiar passa a ter uma equipe dedicada cuidando da saúde dele — com a família informada em tempo real.",
+      "Você passa a contar com uma equipe dedicada, com cuidado contínuo e orientação ao longo do tempo",
     icon: Heart,
   },
 ]
@@ -101,10 +105,10 @@ const testimonials = [
 ]
 
 const stats = [
-  { value: "460 mil+", label: "Idosos em BH" },
-  { value: "R$ 329", label: "Para qualquer idade" },
-  { value: "24h", label: "Pronto Cuidar" },
-  { value: "10", label: "Especialidades" },
+  { value: "Médico de Referência", label: "Acompanha sua saúde de forma contínua" },
+  { value: "Equipe Multidisciplinar", label: "Cuidado integrado em um só lugar" },
+  { value: "Pronto Cuidar 24h", label: "Emergência do idoso, sempre que precisar" },
+  { value: "Plano Mensal", label: "Valor fixo, independente da idade" },
 ]
 
 // ── Page ─────────────────────────────────────────────────────────────────────
@@ -169,18 +173,18 @@ export default function HomePage() {
                 style={{ background: "color-mix(in oklch, var(--primary) 12%, transparent)", color: "var(--primary)", border: "1px solid color-mix(in oklch, var(--primary) 25%, transparent)" }}
               >
                 <Heart className="size-3" strokeWidth={2.5} />
-                Saúde completa para quem tem 60+ em BH e região
+                Cuidado completo para quem tem 60+!
               </Badge>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-                Saúde de qualidade para o seu familiar —{" "}
+                Mais saúde no —{" "}
                 <span className="text-primary">sem fila</span>
-                {", "}sem burocracia,{" "}
-                <span style={{ color: "var(--secondary)" }}>sem custo absurdo</span>
+                {", "}no dia a dia,{" "}
+                <span style={{ color: "var(--secondary)" }}>com um cuidado que acompanha você!</span>
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-                A Conviva Saúde é um pacote completo de cuidado para idosos em BH e região. Médico de referência, enfermeiros, equipe multidisciplinar e Pronto Cuidar 24h — tudo por R$ 329/mês, independente da idade.
+                A Conviva Saúde é um pacote completo de cuidado para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar 24h. Tudo por R$ 329/mês, independente da idade.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-12">
@@ -192,7 +196,7 @@ export default function HomePage() {
                 </Button>
                 <Button size="lg" variant="outline" className="gap-2 text-base" asChild>
                   <Link href="#como-funciona">
-                    Como funciona
+                    Como funciona o Conviva Saúde?
                   </Link>
                 </Button>
               </div>
@@ -201,7 +205,7 @@ export default function HomePage() {
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
                 {[
                   { icon: Shield, text: "Sem carência" },
-                  { icon: Clock, text: "Pronto Cuidar 24h" },
+                  { icon: Heart, text: "Acompanhamento personalizado" },
                   { icon: CheckCircle, text: "Mesmo preço para qualquer idade" },
                 ].map(({ icon: Icon, text }) => (
                   <div key={text} className="flex items-center gap-1.5 text-sm text-muted-foreground">
@@ -255,20 +259,20 @@ export default function HomePage() {
             <div>
               <SectionLabel>Quem somos</SectionLabel>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-5">
-                A Conviva Saúde nasceu para resolver o que os planos de saúde não resolvem
+                Um novo jeito para cuidar da saúde após os 60!
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                Criamos a Conviva Saúde com uma missão clara: oferecer ao idoso de BH um cuidado completo, humano e acessível — sem as filas, sem a burocracia e sem os reajustes abusivos dos planos tradicionais.
+                A Conviva Saúde é um plano de cuidado contínuo pensado para quem quer envelhecer com mais saúde, autonomia e acompanhamento de verdade. 
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Não somos um plano de saúde. Somos um pacote de benefícios pensado 360º para o envelhecimento saudável, com equipe dedicada exclusivamente ao público 60+.
+                Em vez de atendimentos pontuais, você passa a contar com uma estrutura organizada de cuidado, com profissionais que acompanham sua saúde ao longo do tempo. Tudo de forma simples com previsibilidade e foco na sua qualidade de vida!
               </p>
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { icon: Heart, title: "Médico de referência", desc: "Um médico que te conhece e acompanha sua saúde de forma contínua e preventiva." },
-                  { icon: Users, title: "Equipe multidisciplinar", desc: "Nutricionista, fisioterapeuta, psicólogo e mais 10 especialidades num único pacote." },
-                  { icon: Activity, title: "Pronto Cuidar 24h", desc: "Pronto atendimento exclusivo para idosos, disponível a qualquer hora do dia." },
-                  { icon: Headphones, title: "Família informada", desc: "Comunicação contínua com familiares sobre a saúde do idoso por WhatsApp." },
+                  { icon: Cross, title: "Médico de referência", desc: "Um médico que te conhece e acompanha sua saúde de forma contínua e preventiva." },
+                  { icon: Users, title: "Equipe multidisciplinar", desc: "Nutricionista, fisioterapeuta e outros profissionais que atuam de forma integrada no seu cuidado." },
+                  { icon: Hospital, title: "Atendimento de urgência", desc: "Pronto atendimento exclusivo para idosos, disponível a qualquer hora do dia (com coparticipação)." },
+                  { icon: CreditCard, title: "Plano mensal", desc: "Um único modelo de cuidado, com valor fixo e pagamento recorrente, sem prejudicar o limite do cartão." },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-muted/50">
                     <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -291,8 +295,8 @@ export default function HomePage() {
                   <div className="size-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
                     <Heart className="size-10 text-primary" strokeWidth={1.5} />
                   </div>
-                  <p className="text-2xl font-bold text-primary">+10 anos</p>
-                  <p className="text-sm text-muted-foreground mt-1">cuidando de idosos em BH e região</p>
+                  <p className="text-2xl font-bold text-primary">Conte com os melhores profissionais</p>
+                  <p className="text-sm text-muted-foreground mt-1">referência em cuidado de idosos em BH e região!</p>
                 </div>
               </div>
             </div>
@@ -307,10 +311,10 @@ export default function HomePage() {
             className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4"
             style={{ color: "var(--primary-foreground)" }}
           >
-            Seu familiar merece cuidado de verdade. Sem fila. Sem surpresa no bolso.
+            Cuidado certo para viver com mais saúde e tranquilidade. Sem filas nos hospitais. Sem burocracia!
           </h2>
           <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}>
-            Fale agora com nossa equipe e descubra como a Conviva Saúde pode cuidar de quem você ama — com um pacote fixo de R$ 329/mês para qualquer idade.
+            Fale com nossa equipe e entenda como a Conviva Saúde organiza o cuidado no dia a dia, com acompanhamento médico, equipe especializada e um plano mensal que cabe no bolso! 
           </p>
           <Button
             size="lg"
@@ -319,12 +323,12 @@ export default function HomePage() {
             asChild
           >
             <Link href="#contato">
-              Quero falar com a equipe
+              Quero saber mais sobre a Conviva Saúde
               <ArrowRight className="size-4" />
             </Link>
           </Button>
           <p className="mt-5 text-xs" style={{ color: "color-mix(in oklch, var(--primary-foreground) 60%, transparent)" }}>
-            Respondemos em até 2 horas úteis · Sem fidelidade · Cancele quando quiser
+            Atendimento rápido · Sem fidelidade · Cancelamento simples
           </p>
         </div>
       </section>
@@ -333,9 +337,9 @@ export default function HomePage() {
       <section id="planos" className="py-20 md:py-28 bg-muted/30">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-14">
-            <SectionLabel>Nosso pacote</SectionLabel>
+            <SectionLabel>Nosso produto</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Um pacote. Um preço. Para qualquer idade.
+              Um pacote. Um preço. Para qualquer idade!
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
               Sem reajuste por faixa etária. Sem letra miúda. Sem surpresa.
@@ -386,7 +390,7 @@ export default function HomePage() {
           </div>
 
           <p className="text-center text-xs text-muted-foreground mt-8">
-            Sem carência · Sem fidelidade · Mesmo valor para qualquer idade · BH e região até 50km
+            Sem carência · Pagamento recorrente · Fácil utilização
           </p>
         </div>
       </section>
@@ -397,10 +401,10 @@ export default function HomePage() {
           <div className="text-center mb-14">
             <SectionLabel>Como funciona</SectionLabel>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Três passos para o cuidado começar
+              Conheça o nosso ciclo de cuidado
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Do primeiro contato à primeira consulta, nossa equipe cuida de tudo com agilidade e atenção.
+              Desde o primeiro minuto, você inicia um acompanhamento contínuo com uma equipe dedicada à sua saúde.
             </p>
           </div>
 
@@ -433,7 +437,7 @@ export default function HomePage() {
           <div className="mt-14 text-center">
             <Button size="lg" className="gap-2" asChild>
               <Link href="#contato">
-                Começar agora — é gratuito
+                Contrate agora a Conviva Saúde!
                 <ArrowRight className="size-4" />
               </Link>
             </Button>
@@ -450,7 +454,7 @@ export default function HomePage() {
               Quem confia na Conviva Saúde
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Pacientes e familiares de BH e região compartilham suas experiências.
+              Pacientes e familiares que compartilham suas experiências.
             </p>
           </div>
 
@@ -492,10 +496,10 @@ export default function HomePage() {
             <div>
               <SectionLabel>Entre em contato</SectionLabel>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-5">
-                Vamos cuidar juntos de quem você ama
+                Vamos juntos cuidar da sua saúde?
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Nossa equipe está pronta para entender a situação do seu familiar e apresentar o pacote Conviva. O primeiro contato é gratuito e sem compromisso.
+                Nossa equipe está pronta para entender a sua necessidade e mostrar como a Conviva Saúde pode organizar o seu cuidado no dia a dia, com acompanhamento e uma estrutura completa. O contato com a gente é gratuito e sem compromisso!
               </p>
 
               <div className="flex flex-col gap-4 mb-8">
@@ -528,11 +532,11 @@ export default function HomePage() {
             >
               <CardHeader>
                 <div className="size-12 rounded-xl bg-primary/15 flex items-center justify-center mb-2">
-                  <Heart className="size-6 text-primary" strokeWidth={1.5} />
+                  <MailIcon className="size-6 text-primary" strokeWidth={1.5} />
                 </div>
                 <CardTitle className="text-xl">Fale com nossa equipe</CardTitle>
                 <CardDescription>
-                  Preencha abaixo e entraremos em contato em até 2 horas úteis.
+                  Preencha abaixo e entraremos em contato em até 24 horas.
                 </CardDescription>
               </CardHeader>
               <CardContent className="flex flex-col gap-3">
@@ -543,12 +547,12 @@ export default function HomePage() {
                 />
                 <input
                   type="tel"
-                  placeholder="Seu WhatsApp"
+                  placeholder="Seu telefone/WhatsApp"
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
                 />
                 <textarea
                   rows={3}
-                  placeholder="Conta um pouco sobre o seu familiar e o que precisa..."
+                  placeholder="Conta um pouco sobre você e quais são suas dúvidas"
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground resize-none"
                 />
                 <Button size="lg" className="w-full gap-2 mt-1">
