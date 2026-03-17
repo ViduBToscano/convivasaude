@@ -37,7 +37,7 @@ const packages = [
       "Médico de referência dedicado",
       "Enfermeiro de referência",
       "Equipe multidisciplinar",
-      "Pronto Cuidar 24h (com coparticipação)",
+      "Pronto Cuidar (com coparticipação)",
       "Acompanhamento preventivo e contínuo",
       "Suporte com a nossa equipe pelo WhatsApp",
     ],
@@ -107,7 +107,7 @@ const testimonials = [
 const stats = [
   { value: "Médico de Referência", label: "Acompanha sua saúde de forma contínua" },
   { value: "Equipe Multidisciplinar", label: "Cuidado integrado em um só lugar" },
-  { value: "Pronto Cuidar 24h", label: "Emergência do idoso, sempre que precisar" },
+  { value: "Pronto Cuidar", label: "Emergência do idoso, sempre que precisar" },
   { value: "Plano Mensal", label: "Valor fixo, independente da idade" },
 ]
 
@@ -174,12 +174,12 @@ export default function HomePage() {
               </Badge>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-                Mais cuidado no seu dia a dia. Com um cuidado{" "}
-                <span style={{ color: "var(--secondary)" }}>que acompanha você!</span>
+                Mais cuidado no seu dia a dia. Com uma equipe{" "}
+                <span style={{ color: "var(--secondary)" }}>que acompanha a sua saúde!!</span>
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
-                A Conviva Saúde é um pacote completo de cuidado para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar 24h.{" "}
+                A Conviva Saúde é um pacote completo de cuidado para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar, um espaço de pronto atendimento para o idoso.{" "}
                 <strong>Tudo por R$ 329/mês, independente da idade.</strong>
               </p>
 
@@ -267,7 +267,7 @@ export default function HomePage() {
                 {[
                   { icon: Cross, title: "Médico de referência", desc: "Um médico que te conhece e acompanha sua saúde de forma contínua e preventiva." },
                   { icon: Users, title: "Equipe multidisciplinar", desc: "Nutricionista, fisioterapeuta e outros profissionais que atuam de forma integrada no seu cuidado." },
-                  { icon: Hospital, title: "Atendimento de urgência", desc: "Pronto atendimento exclusivo para idosos, disponível a qualquer hora do dia (com coparticipação)." },
+                  { icon: Hospital, title: "Atendimento de urgência", desc: "Pronto atendimento exclusivo para idosos, disponível com agendamentos e sem fila de espera (com coparticipação)." },
                   { icon: CreditCard, title: "Plano mensal", desc: "Um único modelo de cuidado, com valor fixo e pagamento recorrente, sem prejudicar o limite do cartão." },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-muted/50">
@@ -649,7 +649,7 @@ export default function HomePage() {
                 <img src="/logo.svg" alt="Conviva Saúde" className="h-14 w-auto" />
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
-                Pacote completo de cuidado para idosos em BH e região — com médico de referência, equipe multidisciplinar e Pronto Cuidar 24h.
+                Pacote completo de cuidado para idosos, com médico de referência, equipe multidisciplinar e Pronto Cuidar, o pronto atendimento para o idoso.
               </p>
             </div>
 
@@ -657,7 +657,7 @@ export default function HomePage() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Serviços</p>
               <ul className="flex flex-col gap-2">
-                {["Conviva Essencial", "Médico de Referência", "Pronto Cuidar 24h", "Equipe Multidisciplinar", "Enfermeiro de Referência"].map((item) => (
+                {["Conviva Essencial", "Médico de Referência", "Pronto Cuidar", "Equipe Multidisciplinar", "Enfermeiro de Referência"].map((item) => (
                   <li key={item}>
                     <Link href="#planos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                       {item}
