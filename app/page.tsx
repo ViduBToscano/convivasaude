@@ -175,7 +175,7 @@ export default function HomePage() {
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
                 Mais cuidado no seu dia a dia. Com uma equipe{" "}
-                <span style={{ color: "var(--secondary)" }}>que acompanha a sua saúde!!</span>
+                <span style={{ color: "var(--secondary)" }}>que acompanha a sua saúde!</span>
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
