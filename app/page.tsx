@@ -216,7 +216,7 @@ export default function HomePage() {
             <div className="relative hidden md:block">
               <div className="relative rounded-2xl overflow-hidden h-[480px] shadow-xl">
                 <Image
-                  src="https://images.unsplash.com/photo-2RXJ-VuJ7Bk?w=1200&q=90"
+                  src="https://images.unsplash.com/photo-1625690987114-86f5af994b49?w=1200&q=90"
                   alt="Casal idoso de mãos dadas caminhando ao ar livre"
                   fill
                   className="object-cover"
