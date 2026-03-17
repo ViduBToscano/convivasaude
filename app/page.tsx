@@ -177,10 +177,8 @@ export default function HomePage() {
               </Badge>
 
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-                Mais saúde no —{" "}
-                <span className="text-primary">sem fila</span>
-                {", "}no dia a dia,{" "}
-                <span style={{ color: "var(--secondary)" }}>com um cuidado que acompanha você!</span>
+                Mais cuidado no seu dia a dia. Com um cuidado{" "}
+                <span style={{ color: "var(--secondary)" }}>que acompanha você!</span>
               </h1>
 
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
