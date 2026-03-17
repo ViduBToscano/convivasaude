@@ -444,33 +444,30 @@ export default function HomePage() {
       </section>
 
       {/* ── Parceria Mais60 ─────────────────────────────────────────────── */}
-      <section id="parceria" className="py-20 md:py-28 bg-muted/30">
+      <section id="parceria" className="py-20 md:py-28 bg-accent/20">
         <div className="mx-auto max-w-6xl px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
             {/* Left column */}
             <div>
-              <SectionLabel>Onde o cuidado acontece</SectionLabel>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-5">
-                O cuidado Conviva acontece nas clínicas da Mais60 Saúde
-              </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8">
-                A Conviva Saúde é um pacote de benefícios operado em parceria com a Mais60 Saúde — referência nacional em cuidado geriátrico, com mais de 10 anos de experiência e unidades em Belo Horizonte e região. Quando você contrata a Conviva, seu familiar é atendido por uma equipe especializada em idosos, dentro de uma estrutura pensada para ele.
-              </p>
               <a
                 href="https://mais60saude.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex flex-col items-center gap-2 group"
+                className="inline-block mb-5 opacity-90 hover:opacity-100 transition-opacity"
               >
                 <img
                   src="https://mais60saude.com.br/wp-content/uploads/2023/07/logomais60.png"
                   alt="Mais60 Saúde — parceira da Conviva"
-                  className="h-16 w-auto object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                  className="h-10 w-auto object-contain"
                 />
-                <span className="text-xs text-muted-foreground group-hover:text-foreground transition-colors">
-                  mais60saude.com.br
-                </span>
               </a>
+              <SectionLabel>Parceria Conviva Saúde e Mais60</SectionLabel>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-5">
+                Nossos atendimentos acontecem nas clínicas da Mais60 Saúde!
+              </h2>
+              <p className="text-muted-foreground leading-relaxed">
+                O pacote de benefícios da Conviva Saúde opera em <strong> parceria com a Mais60 Saúde, referência nacional em cuidado geriátrico, </strong> com mais de 10 anos de experiência e unidades em Belo Horizonte e região. Quando você contrata a Conviva, seu familiar é atendido por uma equipe especializada em idosos, dentro de uma estrutura pensada inteiramente para ele.
+              </p>
             </div>
 
             {/* Right column — 4 cards */}
@@ -478,13 +475,13 @@ export default function HomePage() {
               {[
                 {
                   icon: MapPin,
-                  title: "6 unidades em BH e região",
-                  desc: "Barro Preto, Santo Agostinho, Santa Efigênia, Pampulha, Betim e mais — sempre perto de você.",
+                  title: "4 unidades em Belo Horizonte",
+                  desc: "Encontre a Mais60 nos bairros: Barro Preto, Santo Agostinho, Santa Efigênia e Pampulha. Sempre uma unidade perto de você.",
                 },
                 {
                   icon: Users,
-                  title: "10 especialidades sob um mesmo teto",
-                  desc: "Geriatra, enfermeiro navegador, fisioterapeuta, psicólogo, nutricionista, fonoaudiólogo, terapeuta ocupacional e mais.",
+                  title: "Vários especialistas em saúde do idoso. Tudo em um só lugar",
+                  desc: "Geriatra, enfermeiro, fisioterapeuta, psicólogo, nutricionista, fonoaudiólogo, terapeuta ocupacional e mais.",
                 },
                 {
                   icon: Star,
@@ -497,7 +494,7 @@ export default function HomePage() {
                   desc: "Plataforma digital que centraliza o histórico do paciente e conecta toda a equipe de cuidado em tempo real.",
                 },
               ].map(({ icon: Icon, title, desc }) => (
-                <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-card border border-border">
+                <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-muted/50 border border-border">
                   <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
                     <Icon className="size-4 text-primary" />
                   </div>
@@ -511,7 +508,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Testimonials ────────────────────────────────────────────────── */}
-      <section id="depoimentos" className="py-20 md:py-28 bg-muted/30">
+      <section id="depoimentos" className="py-20 md:py-28 bg-background">
         <div className="mx-auto max-w-6xl px-6">
           <div className="text-center mb-14">
             <SectionLabel>Depoimentos</SectionLabel>
