@@ -54,6 +54,15 @@ export default function StyleguideLayout({
             </div>
           ))}
         </nav>
+
+        <div className="mt-auto flex flex-col gap-2 pt-4 border-t border-border">
+          <Link href="/" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            → Página inicial
+          </Link>
+          <Link href="/brandguide" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            → Brand Guide
+          </Link>
+        </div>
       </aside>
 
       {/* Main content - offset by sidebar width */}

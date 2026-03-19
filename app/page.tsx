@@ -705,6 +705,9 @@ export default function HomePage() {
               <Link href="/styleguide" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
                 Sistema de Design →
               </Link>
+              <Link href="/brandguide" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                Brand Guide →
+              </Link>
             </div>
           </div>
         </div>
