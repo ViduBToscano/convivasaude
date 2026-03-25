@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import {
   Heart, Shield, Clock, Star, CheckCircle,
   Phone, Mail, MapPin, ArrowRight, Users,
-  ChevronRight, Activity, Headphones,
+  ChevronRight, Activity,
   Hospital,
   Cross,
   CreditCard,
@@ -707,6 +707,9 @@ export default function HomePage() {
               </Link>
               <Link href="/brandguide" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
                 Brand Guide →
+              </Link>
+              <Link href="/criativos" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                Criativos →
               </Link>
             </div>
           </div>

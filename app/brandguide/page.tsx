@@ -119,11 +119,14 @@ export default function BrandGuidePage() {
         </nav>
 
         <div className="mt-auto flex flex-col gap-2 pt-4 border-t border-border">
+          <Link href="/" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            → Página inicial
+          </Link>
           <Link href="/styleguide" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
             → Sistema de Design
           </Link>
-          <Link href="/" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
-            → Página inicial
+          <Link href="/criativos" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            → Criativos
           </Link>
         </div>
       </aside>
