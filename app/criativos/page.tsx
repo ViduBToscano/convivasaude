@@ -3,8 +3,9 @@
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
-import { Check, Copy, Palette, Image as ImageIcon } from "lucide-react"
+import { Check, Copy, Palette, Image as ImageIcon, X } from "lucide-react"
 import { useState } from "react"
+import Image from "next/image"
 
 // ── Helpers ────────────────────────────────────────────────────────────────────
 
@@ -64,6 +65,14 @@ const navItems = [
   { id: "awareness", label: "Awareness" },
   { id: "conversao", label: "Conversão" },
   { id: "fotos", label: "Fotos recomendadas" },
+  { id: "produzidos", label: "Criativos produzidos" },
+]
+
+const criativosProduzidos = [
+  { src: "/criativos/1.png", filename: "conviva-criativo-1.png", formato: "Feed Instagram", dimensoes: "1080×1350px" },
+  { src: "/criativos/2.png", filename: "conviva-criativo-2.png", formato: "Feed Instagram", dimensoes: "1080×1350px" },
+  { src: "/criativos/3.png", filename: "conviva-criativo-3.png", formato: "Feed Instagram", dimensoes: "1080×1080px" },
+  { src: "/criativos/4.png", filename: "conviva-criativo-4.png", formato: "Stories Instagram + Banner Google", dimensoes: "1080×1920px" },
 ]
 
 // ── Briefings ─────────────────────────────────────────────────────────────────
@@ -172,6 +181,8 @@ STORIES 9:16:
 // ── Page ──────────────────────────────────────────────────────────────────────
 
 export default function CriativosPage() {
+  const [lightbox, setLightbox] = useState<string | null>(null)
+
   return (
     <div className="flex min-h-screen bg-background text-foreground">
 
@@ -629,7 +640,92 @@ export default function CriativosPage() {
           </div>
         </section>
 
+        {/* ── CRIATIVOS PRODUZIDOS ──────────────────────────────────────────── */}
+        <section id="produzidos" className="scroll-mt-8 mb-16">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
+              <ImageIcon className="size-4 text-primary" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-primary uppercase tracking-widest">Criativos produzidos</p>
+              <h2 className="text-2xl font-bold">Peças já produzidas</h2>
+            </div>
+          </div>
+          <p className="text-muted-foreground text-sm mb-8">Clique para visualizar em tamanho original ou faça o download.</p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {criativosProduzidos.map(({ src, filename, formato, dimensoes }) => (
+              <div key={src}>
+                <div className="group relative rounded-xl overflow-hidden shadow-md" style={{ height: 400, background: "#F5F5F5" }}>
+                  <Image
+                    src={src}
+                    alt={formato}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-all duration-200 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100">
+                    <button
+                      onClick={() => setLightbox(src)}
+                      className="px-4 py-2 bg-white text-foreground text-sm font-semibold rounded-lg hover:bg-gray-100 transition-colors shadow"
+                    >
+                      Visualizar
+                    </button>
+                    <a
+                      href={src}
+                      download={filename}
+                      className="px-4 py-2 bg-primary text-primary-foreground text-sm font-semibold rounded-lg hover:opacity-90 transition-opacity shadow"
+                    >
+                      Download
+                    </a>
+                  </div>
+                </div>
+                <p className="text-sm font-semibold mt-2">{formato}</p>
+                <p className="text-xs text-muted-foreground">{dimensoes}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
       </main>
+
+      {/* ── LIGHTBOX ──────────────────────────────────────────────────────── */}
+      {lightbox && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center"
+          style={{ background: "rgba(0,0,0,0.9)", animation: "fadeIn 0.15s ease" }}
+          onClick={() => setLightbox(null)}
+        >
+          {/* Close button */}
+          <button
+            className="absolute top-5 right-5 text-white hover:text-gray-300 transition-colors"
+            onClick={() => setLightbox(null)}
+          >
+            <X className="size-8" />
+          </button>
+          {/* Image */}
+          <div
+            className="relative"
+            style={{ maxWidth: "90vw", maxHeight: "90vh" }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={lightbox}
+              alt="Visualização do criativo"
+              style={{ maxWidth: "90vw", maxHeight: "90vh", borderRadius: 8, objectFit: "contain" }}
+            />
+          </div>
+        </div>
+      )}
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0 }
+          to   { opacity: 1 }
+        }
+      `}</style>
     </div>
   )
 }
