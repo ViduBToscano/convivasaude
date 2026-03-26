@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -57,7 +60,7 @@ const steps = [
     number: "02",
     title: "Avaliação inicial",
     description:
-      "Após a contratação, nossa equipe médica e de enfermagem avaliará seu momento de saúde para estruturar um plano de cuidado personalizado.",
+      "Após a contratação, nossa equipe médica e de enfermagem avaliará seu momento de saúde para estruturar um programa de cuidado personalizado.",
     icon: CheckCircle,
   },
   {
@@ -108,12 +111,14 @@ const stats = [
   { value: "Médico de Referência", label: "Acompanha sua saúde de forma contínua" },
   { value: "Equipe Multidisciplinar", label: "Cuidado integrado em um só lugar" },
   { value: "Pronto Cuidar", label: "Emergência do idoso, sempre que precisar" },
-  { value: "Plano Mensal", label: "Valor fixo, independente da idade" },
+  { value: "Pacote Mensal", label: "Valor fixo, independente da idade" },
 ]
 
 // ── Page ─────────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
+  const [convenio, setConvenio] = useState("")
+
   return (
     <div className="min-h-screen bg-background text-foreground">
 
@@ -127,7 +132,7 @@ export default function HomePage() {
           <nav className="hidden md:flex items-center gap-1">
             {[
               ["Sobre", "#sobre"],
-              ["Plano", "#planos"],
+              ["Pacote", "#planos"],
               ["Como funciona", "#como-funciona"],
               ["Depoimentos", "#depoimentos"],
               ["Contato", "#contato"],
@@ -186,7 +191,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3 mb-12">
                 <Button size="lg" className="gap-2 text-base" asChild>
                   <Link href="#contato">
-                    Quero conhecer o plano
+                    Quero conhecer o pacote
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
@@ -258,7 +263,7 @@ export default function HomePage() {
                 Um novo jeito para cuidar da saúde após os 60!
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-5">
-                A Conviva Saúde é um plano de cuidado contínuo pensado para quem quer envelhecer com mais saúde, autonomia e acompanhamento de verdade. 
+                A Conviva Saúde é um pacote de cuidado contínuo pensado para quem quer envelhecer com mais saúde, autonomia e acompanhamento de verdade.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 Em vez de atendimentos pontuais, você passa a contar com uma estrutura organizada de cuidado, com profissionais que acompanham sua saúde ao longo do tempo. Tudo de forma simples com previsibilidade e foco na sua qualidade de vida!
@@ -268,7 +273,7 @@ export default function HomePage() {
                   { icon: Cross, title: "Médico de referência", desc: "Um médico que te conhece e acompanha sua saúde de forma contínua e preventiva." },
                   { icon: Users, title: "Equipe multidisciplinar", desc: "Nutricionista, fisioterapeuta e outros profissionais que atuam de forma integrada no seu cuidado." },
                   { icon: Hospital, title: "Atendimento de urgência", desc: "Pronto atendimento exclusivo para idosos, disponível com agendamentos e sem fila de espera (com coparticipação)." },
-                  { icon: CreditCard, title: "Plano mensal", desc: "Um único modelo de cuidado, com valor fixo e pagamento recorrente, sem prejudicar o limite do cartão." },
+                  { icon: CreditCard, title: "Pacote mensal", desc: "Um único modelo de cuidado, com valor fixo e pagamento recorrente, sem prejudicar o limite do cartão." },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-muted/50">
                     <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -311,7 +316,7 @@ export default function HomePage() {
           </h2>
           <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}>
             Fale com nossa equipe e entenda como a Conviva Saúde organiza o cuidado no dia a dia.<br />
-            Acompanhamento médico, equipe especializada e um plano mensal que cabe no bolso.
+            Acompanhamento médico, equipe especializada e um pacote de cuidados que cabe no bolso.
           </p>
           <Button
             size="lg"
@@ -620,6 +625,22 @@ export default function HomePage() {
                   required
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
                 />
+                <select
+                  value={convenio}
+                  onChange={(e) => setConvenio(e.target.value)}
+                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 text-muted-foreground"
+                >
+                  <option value="">Tem convênio de saúde? (opcional)</option>
+                  <option value="sim">Sim, tenho convênio</option>
+                  <option value="nao">Não tenho convênio</option>
+                </select>
+                {convenio === "sim" && (
+                  <input
+                    type="text"
+                    placeholder="Qual convênio?"
+                    className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
+                  />
+                )}
                 <textarea
                   rows={3}
                   placeholder="Conta um pouco sobre você e quais são suas dúvidas *"

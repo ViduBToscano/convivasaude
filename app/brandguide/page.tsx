@@ -151,7 +151,7 @@ export default function BrandGuidePage() {
             <div>
               <h3 className="text-base font-semibold mb-2">O que é a Conviva Saúde</h3>
               <p className="text-muted-foreground leading-relaxed">
-                A Conviva Saúde é um pacote completo de benefícios de saúde para pessoas com 60 anos ou mais em BH e região. Não somos um plano de saúde — somos um novo jeito de cuidar da saúde após os 60, com médico de referência, enfermeiro dedicado, equipe multidisciplinar e Pronto Cuidar 24h, tudo por{" "}
+                A Conviva Saúde é um pacote completo de benefícios de saúde para pessoas com 60 anos ou mais em BH e região. Não somos um plano de saúde convencional — somos um novo jeito de cuidar da saúde após os 60, com médico de referência, enfermeiro dedicado, equipe multidisciplinar e Pronto Cuidar 24h, tudo por{" "}
                 <strong className="text-foreground">R$ 329/mês independente da idade.</strong>
               </p>
             </div>
@@ -160,7 +160,7 @@ export default function BrandGuidePage() {
               {[
                 {
                   label: "Propósito",
-                  text: "Oferecer ao idoso de BH um cuidado completo, humano e acessível — sem filas, sem burocracia e sem os reajustes abusivos dos planos tradicionais.",
+                  text: "Oferecer ao idoso de BH um cuidado completo, humano e acessível — sem filas, sem burocracia e sem os reajustes abusivos dos planos convencionais.",
                 },
                 {
                   label: "Missão",
@@ -278,7 +278,7 @@ export default function BrandGuidePage() {
                   detalhe: "60–74 anos",
                   items: [
                     "Mora em BH ou RMBH, classe B ou C",
-                    "Perdeu o plano ou não consegue mais pagar",
+                    "Perdeu o convênio ou não consegue mais pagar",
                     "Ativo, quer manter independência",
                     "Medo: emergência sem suporte, depender dos filhos",
                     "Valoriza: médico que o conhece, atendimento rápido, preço justo",
@@ -306,7 +306,7 @@ export default function BrandGuidePage() {
                   como: [
                     "Fale sobre tranquilidade e segurança",
                     "Destaque comunicação com a família e suporte 24h",
-                    "Mostre custo-benefício frente aos planos tradicionais",
+                    "Mostre custo-benefício frente aos convênios tradicionais",
                     "Apele para o cuidado sem culpa",
                   ],
                 },
@@ -511,8 +511,8 @@ export default function BrandGuidePage() {
                 destaque: true,
               },
               {
-                contexto: "Para quem não tem plano",
-                msg: "Sem plano de saúde? A Conviva oferece cuidado completo por R$ 329/mês — sem fila, sem carência, sem burocracia.",
+                contexto: "Para quem não tem convênio",
+                msg: "Sem convênio de saúde? A Conviva oferece cuidado completo por R$ 329/mês — sem fila, sem carência, sem burocracia.",
               },
               {
                 contexto: "Para o filho preocupado",

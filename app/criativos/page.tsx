@@ -70,8 +70,8 @@ const navItems = [
 
 const criativosProduzidos = [
   { src: "/criativos/1.png", filename: "conviva-criativo-1.png", formato: "Feed Instagram", dimensoes: "1080×1350px" },
-  { src: "/criativos/2.png", filename: "conviva-criativo-2.png", formato: "Feed Instagram", dimensoes: "1080×1350px" },
-  { src: "/criativos/3.png", filename: "conviva-criativo-3.png", formato: "Feed Instagram", dimensoes: "1080×1080px" },
+  { src: "/criativos/2 v1.png", filename: "conviva-criativo-2.png", formato: "Feed Instagram", dimensoes: "1080×1350px" },
+  { src: "/criativos/3 v1.png", filename: "conviva-criativo-3.png", formato: "Feed Instagram", dimensoes: "1080×1080px" },
   { src: "/criativos/4.png", filename: "conviva-criativo-4.png", formato: "Stories Instagram + Banner Google", dimensoes: "1080×1920px" },
 ]
 
