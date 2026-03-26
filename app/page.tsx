@@ -614,23 +614,23 @@ export default function HomePage() {
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
                 />
                 <input
-                  type="email"
-                  placeholder="Seu e-mail *"
-                  required
-                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
-                />
-                <input
                   type="tel"
                   placeholder="Seu telefone/WhatsApp *"
                   required
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
                 />
+                <input
+                  type="email"
+                  placeholder="Seu e-mail"
+                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
+                />
                 <select
                   value={convenio}
                   onChange={(e) => setConvenio(e.target.value)}
+                  required
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 text-muted-foreground"
                 >
-                  <option value="">Tem convênio de saúde? (opcional)</option>
+                  <option value="">Tem convênio de saúde? *</option>
                   <option value="sim">Sim, tenho convênio</option>
                   <option value="nao">Não tenho convênio</option>
                 </select>
@@ -643,8 +643,7 @@ export default function HomePage() {
                 )}
                 <textarea
                   rows={3}
-                  placeholder="Conta um pouco sobre você e quais são suas dúvidas *"
-                  required
+                  placeholder="Conta um pouco sobre você e quais são suas dúvidas"
                   className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground resize-none"
                 />
                 <Button size="lg" className="w-full gap-2 mt-1">
