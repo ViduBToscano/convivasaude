@@ -148,6 +148,9 @@ export default function HomePage() {
           </nav>
 
           <div className="flex items-center gap-2">
+            <Button size="sm" variant="outline" asChild>
+              <Link href="/contratar">Contratar agora</Link>
+            </Button>
             <Button size="sm" asChild>
               <Link href="#contato">Falar com a equipe</Link>
             </Button>
@@ -172,30 +175,39 @@ export default function HomePage() {
             <div>
               <Badge
                 className="mb-6 gap-1.5 px-3 py-1 text-xs font-medium"
-                style={{ background: "color-mix(in oklch, var(--primary) 12%, transparent)", color: "var(--primary)", border: "1px solid color-mix(in oklch, var(--primary) 25%, transparent)" }}
+                style={{ background: "color-mix(in oklch, var(--primary) 12%, transparent)", color: "var(--primary)", border: "1px solid color-mix(in oklch, var(--primary) 25%, transparent)", animation: "cvFadeUp 0.5s ease both", animationDelay: "0ms" }}
               >
                 <Heart className="size-3" strokeWidth={2.5} />
                 Cuidado completo para quem tem 60+!
               </Badge>
 
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+              <h1
+                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6"
+                style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "80ms" }}
+              >
                 Mais cuidado no seu dia a dia. Com uma equipe{" "}
                 <span style={{ color: "var(--secondary)" }}>que acompanha a sua saúde!</span>
               </h1>
 
-              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8">
+              <p
+                className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8"
+                style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "160ms" }}
+              >
                 A Conviva Saúde é um pacote completo de cuidado para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar, um espaço de pronto atendimento para o idoso.{" "}
                 <strong>Tudo por R$ 329/mês, independente da idade.</strong>
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-12">
-                <Button size="lg" className="gap-2 text-base" asChild>
+              <div
+                className="flex flex-col sm:flex-row gap-3 mb-12"
+                style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "240ms" }}
+              >
+                <Button size="lg" className="gap-2 text-base transition-transform hover:scale-[1.02] active:scale-[0.98]" asChild>
                   <Link href="#contato">
-                    Quero conhecer o pacote
+                    Quero contratar agora
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="gap-2 text-base" asChild>
+                <Button size="lg" variant="outline" className="gap-2 text-base transition-transform hover:scale-[1.02] active:scale-[0.98]" asChild>
                   <Link href="#como-funciona">
                     Como funciona o Conviva Saúde?
                   </Link>
@@ -203,7 +215,10 @@ export default function HomePage() {
               </div>
 
               {/* Trust signals */}
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div
+                className="flex flex-wrap items-center gap-x-6 gap-y-3"
+                style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "320ms" }}
+              >
                 {[
                   { icon: Shield, text: "Sem carência" },
                   { icon: Heart, text: "Acompanhamento personalizado" },
@@ -275,7 +290,7 @@ export default function HomePage() {
                   { icon: Hospital, title: "Atendimento de urgência", desc: "Pronto atendimento exclusivo para idosos, disponível com agendamentos e sem fila de espera (com coparticipação)." },
                   { icon: CreditCard, title: "Pacote mensal", desc: "Um único modelo de cuidado, com valor fixo e pagamento recorrente, sem prejudicar o limite do cartão." },
                 ].map(({ icon: Icon, title, desc }) => (
-                  <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-muted/50">
+                  <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-muted/50 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:bg-muted/80">
                     <div className="size-8 rounded-lg bg-primary/10 flex items-center justify-center">
                       <Icon className="size-4 text-primary" />
                     </div>
@@ -329,7 +344,16 @@ export default function HomePage() {
               <ArrowRight className="size-5" />
             </Link>
           </Button>
-          <p className="mt-5 text-xs" style={{ color: "color-mix(in oklch, var(--primary-foreground) 60%, transparent)" }}>
+          <div className="mt-4">
+            <Link
+              href="/contratar"
+              className="text-sm font-medium transition-opacity hover:opacity-80 underline underline-offset-4"
+              style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}
+            >
+              Contratar sem falar com ninguém →
+            </Link>
+          </div>
+          <p className="mt-4 text-xs" style={{ color: "color-mix(in oklch, var(--primary-foreground) 60%, transparent)" }}>
             Atendimento rápido · Sem fidelidade · Cancelamento simples
           </p>
         </div>
@@ -375,7 +399,7 @@ export default function HomePage() {
                     </div>
                   ))}
                 </CardContent>
-                <CardFooter>
+                <CardFooter className="flex flex-col gap-2.5">
                   <Button
                     className="w-full py-6 text-base"
                     size="lg"
@@ -385,6 +409,12 @@ export default function HomePage() {
                     <Link href="#contato">
                       {pkg.cta}
                       <ChevronRight className="size-5 ml-1" />
+                    </Link>
+                  </Button>
+                  <Button variant="outline" className="w-full text-sm" asChild>
+                    <Link href="/contratar">
+                      Contratar agora
+                      <ArrowRight className="size-4 ml-1" />
                     </Link>
                   </Button>
                 </CardFooter>
@@ -415,8 +445,8 @@ export default function HomePage() {
             {/* Connecting line (desktop) */}
             <div className="hidden md:block absolute top-10 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-px border-t-2 border-dashed border-border" />
 
-            {steps.map(({ number, title, description, icon: Icon }) => (
-              <div key={number} className="flex flex-col items-center text-center gap-4 relative">
+            {steps.map(({ number, title, description, icon: Icon }, i) => (
+              <div key={number} className="flex flex-col items-center text-center gap-4 relative" style={{ animation: "cvFadeUp 0.5s ease both", animationDelay: `${i * 120}ms` }}>
                 <div
                   className="size-20 rounded-2xl flex items-center justify-center shrink-0 relative z-10"
                   style={{ background: "color-mix(in oklch, var(--primary) 10%, var(--background))", border: "2px solid color-mix(in oklch, var(--primary) 20%, transparent)" }}
@@ -526,8 +556,8 @@ export default function HomePage() {
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {testimonials.map(({ quote, author, role, initials, stars }) => (
-              <Card key={author} className="flex flex-col">
+            {testimonials.map(({ quote, author, role, initials, stars }, i) => (
+              <Card key={author} className="flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg" style={{ animation: "cvFadeUp 0.5s ease both", animationDelay: `${i * 80}ms` }}>
                 <CardContent className="pt-6 flex flex-col gap-4 flex-1">
                   <div className="flex gap-0.5">
                     {Array.from({ length: stars }).map((_, i) => (
@@ -590,71 +620,117 @@ export default function HomePage() {
             </div>
 
             {/* CTA card */}
-            <Card
-              className="ring-0"
+            <div
+              className="rounded-2xl overflow-hidden"
               style={{
                 background: "linear-gradient(145deg, color-mix(in oklch, var(--primary) 8%, var(--card)), color-mix(in oklch, var(--accent) 30%, var(--card)))",
                 border: "1px solid color-mix(in oklch, var(--primary) 20%, var(--border))",
+                boxShadow: "0 4px 32px color-mix(in oklch, var(--primary) 10%, transparent)",
               }}
             >
-              <CardHeader>
-                <div className="size-12 rounded-xl bg-primary/15 flex items-center justify-center mb-2">
-                  <MailIcon className="size-6 text-primary" strokeWidth={1.5} />
+              {/* Card header */}
+              <div className="px-6 pt-6 pb-5 border-b border-border/50">
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="size-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
+                    <MailIcon className="size-5 text-primary" strokeWidth={1.5} />
+                  </div>
+                  <div>
+                    <p className="text-base font-semibold">Fale com nossa equipe</p>
+                    <p className="text-xs text-muted-foreground">Respondemos em até 2 horas úteis</p>
+                  </div>
                 </div>
-                <CardTitle className="text-xl">Fale com nossa equipe</CardTitle>
-                <CardDescription>
-                  Preencha abaixo e entraremos em contato em até 24 horas.
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="flex flex-col gap-3">
-                <input
-                  type="text"
-                  placeholder="Seu nome *"
-                  required
-                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
-                />
-                <input
-                  type="tel"
-                  placeholder="Seu telefone/WhatsApp *"
-                  required
-                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
-                />
-                <input
-                  type="email"
-                  placeholder="Seu e-mail"
-                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
-                />
-                <select
-                  value={convenio}
-                  onChange={(e) => setConvenio(e.target.value)}
-                  required
-                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 text-muted-foreground"
-                >
-                  <option value="">Tem convênio de saúde? *</option>
-                  <option value="sim">Sim, tenho convênio</option>
-                  <option value="nao">Não tenho convênio</option>
-                </select>
-                {convenio === "sim" && (
+              </div>
+
+              {/* Form body */}
+              <div className="px-6 py-5 flex flex-col gap-4">
+                {/* Row: nome + whatsapp */}
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-medium text-foreground/70">Nome <span className="text-destructive">*</span></label>
+                    <input
+                      type="text"
+                      placeholder="Seu nome completo"
+                      required
+                      className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-medium text-foreground/70">WhatsApp <span className="text-destructive">*</span></label>
+                    <input
+                      type="tel"
+                      placeholder="(31) 9 0000-0000"
+                      required
+                      className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60"
+                    />
+                  </div>
+                </div>
+
+                {/* E-mail */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">E-mail <span className="text-muted-foreground font-normal">(opcional)</span></label>
                   <input
-                    type="text"
-                    placeholder="Qual convênio?"
-                    className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground"
+                    type="email"
+                    placeholder="seu@email.com"
+                    className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60"
                   />
+                </div>
+
+                {/* Convênio */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">Tem convênio de saúde? <span className="text-destructive">*</span></label>
+                  <div className="relative">
+                    <select
+                      value={convenio}
+                      onChange={(e) => setConvenio(e.target.value)}
+                      required
+                      className="w-full appearance-none rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 text-foreground pr-9"
+                    >
+                      <option value="">Selecione uma opção</option>
+                      <option value="sim">Sim, tenho convênio</option>
+                      <option value="nao">Não tenho convênio</option>
+                    </select>
+                    <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground rotate-90 pointer-events-none" />
+                  </div>
+                </div>
+
+                {/* Qual convênio — condicional */}
+                {convenio === "sim" && (
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-xs font-medium text-foreground/70">Qual convênio?</label>
+                    <input
+                      type="text"
+                      placeholder="Ex: Unimed, Hapvida…"
+                      className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60"
+                    />
+                  </div>
                 )}
-                <textarea
-                  rows={3}
-                  placeholder="Conta um pouco sobre você e quais são suas dúvidas"
-                  className="w-full rounded-lg border border-border bg-background/80 px-3 py-2.5 text-sm outline-none focus:ring-2 focus:ring-ring/50 placeholder:text-muted-foreground resize-none"
-                />
-                <Button size="lg" className="w-full gap-2 mt-1">
+
+                {/* Mensagem */}
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">Mensagem <span className="text-muted-foreground font-normal">(opcional)</span></label>
+                  <textarea
+                    rows={3}
+                    placeholder="Conta um pouco sobre a situação do seu familiar…"
+                    className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60 resize-none"
+                  />
+                </div>
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition-all hover:opacity-90 hover:scale-[1.01] active:scale-[0.99] mt-1"
+                  style={{ background: "var(--primary)", color: "var(--primary-foreground)", boxShadow: "0 4px 16px color-mix(in oklch, var(--primary) 30%, transparent)" }}
+                >
                   Enviar mensagem
                   <ArrowRight className="size-4" />
-                </Button>
-                <p className="text-center text-xs text-muted-foreground">
+                </button>
+
+                <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1.5">
+                  <Shield className="size-3 shrink-0" />
                   Seus dados estão seguros. Não compartilhamos com terceiros.
                 </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -736,6 +812,12 @@ export default function HomePage() {
         </div>
       </footer>
 
+      <style>{`
+        @keyframes cvFadeUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   )
 }
