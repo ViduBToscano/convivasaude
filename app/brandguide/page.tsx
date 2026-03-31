@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
@@ -92,10 +93,43 @@ const navItems = [
 
 export default function BrandGuidePage() {
   return (
-    <div className="flex min-h-screen bg-background text-foreground">
+    <>
+      <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
+        <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
+          <Link href="/">
+            <img src="/logo.svg" alt="Conviva Saúde" className="h-20 w-auto" />
+          </Link>
+          <nav className="hidden md:flex items-center gap-1">
+            {[
+              ["Sobre nós", "/sobre"],
+              ["Como funciona", "/como-funciona"],
+              ["Unidades", "/unidades"],
+              ["FAQ", "/faq"],
+              ["Blog", "/blog"],
+            ].map(([label, href]) => (
+              <Link
+                key={label}
+                href={href}
+                className="px-3 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg hover:bg-muted transition-colors"
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="sm" asChild className="hidden sm:flex">
+              <Link href="/">← Voltar ao site</Link>
+            </Button>
+            <Button size="sm" asChild>
+              <Link href="/contratar">Contratar agora</Link>
+            </Button>
+          </div>
+        </div>
+      </header>
+      <div className="flex min-h-screen bg-background text-foreground pt-28">
 
       {/* Sidebar */}
-      <aside className="w-64 border-r border-border bg-card p-6 flex flex-col gap-6 fixed top-0 left-0 h-screen overflow-y-auto">
+      <aside className="w-64 border-r border-border bg-card p-6 flex flex-col gap-6 fixed top-28 left-0 h-[calc(100vh-7rem)] overflow-y-auto">
         <div>
           <Link href="/">
             <img src="/logo.svg" alt="Conviva Saúde" className="h-24 w-auto" />
@@ -609,5 +643,6 @@ export default function BrandGuidePage() {
 
       </main>
     </div>
+    </>
   )
 }

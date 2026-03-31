@@ -9,11 +9,12 @@ import { Badge } from "@/components/ui/badge"
 import {
   Heart, Shield, Clock, Star, CheckCircle,
   Phone, Mail, MapPin, ArrowRight, Users,
-  ChevronRight, Activity,
+  ChevronRight, ChevronDown, Activity,
   Hospital,
   Cross,
   CreditCard,
   MailIcon,
+  ImageIcon,
 } from "lucide-react"
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -118,6 +119,7 @@ const stats = [
 
 export default function HomePage() {
   const [convenio, setConvenio] = useState("")
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -201,13 +203,13 @@ export default function HomePage() {
                 className="flex flex-col sm:flex-row gap-3 mb-12"
                 style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "240ms" }}
               >
-                <Button size="lg" className="gap-2 text-base transition-transform hover:scale-[1.02] active:scale-[0.98]" asChild>
+                <Button size="lg" className="gap-2 text-base font-semibold shadow-lg px-8 transition-transform hover:scale-[1.02] active:scale-[0.98]" asChild>
                   <Link href="#contato">
                     Quero contratar agora
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
-                <Button size="lg" variant="outline" className="gap-2 text-base transition-transform hover:scale-[1.02] active:scale-[0.98]" asChild>
+                <Button size="lg" variant="outline" className="gap-2 text-base font-semibold border-2 transition-transform hover:scale-[1.02] active:scale-[0.98]" asChild>
                   <Link href="#como-funciona">
                     Como funciona o Conviva Saúde?
                   </Link>
@@ -302,19 +304,12 @@ export default function HomePage() {
             </div>
 
             {/* Visual placeholder */}
-            <div className="relative">
-              <div
-                className="rounded-2xl h-80 md:h-96 flex items-center justify-center"
-                style={{ background: "linear-gradient(145deg, color-mix(in oklch, var(--primary) 12%, var(--card)), color-mix(in oklch, var(--accent) 50%, var(--card)))" }}
-              >
-                <div className="text-center px-8">
-                  <div className="size-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                    <Heart className="size-10 text-primary" strokeWidth={1.5} />
-                  </div>
-                  <p className="text-2xl font-bold text-primary">Conte com os melhores profissionais</p>
-                  <p className="text-sm text-muted-foreground mt-1">referência em cuidado de idosos em BH e região!</p>
-                </div>
+            <div className="relative rounded-2xl overflow-hidden h-80 md:h-96 bg-muted/50">
+              <div className="absolute inset-0 flex items-center justify-center flex-col gap-2 text-muted-foreground">
+                <ImageIcon className="size-10 opacity-30" />
+                <p className="text-sm opacity-50">[ foto: unidade Mais60 / ambiente clínico ]</p>
               </div>
+              {/* Substituir por Image quando tiver a foto */}
             </div>
           </div>
         </div>
@@ -335,7 +330,7 @@ export default function HomePage() {
           </p>
           <Button
             size="lg"
-            className="gap-2 text-base px-10 py-6 text-lg"
+            className="gap-2 text-base font-semibold shadow-lg px-10 py-6 text-lg"
             style={{ background: "var(--primary-foreground)", color: "var(--primary)" }}
             asChild
           >
@@ -467,8 +462,17 @@ export default function HomePage() {
             ))}
           </div>
 
+          <div className="relative w-full rounded-2xl overflow-hidden h-64 md:h-80 mt-12 bg-muted/50">
+            <div className="absolute inset-0 flex items-center justify-center flex-col gap-2 text-muted-foreground">
+              <ImageIcon className="size-10 opacity-30" />
+              <p className="text-sm opacity-50">[ foto: equipe Conviva em atendimento ]</p>
+            </div>
+            {/* Quando tiver a foto, substituir o div acima por:
+            <Image src="/fotos/equipe.jpg" alt="Equipe Conviva" fill className="object-cover" /> */}
+          </div>
+
           <div className="mt-14 text-center">
-            <Button size="lg" className="gap-2" asChild>
+            <Button size="lg" className="gap-2 font-semibold shadow-lg" asChild>
               <Link href="#contato">
                 Contrate agora a Conviva Saúde!
                 <ArrowRight className="size-4" />
@@ -539,6 +543,13 @@ export default function HomePage() {
               ))}
             </div>
           </div>
+
+          <div className="relative w-full rounded-2xl overflow-hidden h-56 md:h-72 mt-10 bg-muted/50">
+            <div className="absolute inset-0 flex items-center justify-center flex-col gap-2 text-muted-foreground">
+              <ImageIcon className="size-10 opacity-30" />
+              <p className="text-sm opacity-50">[ foto: fachada ou interior das clínicas Mais60 ]</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -582,6 +593,77 @@ export default function HomePage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ─────────────────────────────────────────────────────────── */}
+      <section id="faq" className="py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="max-w-2xl mx-auto">
+            <div className="text-center mb-10">
+              <SectionLabel>Dúvidas frequentes</SectionLabel>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
+                Perguntas que todo mundo faz
+              </h2>
+              <p className="text-muted-foreground text-sm">
+                Não encontrou o que procura? Fale com nossa equipe pelo WhatsApp.
+              </p>
+            </div>
+
+            <div className="flex flex-col">
+              {[
+                {
+                  q: "A Conviva Saúde é um plano de saúde?",
+                  a: "Não. A Conviva é um pacote particular de benefícios voltado ao envelhecimento saudável. Não somos regulados pela ANS e não substituímos um plano convencional — mas oferecemos cuidado geriátrico coordenado com muito mais proximidade e por um preço muito mais acessível.",
+                },
+                {
+                  q: "Quanto custa e muda conforme a idade?",
+                  a: "R$ 329/mês para qualquer idade — 60, 70, 80, 90 anos. O valor é fixo e não sofre reajuste por faixa etária, ao contrário dos planos tradicionais.",
+                },
+                {
+                  q: "Tem carência ou fidelidade?",
+                  a: "Não tem nenhuma das duas. O cuidado começa imediatamente após a contratação e você pode cancelar quando quiser, sem multa.",
+                },
+                {
+                  q: "Posso contratar para minha mãe sendo eu de outra cidade?",
+                  a: "Sim! O processo de contratação é 100% digital. Você faz tudo pelo WhatsApp ou pelo site, e nossa equipe cuida de toda a parte presencial com seu familiar em BH.",
+                },
+                {
+                  q: "O que é o Pronto Cuidar 24h?",
+                  a: "É o pronto atendimento exclusivo para idosos da Mais60 Saúde, disponível 24 horas. Acionado em situações de urgência, com coparticipação sobre o valor do pacote.",
+                },
+              ].map(({ q, a }, i) => {
+                const isOpen = openFaq === i
+                return (
+                  <div key={i} className="border-b border-border">
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      className="w-full flex items-start justify-between gap-4 py-5 text-left"
+                    >
+                      <span className="text-sm font-semibold leading-relaxed">{q}</span>
+                      <ChevronDown
+                        className="size-4 shrink-0 mt-0.5 text-muted-foreground transition-transform duration-200"
+                        style={{ transform: isOpen ? "rotate(180deg)" : "rotate(0deg)" }}
+                      />
+                    </button>
+                    {isOpen && (
+                      <p
+                        className="text-sm leading-relaxed pb-5 text-muted-foreground"
+                        style={{ animation: "cvFadeUp 0.2s ease both" }}
+                      >
+                        {a}
+                      </p>
+                    )}
+                  </div>
+                )
+              })}
+            </div>
+
+            <Link href="/faq" className="text-sm text-primary hover:underline flex items-center gap-1 mt-6">
+              Ver todas as perguntas frequentes
+              <ChevronRight className="size-4" />
+            </Link>
           </div>
         </div>
       </section>
@@ -738,7 +820,7 @@ export default function HomePage() {
       {/* ── Footer ──────────────────────────────────────────────────────── */}
       <footer className="border-t border-border bg-card">
         <div className="mx-auto max-w-6xl px-6 py-12">
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 mb-10">
             {/* Brand */}
             <div className="sm:col-span-2 md:col-span-1">
               <div className="flex items-center mb-3">
@@ -747,29 +829,45 @@ export default function HomePage() {
               <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
                 Pacote completo de cuidado para idosos, com médico de referência, equipe multidisciplinar e Pronto Cuidar, o pronto atendimento para o idoso.
               </p>
-            </div>
-
-            {/* Links */}
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Serviços</p>
-              <ul className="flex flex-col gap-2">
-                {["Conviva Essencial", "Médico de Referência", "Pronto Cuidar", "Equipe Multidisciplinar", "Enfermeiro de Referência"].map((item) => (
-                  <li key={item}>
-                    <Link href="#planos" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      {item}
-                    </Link>
-                  </li>
+              <div className="flex items-center gap-3 mt-4">
+                {[
+                  { href: "https://instagram.com", label: "Instagram", icon: <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none"/></svg> },
+                  { href: "https://youtube.com", label: "YouTube", icon: <svg viewBox="0 0 24 24" className="size-4" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg> },
+                  { href: "https://linkedin.com", label: "LinkedIn", icon: <svg viewBox="0 0 24 24" className="size-4" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg> },
+                  {
+                    href: "https://tiktok.com", label: "TikTok", icon: (
+                      <svg viewBox="0 0 24 24" className="size-4" fill="currentColor">
+                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.79 1.54V6.79a4.85 4.85 0 01-1.03-.1z" />
+                      </svg>
+                    )
+                  },
+                ].map(({ href, label, icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="size-8 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted/80 transition-colors"
+                  >
+                    {icon}
+                  </a>
                 ))}
-              </ul>
+              </div>
             </div>
 
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Empresa</p>
               <ul className="flex flex-col gap-2">
-                {["Sobre nós", "Como funciona", "Nossas unidades", "Trabalhe conosco", "Blog de saúde"].map((item) => (
-                  <li key={item}>
-                    <Link href="#sobre" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      {item}
+                {[
+                  { label: "Sobre nós", href: "/sobre" },
+                  { label: "Como funciona", href: "/como-funciona" },
+                  { label: "Nossas unidades", href: "/unidades" },
+                  { label: "Blog de saúde", href: "/blog" },
+                ].map(({ label, href }) => (
+                  <li key={label}>
+                    <Link href={href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      {label}
                     </Link>
                   </li>
                 ))}
@@ -779,10 +877,15 @@ export default function HomePage() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-3">Suporte</p>
               <ul className="flex flex-col gap-2">
-                {["Central de ajuda", "Política de privacidade", "Termos de uso", "Ouvidoria", "Contato"].map((item) => (
-                  <li key={item}>
-                    <Link href="#contato" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      {item}
+                {[
+                  { label: "Central de ajuda", href: "/faq" },
+                  { label: "Política de privacidade", href: "/privacidade" },
+                  { label: "Termos de uso", href: "/termos" },
+                  { label: "Contato", href: "#contato" },
+                ].map(({ label, href }) => (
+                  <li key={label}>
+                    <Link href={href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+                      {label}
                     </Link>
                   </li>
                 ))}
@@ -792,7 +895,7 @@ export default function HomePage() {
 
           <div className="border-t border-border pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p className="text-xs text-muted-foreground">
-              © 2025 Conviva Saúde. Todos os direitos reservados.
+              © 2026 Conviva Saúde. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-4">
               <Badge variant="outline" className="text-[10px] gap-1">
@@ -806,6 +909,9 @@ export default function HomePage() {
               </Link>
               <Link href="/criativos" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
                 Criativos →
+              </Link>
+              <Link href="/planosmidia" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+                Plano de Mídia →
               </Link>
             </div>
           </div>
