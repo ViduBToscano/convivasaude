@@ -95,6 +95,7 @@ export default function SobrePage() {
                   A Conviva Saúde não é um plano de saúde.
                 </span>{" "}
                 Somos um pacote particular de benefícios e cuidado contínuo voltado ao envelhecimento saudável.
+              </p>
             </div>
 
             {/* Foto principal */}
