@@ -7,14 +7,13 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
-  Heart, Shield, Clock, Star, CheckCircle,
+  Heart, Shield, /* Clock, */ Star, CheckCircle,
   Phone, Mail, MapPin, ArrowRight, Users,
   ChevronRight, ChevronDown, Activity,
   Hospital,
   Cross,
   CreditCard,
   MailIcon,
-  ImageIcon,
 } from "lucide-react"
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -31,7 +30,8 @@ function SectionLabel({ children }: { children: React.ReactNode }) {
 
 const packages = [
   {
-    name: "Conviva Saúde",
+    id: "conviva",
+    name: <strong>Conviva Saúde</strong>,
     badge: null,
     price: "R$ 329",
     period: "/mês",
@@ -41,11 +41,11 @@ const packages = [
       "Médico de referência dedicado",
       "Enfermeiro de referência",
       "Equipe multidisciplinar",
-      "Pronto Cuidar (com coparticipação)",
+      "Pronto Cuidar",
       "Acompanhamento preventivo e contínuo",
-      "Suporte com a nossa equipe pelo WhatsApp",
+      "Descontos em medicamentos e outros benefícios",
     ],
-    cta: "Quero saber mais sobre o pacote",
+    cta: "Quero saber mais sobre a Conviva Saúde",
   },
 ]
 
@@ -135,7 +135,6 @@ export default function HomePage() {
             {[
               ["Sobre", "#sobre"],
               ["Pacote", "#planos"],
-              ["Como funciona", "#como-funciona"],
               ["Depoimentos", "#depoimentos"],
               ["Contato", "#contato"],
             ].map(([label, href]) => (
@@ -195,7 +194,7 @@ export default function HomePage() {
                 className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8"
                 style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "160ms" }}
               >
-                A Conviva Saúde é um pacote completo de cuidado para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar, um espaço de pronto atendimento para o idoso.{" "}
+                A Conviva Saúde é um pacote de cuidado contínuo para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar, um espaço de pronto atendimento para o idoso.{" "}
                 <strong>Tudo por R$ 329/mês, independente da idade.</strong>
               </p>
 
@@ -289,7 +288,7 @@ export default function HomePage() {
                 {[
                   { icon: Cross, title: "Médico de referência", desc: "Um médico que te conhece e acompanha sua saúde de forma contínua e preventiva." },
                   { icon: Users, title: "Equipe multidisciplinar", desc: "Nutricionista, fisioterapeuta e outros profissionais que atuam de forma integrada no seu cuidado." },
-                  { icon: Hospital, title: "Atendimento de urgência", desc: "Pronto atendimento exclusivo para idosos, disponível com agendamentos e sem fila de espera (com coparticipação)." },
+                  { icon: Hospital, title: "Atendimento de urgência", desc: "Pronto atendimento exclusivo para idosos, disponível com agendamentos e sem fila de espera." },
                   { icon: CreditCard, title: "Pacote mensal", desc: "Um único modelo de cuidado, com valor fixo e pagamento recorrente, sem prejudicar o limite do cartão." },
                 ].map(({ icon: Icon, title, desc }) => (
                   <div key={title} className="flex flex-col gap-2 p-4 rounded-xl bg-muted/50 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:bg-muted/80">
@@ -303,13 +302,14 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Visual placeholder */}
-            <div className="relative rounded-2xl overflow-hidden h-80 md:h-96 bg-muted/50">
-              <div className="absolute inset-0 flex items-center justify-center flex-col gap-2 text-muted-foreground">
-                <ImageIcon className="size-10 opacity-30" />
-                <p className="text-sm opacity-50">[ foto: unidade Mais60 / ambiente clínico ]</p>
-              </div>
-              {/* Substituir por Image quando tiver a foto */}
+            {/* Foto sobre */}
+            <div className="relative rounded-2xl overflow-hidden h-80 md:h-96">
+              <Image
+                src="/images/shutterstock_2641626359.jpg"
+                alt="Cuidado com idosos"
+                fill
+                className="object-cover object-center"
+              />
             </div>
           </div>
         </div>
@@ -326,7 +326,7 @@ export default function HomePage() {
           </h2>
           <p className="text-base md:text-lg leading-relaxed mb-8" style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}>
             Fale com nossa equipe e entenda como a Conviva Saúde organiza o cuidado no dia a dia.<br />
-            Acompanhamento médico, equipe especializada e um pacote de cuidados que cabe no bolso.
+            Tenha acesso a acompanhamento médico, equipe multidisciplinar especializada e um pacote de cuidados que cabe no bolso.
           </p>
           <Button
             size="lg"
@@ -345,7 +345,7 @@ export default function HomePage() {
               className="text-sm font-medium transition-opacity hover:opacity-80 underline underline-offset-4"
               style={{ color: "color-mix(in oklch, var(--primary-foreground) 80%, transparent)" }}
             >
-              Contratar sem falar com ninguém →
+              Quero contratar a Conviva Saúde →
             </Link>
           </div>
           <p className="mt-4 text-xs" style={{ color: "color-mix(in oklch, var(--primary-foreground) 60%, transparent)" }}>
@@ -370,7 +370,7 @@ export default function HomePage() {
           <div className="flex justify-center">
             {packages.map((pkg) => (
               <Card
-                key={pkg.name}
+                key={pkg.id}
                 className="border-primary ring-2 ring-primary/20 relative w-full max-w-md"
               >
                 <CardHeader>
@@ -401,15 +401,15 @@ export default function HomePage() {
                     variant={pkg.color === "featured" ? "default" : "outline"}
                     asChild
                   >
-                    <Link href="#contato">
-                      {pkg.cta}
-                      <ChevronRight className="size-5 ml-1" />
+                    <Link href="/contratar">
+                      Contratar agora
+                      <ArrowRight className="size-5 ml-1" />
                     </Link>
                   </Button>
                   <Button variant="outline" className="w-full text-sm" asChild>
-                    <Link href="/contratar">
-                      Contratar agora
-                      <ArrowRight className="size-4 ml-1" />
+                    <Link href="#contato">
+                      {pkg.cta}
+                      <ChevronRight className="size-4 ml-1" />
                     </Link>
                   </Button>
                 </CardFooter>
@@ -436,48 +436,47 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 md:gap-6 relative">
-            {/* Connecting line (desktop) */}
-            <div className="hidden md:block absolute top-10 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-px border-t-2 border-dashed border-border" />
-
-            {steps.map(({ number, title, description, icon: Icon }, i) => (
-              <div key={number} className="flex flex-col items-center text-center gap-4 relative" style={{ animation: "cvFadeUp 0.5s ease both", animationDelay: `${i * 120}ms` }}>
-                <div
-                  className="size-20 rounded-2xl flex items-center justify-center shrink-0 relative z-10"
-                  style={{ background: "color-mix(in oklch, var(--primary) 10%, var(--background))", border: "2px solid color-mix(in oklch, var(--primary) 20%, transparent)" }}
-                >
-                  <Icon className="size-8 text-primary" strokeWidth={1.5} />
-                  <span
-                    className="absolute -top-2 -right-2 size-6 rounded-full text-[10px] font-bold flex items-center justify-center"
-                    style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Steps à esquerda */}
+            <div className="flex flex-col gap-8">
+              {steps.map(({ number, title, description, icon: Icon }, i) => (
+                <div key={number} className="flex gap-5 items-start" style={{ animation: "cvFadeUp 0.5s ease both", animationDelay: `${i * 120}ms` }}>
+                  <div
+                    className="size-16 rounded-2xl flex items-center justify-center shrink-0 relative"
+                    style={{ background: "color-mix(in oklch, var(--primary) 10%, var(--background))", border: "2px solid color-mix(in oklch, var(--primary) 20%, transparent)" }}
                   >
-                    {number.replace("0", "")}
-                  </span>
+                    <Icon className="size-7 text-primary" strokeWidth={1.5} />
+                    <span
+                      className="absolute -top-2 -right-2 size-6 rounded-full text-[10px] font-bold flex items-center justify-center"
+                      style={{ background: "var(--primary)", color: "var(--primary-foreground)" }}
+                    >
+                      {number.replace("0", "")}
+                    </span>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold mb-1.5">{title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-2">{title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              ))}
 
-          <div className="relative w-full rounded-2xl overflow-hidden h-64 md:h-80 mt-12 bg-muted/50">
-            <div className="absolute inset-0 flex items-center justify-center flex-col gap-2 text-muted-foreground">
-              <ImageIcon className="size-10 opacity-30" />
-              <p className="text-sm opacity-50">[ foto: equipe Conviva em atendimento ]</p>
+              <Button size="lg" className="gap-2 font-semibold shadow-lg w-full py-6 text-base mt-2" asChild>
+                <Link href="#contato">
+                  Contrate agora a Conviva Saúde!
+                  <ArrowRight className="size-5" />
+                </Link>
+              </Button>
             </div>
-            {/* Quando tiver a foto, substituir o div acima por:
-            <Image src="/fotos/equipe.jpg" alt="Equipe Conviva" fill className="object-cover" /> */}
-          </div>
 
-          <div className="mt-14 text-center">
-            <Button size="lg" className="gap-2 font-semibold shadow-lg" asChild>
-              <Link href="#contato">
-                Contrate agora a Conviva Saúde!
-                <ArrowRight className="size-4" />
-              </Link>
-            </Button>
+            {/* Foto à direita */}
+            <div className="relative rounded-2xl overflow-hidden h-[480px] md:h-full min-h-[420px]">
+              <Image
+                src="/images/20240520_141723.jpg"
+                alt="Equipe Conviva em atendimento"
+                fill
+                className="object-cover object-center"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -544,11 +543,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="relative w-full rounded-2xl overflow-hidden h-56 md:h-72 mt-10 bg-muted/50">
-            <div className="absolute inset-0 flex items-center justify-center flex-col gap-2 text-muted-foreground">
-              <ImageIcon className="size-10 opacity-30" />
-              <p className="text-sm opacity-50">[ foto: fachada ou interior das clínicas Mais60 ]</p>
-            </div>
+          <div className="relative w-full rounded-2xl overflow-hidden h-56 md:h-72 mt-10">
+            <Image
+              src="/images/16.jpeg"
+              alt="Clínica Mais60 Saúde"
+              fill
+              className="object-cover object-center"
+            />
           </div>
         </div>
       </section>
@@ -615,23 +616,23 @@ export default function HomePage() {
               {[
                 {
                   q: "A Conviva Saúde é um plano de saúde?",
-                  a: "Não. A Conviva é um pacote particular de benefícios voltado ao envelhecimento saudável. Não somos regulados pela ANS e não substituímos um plano convencional — mas oferecemos cuidado geriátrico coordenado com muito mais proximidade e por um preço muito mais acessível.",
+                  a: "Não. A Conviva Saúde é um programa de cuidado voltado para a pessoa idosa. Inclui consultas geriátricas, médico e enfermeiro de referência, equipe multidisciplinar e monitoramento 24h. Não oferecemos hospitais e nem exames laboratoriais.",
                 },
                 {
                   q: "Quanto custa e muda conforme a idade?",
-                  a: "R$ 329/mês para qualquer idade — 60, 70, 80, 90 anos. O valor é fixo e não sofre reajuste por faixa etária, ao contrário dos planos tradicionais.",
+                  a: "R$ 329/mês para qualquer idade — 60, 70, 80, 90 anos. O valor é fixo e não sofre reajuste por faixa etária.",
                 },
                 {
                   q: "Tem carência ou fidelidade?",
                   a: "Não tem nenhuma das duas. O cuidado começa imediatamente após a contratação e você pode cancelar quando quiser, sem multa.",
                 },
                 {
-                  q: "Posso contratar para minha mãe sendo eu de outra cidade?",
-                  a: "Sim! O processo de contratação é 100% digital. Você faz tudo pelo WhatsApp ou pelo site, e nossa equipe cuida de toda a parte presencial com seu familiar em BH.",
+                  q: "Posso contratar para um familiar sendo eu de outra cidade?",
+                  a: "Sim! O processo de contratação é 100% digital. Você faz tudo pelo WhatsApp ou pelo site, e nossa equipe cuida de toda a parte presencial com seu familiar em Belo Horizonte.",
                 },
                 {
                   q: "O que é o Pronto Cuidar 24h?",
-                  a: "É o pronto atendimento exclusivo para idosos da Mais60 Saúde, disponível 24 horas. Acionado em situações de urgência, com coparticipação sobre o valor do pacote.",
+                  a: "É o pronto atendimento exclusivo para idosos, em parceria com a Mais60 Saúde. Os atendimentos de urgência são agendados através do telefone e o paciente será atendido no horário certo e sem filas. Além disso, conta com o telemonitoramento 24h. O Pronto Cuidar deverá ser acionado em situações de urgência.",
                 },
               ].map(({ q, a }, i) => {
                 const isOpen = openFaq === i
@@ -683,10 +684,10 @@ export default function HomePage() {
 
               <div className="flex flex-col gap-4 mb-8">
                 {[
-                  { icon: Phone, label: "Telefone / WhatsApp", value: "(31) 99999-0000" },
+                  { icon: Phone, label: "Telefone / WhatsApp", value: "(31) 93618-2994" },
                   { icon: Mail, label: "E-mail", value: "contato@convivasaude.com.br" },
-                  { icon: MapPin, label: "Cobertura", value: "BH e região até 50km" },
-                  { icon: Clock, label: "Atendimento", value: "Seg–Sex 7h–21h · Sáb 8h–18h" },
+                  // { icon: MapPin, label: "Cobertura", value: "BH e região até 50km" },
+                  // { icon: Clock, label: "Atendimento", value: "Seg–Sex 7h–21h · Sáb 8h–18h" },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-start gap-3">
                     <div className="size-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -827,7 +828,7 @@ export default function HomePage() {
                 <img src="/logo.svg" alt="Conviva Saúde" className="h-14 w-auto" />
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
-                Pacote completo de cuidado para idosos, com médico de referência, equipe multidisciplinar e Pronto Cuidar, o pronto atendimento para o idoso.
+                Programa de cuidado contínuo para idosos, com médico de referência, equipe multidisciplinar e Pronto Cuidar, o pronto atendimento para o idoso.
               </p>
               <div className="flex items-center gap-3 mt-4">
                 {[
@@ -861,7 +862,7 @@ export default function HomePage() {
               <ul className="flex flex-col gap-2">
                 {[
                   { label: "Sobre nós", href: "/sobre" },
-                  { label: "Como funciona", href: "/como-funciona" },
+                  // { label: "Como funciona", href: "/como-funciona" },
                   { label: "Nossas unidades", href: "/unidades" },
                   { label: "Blog de saúde", href: "/blog" },
                 ].map(({ label, href }) => (

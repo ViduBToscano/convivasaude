@@ -1,11 +1,15 @@
+"use client"
+
+import { useState } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Heart, Shield, Activity, Users, CheckCircle, ImageIcon, Phone, Info, MapPin, Star } from "lucide-react"
+import { ArrowRight, Heart, Shield, Activity, Users, CheckCircle, Phone, Info, MapPin, Star, X, ChevronRight, MailIcon } from "lucide-react"
 
 const stats = [
   { value: "R$ 329", label: "Mesmo valor para qualquer idade" },
   { value: "10+", label: "Especialidades no pacote" },
-  { value: "24h", label: "Pronto Cuidar disponível" },
+  { value: "24h", label: "Através do Pronto Cuidar e do Teleatendimento" },
 ]
 
 const values = [
@@ -17,6 +21,9 @@ const values = [
 ]
 
 export default function SobrePage() {
+  const [showModal, setShowModal] = useState(false)
+  const [convenio, setConvenio] = useState("")
+
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "var(--background)", color: "var(--foreground)" }}>
 
@@ -28,7 +35,7 @@ export default function SobrePage() {
           <nav className="hidden md:flex items-center gap-1">
             {[
               ["Sobre nós", "/sobre"],
-              ["Como funciona", "/como-funciona"],
+              // ["Como funciona", "/como-funciona"],
               ["Unidades", "/unidades"],
               ["FAQ", "/faq"],
               ["Blog", "/blog"],
@@ -68,7 +75,7 @@ export default function SobrePage() {
               Nascemos para mudar o jeito de cuidar da saúde após os 60
             </h1>
             <p className="text-lg md:text-xl leading-relaxed max-w-2xl" style={{ color: "var(--muted-foreground)" }}>
-              A Conviva Saúde é um pacote completo de benefícios criado para oferecer ao idoso de BH um cuidado humano, acessível e sem burocracia.
+              A Conviva Saúde nasceu com o propósito de oferecer a pessoa idosa um cuidado humano, acessível e sem burocracia.
             </p>
 
             {/* Banner aviso */}
@@ -87,30 +94,24 @@ export default function SobrePage() {
                 <span className="font-semibold" style={{ color: "var(--primary)" }}>
                   A Conviva Saúde não é um plano de saúde.
                 </span>{" "}
-                Somos um pacote particular de benefícios voltado ao envelhecimento saudável — sem regulação da ANS, sem carência, sem reajuste por faixa etária.
-              </p>
+                Somos um pacote particular de benefícios e cuidado contínuo voltado ao envelhecimento saudável.
             </div>
 
             {/* Foto principal */}
             <div
               className="relative w-full rounded-2xl overflow-hidden h-72 md:h-[420px] mt-10"
               style={{
-                background: "#D4C5B0",
                 animation: "sbFadeUp 0.6s ease forwards",
                 opacity: 0,
                 animationDelay: "0.2s",
               }}
             >
-              <div
-                className="absolute inset-0 flex items-center justify-center flex-col gap-2"
-                style={{
-                  backgroundImage: "linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.4) 100%)",
-                  color: "rgba(255,255,255,0.6)",
-                }}
-              >
-                <ImageIcon className="size-12 opacity-40" />
-                <p className="text-sm opacity-60">[ foto principal — casal idoso / momento de cuidado ]</p>
-              </div>
+              <Image
+                src="/images/shutterstock_2169381397.jpg"
+                alt="Cuidado com idosos — Conviva Saúde"
+                fill
+                className="object-cover object-center"
+              />
             </div>
           </div>
         </section>
@@ -130,13 +131,10 @@ export default function SobrePage() {
               </h2>
               <div className="flex flex-col gap-5" style={{ color: "var(--muted-foreground)" }}>
                 <p className="text-base leading-relaxed">
-                  A Conviva Saúde nasceu de uma percepção clara: o idoso brasileiro enfrenta um dilema cruel. De um lado, planos de saúde convencionais com mensalidades que chegam a R$ 1.500 ou mais para quem tem 60 anos — com reajustes anuais agressivos. Do outro, o SUS sobrecarregado, com filas de meses para uma consulta simples.
+                  A história da Conviva começa com algo que muita família no Brasil conhece bem: a dificuldade de encontrar um cuidado de saúde que realmente acompanhe o idoso no dia a dia, não só quando ele está doente. Consultas marcadas com semanas de antecedência, médicos diferentes a cada visita, familiares sem informação sobre o que está acontecendo. E, para quem quer algo mais próximo, planos de saúde com altos valores de mensalidades, reajustados todo ano conforme a idade avança.
                 </p>
                 <p className="text-base leading-relaxed">
-                  No meio desse vazio, criamos um novo modelo: um pacote de benefícios com preço fixo de R$ 329/mês, para qualquer idade, com médico de referência, enfermeiro dedicado, equipe multidisciplinar e Pronto Cuidar 24h.
-                </p>
-                <p className="text-base leading-relaxed">
-                  Operamos em parceria com a Mais60 Saúde — referência nacional em geriatria, com mais de 10 anos de experiência e 6 unidades em Belo Horizonte e região.
+                  Foi desse incômodo que a Conviva Saúde nasceu. Queríamos criar algo diferente: um pacote de cuidado de geriatria e gerontologia com preço fixo e acessível. A nossa ideia sempre foi colocar o idoso no centro. Com médico de referência que o conhece de verdade, enfermeiro dedicado que mantém a família informada e uma equipe multidisciplinar pronta para o que precisar.
                 </p>
               </div>
             </div>
@@ -220,13 +218,13 @@ export default function SobrePage() {
               </h2>
               <div className="flex flex-col gap-4 max-w-2xl mx-auto text-left" style={{ color: "var(--muted-foreground)" }}>
                 <p className="text-base leading-relaxed">
-                  A Conviva Saúde opera em parceria exclusiva com a Mais60 Saúde — clínica referência nacional em geriatria, com mais de 10 anos de experiência e presença em Belo Horizonte, Região Metropolitana e São Paulo.
+                  A Conviva Saúde opera em parceria exclusiva com a Mais60 Saúde, clínica referência nacional em geriatria, com mais de 10 anos de experiência e presença em Belo Horizonte e Região Metropolitana.
                 </p>
                 <p className="text-base leading-relaxed">
-                  A Mais60 atende milhares de idosos por meio de uma equipe multidisciplinar com 10 especialidades: geriatra, enfermeiro navegador, fisioterapeuta, psicólogo, nutricionista, fonoaudiólogo, terapeuta ocupacional, farmacêutico, educador físico e médico de referência.
+                  A Mais60 atende milhares de idosos por meio de uma equipe multidisciplinar, quem conta com geriatra, enfermeiro navegador, fisioterapeuta, psicólogo, nutricionista, fonoaudiólogo, terapeuta ocupacional, farmacêutico, educador físico e outras especialidades.
                 </p>
                 <p className="text-base leading-relaxed">
-                  Quando você contrata a Conviva, seu familiar passa a ser atendido dentro dessa estrutura — com toda a expertise geriátrica da Mais60 e o modelo de acesso simplificado e acessível da Conviva.
+                  Quando você contrata a Conviva Saúde, seu familiar passa a ser atendido dentro dessa estrutura, com toda a expertise geriátrica da Mais60 e o modelo de acesso simplificado e acessível da Conviva.
                 </p>
               </div>
             </div>
@@ -234,9 +232,9 @@ export default function SobrePage() {
             {/* Cards diferenciais Mais60 */}
             <div className="grid md:grid-cols-3 gap-4 mb-10">
               {[
-                { icon: MapPin, title: "6 unidades em BH e região", desc: "Barro Preto, Santo Agostinho, Santa Efigênia, Pampulha, Betim e mais." },
+                { icon: MapPin, title: "5 unidades em BH", desc: "Barro Preto, Santo Agostinho, Santa Efigênia, Pampulha e uma unidade exclusiva do Pronto Cuidar." },
                 { icon: Star, title: "Referência em geriatria", desc: "Mais de 10 anos cuidando de idosos com foco em reabilitação, prevenção e qualidade de vida." },
-                { icon: Users, title: "Equipe multidisciplinar completa", desc: "10 especialidades trabalhando de forma coordenada pelo bem-estar do seu familiar." },
+                { icon: Users, title: "Equipe multidisciplinar completa", desc: "Especialistas que trabalham de forma coordenada pelo seu bem-estar ou do seu familiar." },
               ].map(({ icon: Icon, title, desc }) => (
                 <div
                   key={title}
@@ -295,14 +293,14 @@ export default function SobrePage() {
               Fale com nossa equipe ou contrate agora mesmo.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="#"
+              <button
+                onClick={() => setShowModal(true)}
                 className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
                 style={{ background: "var(--primary-foreground)", color: "var(--primary)" }}
               >
                 <Phone className="size-4" />
-                Falar pelo WhatsApp
-              </a>
+                Falar com a equipe
+              </button>
               <Link
                 href="/contratar"
                 className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
@@ -329,6 +327,127 @@ export default function SobrePage() {
           </p>
         </div>
       </footer>
+
+      {/* ── Modal de contato ──────────────────────────────────────────────── */}
+      {showModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)" }}
+          onClick={(e) => { if (e.target === e.currentTarget) setShowModal(false) }}
+        >
+          <div
+            className="relative w-full max-w-lg rounded-2xl overflow-hidden"
+            style={{
+              background: "linear-gradient(145deg, color-mix(in oklch, var(--primary) 8%, var(--card)), color-mix(in oklch, var(--accent) 30%, var(--card)))",
+              border: "1px solid color-mix(in oklch, var(--primary) 20%, var(--border))",
+              boxShadow: "0 8px 48px rgba(0,0,0,0.2)",
+            }}
+          >
+            {/* Header */}
+            <div className="px-6 pt-6 pb-5 border-b border-border/50 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="size-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
+                  <MailIcon className="size-5 text-primary" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="text-base font-semibold">Fale com nossa equipe</p>
+                  <p className="text-xs text-muted-foreground">Respondemos em até 2 horas úteis</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowModal(false)}
+                className="size-8 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              >
+                <X className="size-4" />
+              </button>
+            </div>
+
+            {/* Form */}
+            <div className="px-6 py-5 flex flex-col gap-4 max-h-[70vh] overflow-y-auto">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">Nome <span className="text-destructive">*</span></label>
+                  <input
+                    type="text"
+                    placeholder="Seu nome completo"
+                    required
+                    className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60"
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">WhatsApp <span className="text-destructive">*</span></label>
+                  <input
+                    type="tel"
+                    placeholder="(31) 9 0000-0000"
+                    required
+                    className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-foreground/70">E-mail <span className="text-muted-foreground font-normal">(opcional)</span></label>
+                <input
+                  type="email"
+                  placeholder="seu@email.com"
+                  className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60"
+                />
+              </div>
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-foreground/70">Tem convênio de saúde? <span className="text-destructive">*</span></label>
+                <div className="relative">
+                  <select
+                    value={convenio}
+                    onChange={(e) => setConvenio(e.target.value)}
+                    required
+                    className="w-full appearance-none rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 text-foreground pr-9"
+                  >
+                    <option value="">Selecione uma opção</option>
+                    <option value="sim">Sim, tenho convênio</option>
+                    <option value="nao">Não tenho convênio</option>
+                  </select>
+                  <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground rotate-90 pointer-events-none" />
+                </div>
+              </div>
+
+              {convenio === "sim" && (
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">Qual convênio?</label>
+                  <input
+                    type="text"
+                    placeholder="Ex: Unimed, Hapvida…"
+                    className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60"
+                  />
+                </div>
+              )}
+
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-foreground/70">Mensagem <span className="text-muted-foreground font-normal">(opcional)</span></label>
+                <textarea
+                  rows={3}
+                  placeholder="Conta um pouco sobre a situação do seu familiar…"
+                  className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60 resize-none"
+                />
+              </div>
+
+              <button
+                type="submit"
+                className="w-full flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition-all hover:opacity-90 hover:scale-[1.01] active:scale-[0.99] mt-1"
+                style={{ background: "var(--primary)", color: "var(--primary-foreground)", boxShadow: "0 4px 16px color-mix(in oklch, var(--primary) 30%, transparent)" }}
+              >
+                Enviar mensagem
+                <ArrowRight className="size-4" />
+              </button>
+
+              <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1.5">
+                <Shield className="size-3 shrink-0" />
+                Seus dados estão seguros. Não compartilhamos com terceiros.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes sbFadeUp {

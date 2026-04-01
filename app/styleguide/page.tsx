@@ -105,7 +105,7 @@ export default function StyleguidePage() {
           <nav className="hidden md:flex items-center gap-1">
             {[
               ["Sobre nós", "/sobre"],
-              ["Como funciona", "/como-funciona"],
+              // ["Como funciona", "/como-funciona"],
               ["Unidades", "/unidades"],
               ["FAQ", "/faq"],
               ["Blog", "/blog"],

@@ -1,6 +1,9 @@
+"use client"
+
+import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, MapPin, Phone, Calendar, Clock, ExternalLink } from "lucide-react"
+import { ArrowRight, MapPin, Phone, Calendar, Clock, ExternalLink, X, ChevronRight, MailIcon, Shield } from "lucide-react"
 
 const unidades = [
   {
@@ -47,6 +50,9 @@ const howItWorks = [
 ]
 
 export default function UnidadesPage() {
+  const [showModal, setShowModal] = useState(false)
+  const [convenio, setConvenio] = useState("")
+
   return (
     <div className="min-h-screen flex flex-col" style={{ background: "var(--background)", color: "var(--foreground)" }}>
 
@@ -58,7 +64,7 @@ export default function UnidadesPage() {
           <nav className="hidden md:flex items-center gap-1">
             {[
               ["Sobre nós", "/sobre"],
-              ["Como funciona", "/como-funciona"],
+              // ["Como funciona", "/como-funciona"],
               ["Unidades", "/unidades"],
               ["FAQ", "/faq"],
               ["Blog", "/blog"],
@@ -285,14 +291,14 @@ export default function UnidadesPage() {
               Fale com nossa equipe e descubra a unidade mais próxima da sua região.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <a
-                href="#"
+              <button
+                onClick={() => setShowModal(true)}
                 className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
                 style={{ background: "var(--primary-foreground)", color: "var(--primary)" }}
               >
                 <Phone className="size-4" />
-                Falar pelo WhatsApp
-              </a>
+                Falar com a equipe
+              </button>
               <Link
                 href="/contratar"
                 className="inline-flex items-center gap-2 rounded-xl px-6 py-3.5 text-sm font-semibold transition-all hover:opacity-90 hover:scale-[1.02] active:scale-[0.98]"
@@ -319,6 +325,87 @@ export default function UnidadesPage() {
           </p>
         </div>
       </footer>
+
+      {/* ── Modal de contato ──────────────────────────────────────────────── */}
+      {showModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)" }}
+          onClick={(e) => { if (e.target === e.currentTarget) setShowModal(false) }}
+        >
+          <div
+            className="relative w-full max-w-lg rounded-2xl overflow-hidden"
+            style={{
+              background: "linear-gradient(145deg, color-mix(in oklch, var(--primary) 8%, var(--card)), color-mix(in oklch, var(--accent) 30%, var(--card)))",
+              border: "1px solid color-mix(in oklch, var(--primary) 20%, var(--border))",
+              boxShadow: "0 8px 48px rgba(0,0,0,0.2)",
+            }}
+          >
+            <div className="px-6 pt-6 pb-5 border-b border-border/50 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="size-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
+                  <MailIcon className="size-5 text-primary" strokeWidth={1.5} />
+                </div>
+                <div>
+                  <p className="text-base font-semibold">Fale com nossa equipe</p>
+                  <p className="text-xs text-muted-foreground">Respondemos em até 2 horas úteis</p>
+                </div>
+              </div>
+              <button
+                onClick={() => setShowModal(false)}
+                className="size-8 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+              >
+                <X className="size-4" />
+              </button>
+            </div>
+            <div className="px-6 py-5 flex flex-col gap-4 max-h-[70vh] overflow-y-auto">
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">Nome <span className="text-destructive">*</span></label>
+                  <input type="text" placeholder="Seu nome completo" required className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60" />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">WhatsApp <span className="text-destructive">*</span></label>
+                  <input type="tel" placeholder="(31) 9 0000-0000" required className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60" />
+                </div>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-foreground/70">E-mail <span className="text-muted-foreground font-normal">(opcional)</span></label>
+                <input type="email" placeholder="seu@email.com" className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60" />
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-foreground/70">Tem convênio de saúde? <span className="text-destructive">*</span></label>
+                <div className="relative">
+                  <select value={convenio} onChange={(e) => setConvenio(e.target.value)} required className="w-full appearance-none rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 text-foreground pr-9">
+                    <option value="">Selecione uma opção</option>
+                    <option value="sim">Sim, tenho convênio</option>
+                    <option value="nao">Não tenho convênio</option>
+                  </select>
+                  <ChevronRight className="absolute right-3 top-1/2 -translate-y-1/2 size-4 text-muted-foreground rotate-90 pointer-events-none" />
+                </div>
+              </div>
+              {convenio === "sim" && (
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-xs font-medium text-foreground/70">Qual convênio?</label>
+                  <input type="text" placeholder="Ex: Unimed, Hapvida…" className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60" />
+                </div>
+              )}
+              <div className="flex flex-col gap-1.5">
+                <label className="text-xs font-medium text-foreground/70">Mensagem <span className="text-muted-foreground font-normal">(opcional)</span></label>
+                <textarea rows={3} placeholder="Conta um pouco sobre a situação do seu familiar…" className="w-full rounded-xl border border-border bg-background/70 px-3.5 py-2.5 text-sm outline-none transition-all focus:ring-2 focus:ring-primary/30 focus:border-primary/50 placeholder:text-muted-foreground/60 resize-none" />
+              </div>
+              <button type="submit" className="w-full flex items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-semibold transition-all hover:opacity-90 hover:scale-[1.01] active:scale-[0.99] mt-1" style={{ background: "var(--primary)", color: "var(--primary-foreground)", boxShadow: "0 4px 16px color-mix(in oklch, var(--primary) 30%, transparent)" }}>
+                Enviar mensagem
+                <ArrowRight className="size-4" />
+              </button>
+              <p className="text-center text-xs text-muted-foreground flex items-center justify-center gap-1.5">
+                <Shield className="size-3 shrink-0" />
+                Seus dados estão seguros. Não compartilhamos com terceiros.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes unFadeUp {
