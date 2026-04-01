@@ -605,10 +605,10 @@ export default function HomePage() {
             <div className="text-center mb-10">
               <SectionLabel>Dúvidas frequentes</SectionLabel>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
-                Perguntas que todo mundo faz
+                Dúvidas sobre a Conviva Saúde?
               </h2>
               <p className="text-muted-foreground text-sm">
-                Não encontrou o que procura? Fale com nossa equipe pelo WhatsApp.
+                Confira as dúvidas mais frequentes. Ainda quer saber mais, confira nossa página de FAQ ou fale com a nossa equipe.
               </p>
             </div>
 
