@@ -7,11 +7,11 @@ export const dynamic = "force-dynamic"
 const MAX_FIELD_LEN = 500
 const MAX_PAYLOAD_BYTES = 8 * 1024
 
-// Webhook da +60 (n8n). Recebe os leads no formato exato da LP +60
-// (application/x-www-form-urlencoded). Override opcional via env.
+// Webhook do n8n do cliente (n8n.convivasaude.com.br). Recebe os leads no
+// formato exato da LP +60 (application/x-www-form-urlencoded). Override via env.
 const LEAD_WEBHOOK_URL =
   process.env.LEAD_WEBHOOK_URL ??
-  "https://webhook.thegrowthhub.app.br/webhook/Site"
+  "https://n8n.convivasaude.com.br/webhook/Site"
 
 // Webhook do dashboard Lovable (Mais60). Recebe o lead em JSON.
 // URL contem secret, por isso fica apenas em env (nunca commitado).
