@@ -328,7 +328,7 @@ export default function SkeletonShowcasePage() {
           <p className="text-xs font-medium text-primary uppercase tracking-widest mb-1">Componentes</p>
           <h1 className="text-3xl font-bold tracking-tight">Skeleton</h1>
           <p className="text-muted-foreground mt-2 text-sm max-w-lg">
-            Um único primitivo animado — <code className="font-mono text-xs bg-muted px-1 py-0.5 rounded">animate-pulse bg-muted</code> — que
+            Um único primitivo animado, <code className="font-mono text-xs bg-muted px-1 py-0.5 rounded">animate-pulse bg-muted</code>, que
             você compõe em placeholders de carregamento correspondentes aos seus layouts reais. Reduz a latência percebida e evita mudanças de layout.
           </p>
         </div>
@@ -345,7 +345,7 @@ export default function SkeletonShowcasePage() {
       {/* ── Primitive shapes ── */}
       <Section
         title="Formas Primitivas"
-        description="Skeleton é uma div simples. Controle a forma com className — largura, altura e border-radius."
+        description="Skeleton é uma div simples. Controle a forma com className, largura, altura e border-radius."
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="flex flex-col gap-4">
@@ -456,7 +456,7 @@ export default function SkeletonShowcasePage() {
       {/* ── Stat cards ── */}
       <Section
         title="Cards de Métricas"
-        description="Grade de cards de métricas — comum em painéis e resumos de saúde."
+        description="Grade de cards de métricas, comum em painéis e resumos de saúde."
       >
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
@@ -472,7 +472,7 @@ export default function SkeletonShowcasePage() {
       {/* ── Table ── */}
       <Section
         title="Tabela de Dados"
-        description="Skeleton linha por linha com linha de cabeçalho — espelha as larguras de coluna da sua tabela real."
+        description="Skeleton linha por linha com linha de cabeçalho, espelha as larguras de coluna da sua tabela real."
       >
         <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between">
@@ -518,7 +518,7 @@ export default function SkeletonShowcasePage() {
       {/* ── Navbar ── */}
       <Section
         title="Barra de Navegação"
-        description="Skeleton do cabeçalho do app — alinhado para corresponder aos slots de logo, links e avatar da navbar real."
+        description="Skeleton do cabeçalho do app, alinhado para corresponder aos slots de logo, links e avatar da navbar real."
       >
         <NavbarSkeleton />
         <div className="mt-4">
@@ -550,7 +550,7 @@ export default function SkeletonShowcasePage() {
       {/* ── Chat ── */}
       <Section
         title="Chat / Mensagens"
-        description="Bolhas de mensagens enviadas e recebidas alternadas — alinhe a direção com a orientação da mensagem."
+        description="Bolhas de mensagens enviadas e recebidas alternadas, alinhe a direção com a orientação da mensagem."
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <ChatSkeleton />
@@ -563,7 +563,7 @@ export default function SkeletonShowcasePage() {
   </div>
 </div>
 
-{/* Mensagem enviada — direção invertida */}
+{/* Mensagem enviada, direção invertida */}
 <div className="flex items-end gap-2 flex-row-reverse">
   <Skeleton className="size-7 rounded-full shrink-0" />
   <div className="flex flex-col items-end gap-1">
@@ -577,7 +577,7 @@ export default function SkeletonShowcasePage() {
       {/* ── Pattern: match real layout ── */}
       <Section
         title="Padrão: Espelhe Seu Layout Real"
-        description="O skeleton deve ser uma cópia estrutural do estado carregado — mesmas dimensões, mesmo grid, mesmo espaçamento."
+        description="O skeleton deve ser uma cópia estrutural do estado carregado, mesmas dimensões, mesmo grid, mesmo espaçamento."
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="flex flex-col gap-2">
@@ -610,7 +610,7 @@ export default function SkeletonShowcasePage() {
                   <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center text-primary font-bold text-xs shrink-0">+</div>
                   <div className="min-w-0">
                     <p className="text-sm font-medium">Plano Bem-Estar Sênior</p>
-                    <p className="text-xs text-muted-foreground">Seg–Sex, 8–20h</p>
+                    <p className="text-xs text-muted-foreground">Seg a Sex, 8 a 20h</p>
                   </div>
                   <Badge variant="outline" className="text-[10px] shrink-0">Ativo</Badge>
                 </div>
@@ -653,8 +653,8 @@ return <CuidadorCard cuidador={dados} />
       <Section title="Acessibilidade">
         <div className="rounded-xl bg-muted border border-border p-5 flex flex-col gap-2 text-sm">
           <p><strong>aria-busy:</strong> Adicione <code className="font-mono text-xs bg-background px-1 rounded border">aria-busy="true"</code> ao contêiner pai do skeleton para que leitores de tela saibam que o conteúdo está carregando.</p>
-          <p><strong>aria-label:</strong> Opcionalmente adicione um rótulo descritivo — ex.: <code className="font-mono text-xs bg-background px-1 rounded border">aria-label="Carregando perfil do cuidador"</code>.</p>
-          <p><strong>Redução de movimento:</strong> <code className="font-mono text-xs bg-background px-1 rounded border">animate-pulse</code> respeita a media query <code className="font-mono text-xs bg-background px-1 rounded border">prefers-reduced-motion</code> no Tailwind — a animação é automaticamente desativada para usuários que solicitam isso.</p>
+          <p><strong>aria-label:</strong> Opcionalmente adicione um rótulo descritivo, ex.: <code className="font-mono text-xs bg-background px-1 rounded border">aria-label="Carregando perfil do cuidador"</code>.</p>
+          <p><strong>Redução de movimento:</strong> <code className="font-mono text-xs bg-background px-1 rounded border">animate-pulse</code> respeita a media query <code className="font-mono text-xs bg-background px-1 rounded border">prefers-reduced-motion</code> no Tailwind, a animação é automaticamente desativada para usuários que solicitam isso.</p>
           <p><strong>Evite piscadas:</strong> Mostre skeletons apenas para carregamentos acima de ~300ms. Para respostas rápidas, omita o skeleton para evitar um flash do estado de carregamento.</p>
         </div>
       </Section>

@@ -83,10 +83,10 @@ const scenarios = [
     projecoes: [
       { label: "Impressões/mês", value: "~160.000" },
       { label: "Cliques", value: "~3.200" },
-      { label: "Leads estimados", value: "48–64" },
-      { label: "CPL estimado", value: "R$ 39–52" },
-      { label: "Contratos/mês", value: "7–10" },
-      { label: "MRR gerado", value: "R$ 2.303–3.290" },
+      { label: "Leads estimados", value: "48 a 64" },
+      { label: "CPL estimado", value: "R$ 39 a 52" },
+      { label: "Contratos/mês", value: "7 a 10" },
+      { label: "MRR gerado", value: "R$ 2.303 a 3.290" },
     ],
     ideal: "Validação de canais e criativos. Primeiros 3 meses.",
   },
@@ -104,12 +104,12 @@ const scenarios = [
     projecoes: [
       { label: "Impressões/mês", value: "~200.000" },
       { label: "Cliques", value: "~4.000" },
-      { label: "Leads estimados", value: "60–80" },
-      { label: "CPL estimado", value: "R$ 37–50" },
-      { label: "Contratos/mês", value: "9–12" },
-      { label: "MRR gerado", value: "R$ 2.961–3.948" },
+      { label: "Leads estimados", value: "60 a 80" },
+      { label: "CPL estimado", value: "R$ 37 a 50" },
+      { label: "Contratos/mês", value: "9 a 12" },
+      { label: "MRR gerado", value: "R$ 2.961 a 3.948" },
     ],
-    ideal: "Meses 4–9, após validação inicial de canais.",
+    ideal: "Meses 4 a 9, após validação inicial de canais.",
   },
   {
     label: "Aceleração",
@@ -125,34 +125,34 @@ const scenarios = [
     projecoes: [
       { label: "Impressões/mês", value: "~280.000" },
       { label: "Cliques", value: "~5.600" },
-      { label: "Leads estimados", value: "84–112" },
-      { label: "CPL estimado", value: "R$ 36–48" },
-      { label: "Contratos/mês", value: "13–17" },
-      { label: "MRR gerado", value: "R$ 4.277–5.593" },
+      { label: "Leads estimados", value: "84 a 112" },
+      { label: "CPL estimado", value: "R$ 36 a 48" },
+      { label: "Contratos/mês", value: "13 a 17" },
+      { label: "MRR gerado", value: "R$ 4.277 a 5.593" },
     ],
     ideal: "M10+, escala após CAC e taxa de fechamento validados.",
   },
 ]
 
 const kpis = [
-  { kpi: "CPL (Meta Ads)", ferramenta: "Meta Ads", ref: "R$ 40–90", m3: "R$ 70", m6: "R$ 55", m12: "R$ 45" },
-  { kpi: "CPL (Google Search)", ferramenta: "Google Ads", ref: "R$ 80–150", m3: "R$ 120", m6: "R$ 100", m12: "R$ 80" },
-  { kpi: "CPL médio geral", ferramenta: "Planilha", ref: "—", m3: "R$ 90", m6: "R$ 70", m12: "R$ 55" },
+  { kpi: "CPL (Meta Ads)", ferramenta: "Meta Ads", ref: "R$ 40 a 90", m3: "R$ 70", m6: "R$ 55", m12: "R$ 45" },
+  { kpi: "CPL (Google Search)", ferramenta: "Google Ads", ref: "R$ 80 a 150", m3: "R$ 120", m6: "R$ 100", m12: "R$ 80" },
+  { kpi: "CPL médio geral", ferramenta: "Planilha", ref: ",", m3: "R$ 90", m6: "R$ 70", m12: "R$ 55" },
   { kpi: "Taxa conv. LP", ferramenta: "GA4", ref: "2,98% (BR)", m3: "2%", m6: "3%", m12: "4%" },
-  { kpi: "Leads/mês", ferramenta: "CRM/Planilha", ref: "—", m3: "50", m6: "80", m12: "120" },
-  { kpi: "Taxa fechamento", ferramenta: "CRM", ref: "—", m3: "10%", m6: "15%", m12: "20%" },
-  { kpi: "Contratos/mês", ferramenta: "CRM", ref: "—", m3: "5", m6: "12", m12: "24" },
-  { kpi: "CAC", ferramenta: "Planilha", ref: "—", m3: "R$ 600", m6: "R$ 350", m12: "R$ 200" },
-  { kpi: "LTV (36 meses)", ferramenta: "Planilha", ref: "—", m3: "R$ 11.844", m6: "R$ 11.844", m12: "R$ 11.844" },
+  { kpi: "Leads/mês", ferramenta: "CRM/Planilha", ref: ",", m3: "50", m6: "80", m12: "120" },
+  { kpi: "Taxa fechamento", ferramenta: "CRM", ref: ",", m3: "10%", m6: "15%", m12: "20%" },
+  { kpi: "Contratos/mês", ferramenta: "CRM", ref: ",", m3: "5", m6: "12", m12: "24" },
+  { kpi: "CAC", ferramenta: "Planilha", ref: ",", m3: "R$ 600", m6: "R$ 350", m12: "R$ 200" },
+  { kpi: "LTV (36 meses)", ferramenta: "Planilha", ref: ",", m3: "R$ 11.844", m6: "R$ 11.844", m12: "R$ 11.844" },
   { kpi: "LTV:CAC", ferramenta: "Calculado", ref: "Meta: 3:1", m3: "19:1", m6: "33:1", m12: "59:1" },
-  { kpi: "MRR", ferramenta: "Financeiro", ref: "—", m3: "R$ 1.645", m6: "R$ 3.948", m12: "R$ 7.896" },
-  { kpi: "Seguidores Instagram", ferramenta: "Instagram", ref: "—", m3: "300", m6: "800", m12: "2.000" },
-  { kpi: "Inscritos YouTube", ferramenta: "YouTube", ref: "—", m3: "50", m6: "200", m12: "600" },
+  { kpi: "MRR", ferramenta: "Financeiro", ref: ",", m3: "R$ 1.645", m6: "R$ 3.948", m12: "R$ 7.896" },
+  { kpi: "Seguidores Instagram", ferramenta: "Instagram", ref: ",", m3: "300", m6: "800", m12: "2.000" },
+  { kpi: "Inscritos YouTube", ferramenta: "YouTube", ref: ",", m3: "50", m6: "200", m12: "600" },
 ]
 
 const trimestres = [
   {
-    periodo: "T1 (Jan–Mar)",
+    periodo: "T1 (Jan a Mar)",
     fase: "Infraestrutura e validação",
     badgeColor: { bg: "#fef3c7", text: "#92400e" },
     faseLabel: "Fase 1",
@@ -170,7 +170,7 @@ const trimestres = [
     ],
   },
   {
-    periodo: "T2 (Abr–Jun)",
+    periodo: "T2 (Abr a Jun)",
     fase: "Otimização e tração",
     badgeColor: { bg: "#dbeafe", text: "#1e40af" },
     faseLabel: "Fase 2",
@@ -186,7 +186,7 @@ const trimestres = [
     ],
   },
   {
-    periodo: "T3 (Jul–Set)",
+    periodo: "T3 (Jul a Set)",
     fase: "Escala",
     badgeColor: { bg: "#dcfce7", text: "#166534" },
     faseLabel: "Fase 3",
@@ -199,7 +199,7 @@ const trimestres = [
     ],
   },
   {
-    periodo: "T4 (Out–Dez)",
+    periodo: "T4 (Out a Dez)",
     fase: "Consolidação e planejamento 2027",
     badgeColor: { bg: "#f3e8ff", text: "#6b21a8" },
     faseLabel: "Fase 4",
@@ -272,11 +272,11 @@ export default function PlanosMidiaPage() {
             <Badge className="mb-4" variant="outline">Documento interno · 2026</Badge>
             <h1 className="text-4xl font-bold tracking-tight mb-3">Plano de Mídia</h1>
             <p className="text-muted-foreground max-w-xl leading-relaxed">
-              Estratégia completa de mídia digital para lançamento da Conviva Saúde em BH e região —
+              Estratégia completa de mídia digital para lançamento da Conviva Saúde em BH e região ,
               incluindo canais, copies, tracking, cenários de investimento e calendário de execução.
             </p>
             <div className="flex flex-wrap gap-2 mt-4">
-              {["BH e raio de 70km", "Marca em lançamento", "Jan–Dez 2026"].map((b) => (
+              {["BH e raio de 70km", "Marca em lançamento", "Jan a Dez 2026"].map((b) => (
                 <span
                   key={b}
                   className="px-3 py-1 rounded-full text-xs font-semibold"
@@ -296,7 +296,7 @@ export default function PlanosMidiaPage() {
           <PmSection id="contexto" label="Plano de Mídia 2026" title="Lançar uma marca nova num mercado em explosão">
             <div className="flex flex-col gap-4 mb-8">
               <p className="text-sm leading-relaxed text-muted-foreground">
-                A Conviva Saúde entra num dos mercados que mais crescem no Brasil — e com uma
+                A Conviva Saúde entra num dos mercados que mais crescem no Brasil, e com uma
                 vantagem competitiva clara: ninguém em BH oferece o que ela oferece, pelo preço
                 que ela cobra.
               </p>
@@ -318,7 +318,7 @@ export default function PlanosMidiaPage() {
                 {
                   icon: Users,
                   stat: "24,5 milhões",
-                  desc: "Idosos brasileiros conectados à internet em 2024 — crescimento de 278% desde 2016.",
+                  desc: "Idosos brasileiros conectados à internet em 2024, crescimento de 278% desde 2016.",
                   fonte: "IBGE/PNAD 2024",
                 },
                 {
@@ -376,7 +376,7 @@ export default function PlanosMidiaPage() {
                   className="rounded-lg p-3 mt-auto text-xs leading-relaxed italic text-muted-foreground"
                   style={{ background: "var(--muted)" }}
                 >
-                  "O bônus demográfico do Brasil acabou — a demanda por serviços geriátricos só
+                  "O bônus demográfico do Brasil acabou, a demanda por serviços geriátricos só
                   cresce." <span className="not-italic font-medium">Ipea, 2025</span>
                 </div>
               </div>
@@ -440,13 +440,13 @@ export default function PlanosMidiaPage() {
               <div className="p-5 rounded-2xl border border-border flex flex-col gap-4">
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-bold text-sm">Público A: O Idoso Ativo</h3>
-                  <Badge variant="outline" className="shrink-0 text-xs">60–74 anos</Badge>
+                  <Badge variant="outline" className="shrink-0 text-xs">60 a 74 anos</Badge>
                 </div>
                 <ul className="flex flex-col gap-1.5">
                   {[
                     "85% dos 60-64 anos usam internet (PNAD 2024)",
                     "Facebook: 85% de penetração na faixa",
-                    "YouTube: 77% — consome vídeos longos",
+                    "YouTube: 77%, consome vídeos longos",
                     "Pesquisa saúde no Google com frequência",
                     "Decisor da própria saúde",
                     "Confia em indicações e autoridade médica",
@@ -471,7 +471,7 @@ export default function PlanosMidiaPage() {
               <div className="p-5 rounded-2xl border border-border flex flex-col gap-4">
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-bold text-sm">Público B: O Filho Decisor</h3>
-                  <Badge variant="outline" className="shrink-0 text-xs">35–55 anos</Badge>
+                  <Badge variant="outline" className="shrink-0 text-xs">35 a 55 anos</Badge>
                 </div>
                 <ul className="flex flex-col gap-1.5">
                   {[
@@ -512,16 +512,16 @@ export default function PlanosMidiaPage() {
                   badgeText: "#166534",
                   pct: "35%",
                   linhas: [
-                    { label: "CPL estimado BH", value: "R$ 80–150/lead" },
-                    { label: "CPC estimado", value: "R$ 3–8/clique" },
-                    { label: "Conv. LP estimada", value: "3–5% com LP otimizada" },
+                    { label: "CPL estimado BH", value: "R$ 80 a 150/lead" },
+                    { label: "CPC estimado", value: "R$ 3 a 8/clique" },
+                    { label: "Conv. LP estimada", value: "3 a 5% com LP otimizada" },
                   ],
                   termos: [
                     '"geriatra BH" / "médico idoso belo horizonte"',
                     '"cuidado idoso BH" / "saúde idoso BH"',
                     '"alternativa plano saúde idoso"',
                   ],
-                  porque: "Captura intenção ativa — quem já busca solução. Melhor CAC do funil.",
+                  porque: "Captura intenção ativa, quem já busca solução. Melhor CAC do funil.",
                 },
                 {
                   icon: Smartphone,
@@ -531,7 +531,7 @@ export default function PlanosMidiaPage() {
                   badgeText: "#166534",
                   pct: "40%",
                   linhas: [
-                    { label: "CPL estimado BH", value: "R$ 40–90/lead" },
+                    { label: "CPL estimado BH", value: "R$ 40 a 90/lead" },
                     { label: "Público A", value: "Facebook · 45-70 anos · BH+70km" },
                     { label: "Público B", value: "Instagram · 35-55 anos · BH+70km" },
                   ],
@@ -546,7 +546,7 @@ export default function PlanosMidiaPage() {
                   badgeText: "#92400e",
                   pct: "15%",
                   linhas: [
-                    { label: "CPM estimado", value: "R$ 8–20/mil views" },
+                    { label: "CPM estimado", value: "R$ 8 a 20/mil views" },
                     { label: "Formatos", value: "Bumper 6s + In-stream 15-30s" },
                     { label: "Público", value: "45-70 anos BH · interesses saúde" },
                   ],
@@ -561,7 +561,7 @@ export default function PlanosMidiaPage() {
                   badgeText: "#1e40af",
                   pct: "5%",
                   linhas: [
-                    { label: "CPM estimado", value: "R$ 3–8/mil impressões" },
+                    { label: "CPM estimado", value: "R$ 3 a 8/mil impressões" },
                     { label: "Audiência", value: "Visitantes LP que não converteram" },
                     { label: "Impacto", value: "+15-25% na taxa de conversão geral" },
                   ],
@@ -669,7 +669,7 @@ export default function PlanosMidiaPage() {
                     <div className="flex items-center justify-between mb-1.5 gap-2">
                       <div className="flex items-center gap-2 min-w-0">
                         <span className="text-sm font-medium truncate">{canal}</span>
-                        <span className="text-xs text-muted-foreground hidden sm:inline">— {objetivo}</span>
+                        <span className="text-xs text-muted-foreground hidden sm:inline">, {objetivo}</span>
                       </div>
                       <div className="flex items-center gap-3 shrink-0">
                         <span className="text-xs text-muted-foreground">{verba}</span>
@@ -739,7 +739,7 @@ export default function PlanosMidiaPage() {
               <div className="flex flex-col gap-6">
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                    Público A — Idoso (60-74 anos)
+                    Público A, Idoso (60-74 anos)
                   </p>
                   <div className="rounded-xl border border-border overflow-hidden">
                     <div className="px-4 py-3 bg-muted border-b border-border">
@@ -750,7 +750,7 @@ export default function PlanosMidiaPage() {
                         "Geriatra em BH por R$329/mês",
                         "Médico Idoso BH - Sem Fila",
                         "Cuidado Geriátrico Coordenado",
-                        "Sem Carência · Sem Fidelidade",
+                        "Sem Carência · Sem Reajuste por Idade",
                         "Atendimento em 48h em BH",
                       ].map((h) => (
                         <div key={h} className="flex items-center gap-2 font-mono text-sm">
@@ -779,7 +779,7 @@ export default function PlanosMidiaPage() {
 
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                    Público B — Filho Decisor (35-55 anos)
+                    Público B, Filho Decisor (35-55 anos)
                   </p>
                   <div className="rounded-xl border border-border overflow-hidden">
                     <div className="px-4 py-3 bg-muted border-b border-border">
@@ -824,7 +824,7 @@ export default function PlanosMidiaPage() {
               <div className="flex flex-col gap-6">
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                    Público A — Facebook (60-74 anos)
+                    Público A, Facebook (60-74 anos)
                   </p>
                   <div className="rounded-xl border border-border overflow-hidden">
                     <div className="px-4 py-3 bg-muted border-b border-border">
@@ -856,7 +856,7 @@ O mesmo valor para qualquer idade. Sem fila. Sem carência.
 
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                    Público B — Facebook (35-55 anos)
+                    Público B, Facebook (35-55 anos)
                   </p>
                   <div className="rounded-xl border border-border overflow-hidden">
                     <div className="px-4 py-3 bg-muted border-b border-border">
@@ -870,7 +870,7 @@ A Conviva Saúde tem um enfermeiro dedicado que cuida do seu familiar e te mant�
 
 R$ 329/mês. Pronto Cuidar 24h. Sem burocracia.
 
-Você pode estar em qualquer cidade — a gente cuida de quem você ama em BH. 💙`}
+Você pode estar em qualquer cidade, a gente cuida de quem você ama em BH. 💙`}
                       </p>
                     </div>
                     <div className="px-4 py-3 bg-muted border-t border-border grid grid-cols-2 gap-4">
@@ -893,7 +893,7 @@ Você pode estar em qualquer cidade — a gente cuida de quem você ama em BH. �
               <div className="flex flex-col gap-6">
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                    Stories e Feed — Público B (35-55 anos)
+                    Stories e Feed, Público B (35-55 anos)
                   </p>
                   <div className="rounded-xl border border-border overflow-hidden">
                     <div className="px-4 py-3 bg-muted border-b border-border">
@@ -937,7 +937,7 @@ Pronto Cuidar 24h · R$ 329/mês
               <div className="flex flex-col gap-6">
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                    Bumper 6 segundos — Awareness
+                    Bumper 6 segundos, Awareness
                   </p>
                   <div className="rounded-xl border border-border overflow-hidden">
                     <div className="px-4 py-3 bg-muted border-b border-border flex items-center justify-between">
@@ -957,7 +957,7 @@ Pronto Cuidar 24h · R$ 329/mês
 
                 <div>
                   <p className="text-xs font-semibold text-primary uppercase tracking-wider mb-3">
-                    In-stream 15 segundos — Conversão
+                    In-stream 15 segundos, Conversão
                   </p>
                   <div className="rounded-xl border border-border overflow-hidden">
                     <div className="px-4 py-3 bg-muted border-b border-border flex items-center justify-between">
@@ -966,7 +966,7 @@ Pronto Cuidar 24h · R$ 329/mês
                     </div>
                     <div className="p-4">
                       <p className="text-sm leading-relaxed italic">
-                        "Seu familiar precisa de um médico que o conheça de verdade — não só quando
+                        "Seu familiar precisa de um médico que o conheça de verdade, não só quando
                         está doente. A Conviva Saúde oferece médico de referência, enfermeiro e
                         Pronto Cuidar 24h por R$ 329/mês. Fale com a gente."
                       </p>
@@ -984,7 +984,7 @@ Pronto Cuidar 24h · R$ 329/mês
           <PmSection id="tracking" label="Mensuração" title="O que configurar antes de investir R$ 1">
             <p className="text-sm text-muted-foreground mb-6">
               Nenhum real deve ser investido em mídia antes de ter tracking configurado. Sem dados,
-              não há otimização — e o dinheiro vai embora sem aprender.
+              não há otimização, e o dinheiro vai embora sem aprender.
             </p>
 
             <div className="flex flex-col gap-4">
@@ -1030,7 +1030,7 @@ Pronto Cuidar 24h · R$ 329/mês
                   ],
                 },
                 {
-                  titulo: "Dashboard — Looker Studio",
+                  titulo: "Dashboard, Looker Studio",
                   tag: "Recomendado",
                   itens: [
                     "Gratuito, conecta direto com GA4, Google Ads e Meta",

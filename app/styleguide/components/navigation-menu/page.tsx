@@ -355,7 +355,7 @@ export default function NavigationMenuShowcasePage() {
 
       {/* ── Real-world: Conviva Saúde navbar ── */}
       <Section
-        title="Exemplo Real — Barra de Navegação Conviva Saúde"
+        title="Exemplo Real, Barra de Navegação Conviva Saúde"
         description="Uma barra de navegação superior completa para a plataforma de cuidados para idosos."
       >
         <div className="rounded-xl border border-border overflow-hidden">
@@ -477,7 +477,7 @@ export default function NavigationMenuShowcasePage() {
 
       {/* ── Real-world: Mobile bottom nav ── */}
       <Section
-        title="Exemplo Real — Navegação Inferior Mobile"
+        title="Exemplo Real, Navegação Inferior Mobile"
         description="Uma barra de abas mobile usando itens NavigationMenu com ícones."
       >
         <div className="mx-auto max-w-xs rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
@@ -532,12 +532,12 @@ export default function NavigationMenuShowcasePage() {
             <tbody className="divide-y divide-border">
               {[
                 ["NavigationMenu", "viewport", "boolean", "true"],
-                ["NavigationMenu", "className", "string", "—"],
+                ["NavigationMenu", "className", "string", ","],
                 ["NavigationMenuLink", "active", "boolean", "false"],
                 ["NavigationMenuLink", "asChild", "boolean", "false"],
-                ["NavigationMenuTrigger", "className", "string", "—"],
-                ["NavigationMenuContent", "className", "string", "—"],
-                ["navigationMenuTriggerStyle", "()", "() => string", "—"],
+                ["NavigationMenuTrigger", "className", "string", ","],
+                ["NavigationMenuContent", "className", "string", ","],
+                ["navigationMenuTriggerStyle", "()", "() => string", ","],
               ].map(([comp, prop, type, def]) => (
                 <tr key={`${comp}-${prop}`} className="hover:bg-muted/30">
                   <td className="p-3 pr-4 font-mono text-primary">{comp}</td>
@@ -557,7 +557,7 @@ export default function NavigationMenuShowcasePage() {
           <p><strong>Teclado:</strong> <kbd className="font-mono text-xs bg-background border rounded px-1">Tab</kbd> move o foco entre os gatilhos. <kbd className="font-mono text-xs bg-background border rounded px-1">Enter</kbd> / <kbd className="font-mono text-xs bg-background border rounded px-1">Espaço</kbd> abre um dropdown. As teclas de seta navegam dentro do conteúdo aberto. <kbd className="font-mono text-xs bg-background border rounded px-1">Esc</kbd> fecha o painel aberto.</p>
           <p><strong>Papéis ARIA:</strong> O componente raiz renderiza como <code className="font-mono text-xs bg-background px-1 rounded border">role="navigation"</code>. Os gatilhos usam <code className="font-mono text-xs bg-background px-1 rounded border">aria-expanded</code>. Os painéis de conteúdo usam <code className="font-mono text-xs bg-background px-1 rounded border">aria-hidden</code> quando fechados.</p>
           <p><strong>Prop active:</strong> Passe <code className="font-mono text-xs bg-background px-1 rounded border">active</code> para <code className="font-mono text-xs bg-background px-1 rounded border">NavigationMenuLink</code> para definir <code className="font-mono text-xs bg-background px-1 rounded border">aria-current="page"</code> e aplicar estilos de estado ativo.</p>
-          <p><strong>asChild:</strong> Use <code className="font-mono text-xs bg-background px-1 rounded border">asChild</code> para renderizar um <code className="font-mono text-xs bg-background px-1 rounded border">{"<Link>"}</code> do Next.js — preservando o roteamento client-side sem perder semântica ARIA.</p>
+          <p><strong>asChild:</strong> Use <code className="font-mono text-xs bg-background px-1 rounded border">asChild</code> para renderizar um <code className="font-mono text-xs bg-background px-1 rounded border">{"<Link>"}</code> do Next.js, preservando o roteamento client-side sem perder semântica ARIA.</p>
           <p><strong>Landmark:</strong> NavigationMenu renderiza como <code className="font-mono text-xs bg-background px-1 rounded border">{"<nav>"}</code>. Adicione um <code className="font-mono text-xs bg-background px-1 rounded border">aria-label</code> único quando houver múltiplas navs na mesma página.</p>
         </div>
       </Section>

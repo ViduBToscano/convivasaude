@@ -6,12 +6,12 @@ A Conviva Saúde oferece um pacote particular de benefícios por R$ 329/mês, se
 Não é um plano de saúde. É um pacote complementar de cuidado contínuo voltado ao envelhecimento saudável.
 
 ## Páginas principais
-- Home: https://convivasaude.vercel.app
-- Sobre: https://convivasaude.vercel.app/sobre
-- Unidades: https://convivasaude.vercel.app/unidades
-- FAQ: https://convivasaude.vercel.app/faq
-- Blog: https://convivasaude.vercel.app/blog
-- Contratar: https://convivasaude.vercel.app/contratar
+- Home: https://convivasaude.com.br
+- Sobre: https://convivasaude.com.br/sobre
+- Unidades: https://convivasaude.com.br/unidades
+- FAQ: https://convivasaude.com.br/faq
+- Blog: https://convivasaude.com.br/blog
+- Contratar: https://convivasaude.com.br/contratar
 
 ## Contato
 - Telefone/WhatsApp: (31) 93618-2994

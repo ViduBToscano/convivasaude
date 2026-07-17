@@ -96,7 +96,7 @@ export default function CardShowcasePage() {
           <Card>
             <CardHeader>
               <CardTitle>Título do Card</CardTitle>
-              <CardDescription>Descrição — texto secundário abaixo do título</CardDescription>
+              <CardDescription>Descrição, texto secundário abaixo do título</CardDescription>
               <CardAction>
                 <Button variant="ghost" size="icon-sm">
                   <MoreHorizontal className="size-4" />
@@ -106,7 +106,7 @@ export default function CardShowcasePage() {
             <CardContent>
               <p className="text-sm text-muted-foreground">
                 Esta é a área <strong className="text-foreground">CardContent</strong>. Coloque aqui
-                qualquer conteúdo — textos, listas, inputs, gráficos ou outros componentes.
+                qualquer conteúdo, textos, listas, inputs, gráficos ou outros componentes.
               </p>
             </CardContent>
             <CardFooter className="justify-between">
@@ -176,7 +176,7 @@ export default function CardShowcasePage() {
       {/* ── Colour Variants ── */}
       <Section
         title="Variantes de Cor"
-        description="Sem variantes de cor embutidas — use className com variáveis CSS para personalizar."
+        description="Sem variantes de cor embutidas, use className com variáveis CSS para personalizar."
       >
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Card>
@@ -322,7 +322,7 @@ export default function CardShowcasePage() {
           <Card>
             <CardHeader>
               <CardTitle>Sem rodapé</CardTitle>
-              <CardDescription>O rodapé é opcional — omita quando não for necessário.</CardDescription>
+              <CardDescription>O rodapé é opcional, omita quando não for necessário.</CardDescription>
             </CardHeader>
             <CardContent>
               <p className="text-xs text-muted-foreground">Card limpo sem rodapé.</p>
@@ -383,7 +383,7 @@ export default function CardShowcasePage() {
                 </div>
                 <div>
                   <CardTitle>Plano Bem-Estar Sênior</CardTitle>
-                  <CardDescription>Seg–Sex, 8:00–20:00</CardDescription>
+                  <CardDescription>Seg a Sex, 8:00 a 20:00</CardDescription>
                 </div>
               </div>
             </CardHeader>
@@ -508,13 +508,13 @@ export default function CardShowcasePage() {
               <tbody className="divide-y divide-border">
                 {[
                   ["Card", "size", '"default" | "sm"', '"default"'],
-                  ["Card", "className", "string", "—"],
-                  ["CardHeader", "className", "string", "—"],
-                  ["CardTitle", "className", "string", "—"],
-                  ["CardDescription", "className", "string", "—"],
-                  ["CardAction", "className", "string", "—"],
-                  ["CardContent", "className", "string", "—"],
-                  ["CardFooter", "className", "string", "—"],
+                  ["Card", "className", "string", ","],
+                  ["CardHeader", "className", "string", ","],
+                  ["CardTitle", "className", "string", ","],
+                  ["CardDescription", "className", "string", ","],
+                  ["CardAction", "className", "string", ","],
+                  ["CardContent", "className", "string", ","],
+                  ["CardFooter", "className", "string", ","],
                 ].map(([comp, prop, type, def]) => (
                   <tr key={`${comp}-${prop}`}>
                     <td className="py-2 pr-6 font-mono text-primary">{comp}</td>

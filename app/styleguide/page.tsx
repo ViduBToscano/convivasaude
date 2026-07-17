@@ -107,7 +107,7 @@ export default function StyleguidePage() {
           </p>
           <h1 className="text-4xl font-bold tracking-tight">Guia de Estilo</h1>
           <p className="text-muted-foreground mt-2 max-w-xl text-sm leading-relaxed">
-            O estilo visual é parte essencial da plataforma Conviva Saúde — criando um sistema padronizado
+            O estilo visual é parte essencial da plataforma Conviva Saúde, criando um sistema padronizado
             de cores, tipografia, botões, campos e componentes voltados ao cuidado de idosos.
           </p>
         </div>
@@ -119,7 +119,7 @@ export default function StyleguidePage() {
       {/* ── Typography ── */}
       <Section
         title="Tipografia"
-        description="Urbanist é a fonte principal — geométrica, moderna e de alta legibilidade. Plus Jakarta Sans e Nunito estão disponíveis como fontes de suporte para variações de estilo ou componentes específicos."
+        description="Urbanist é a fonte principal, geométrica, moderna e de alta legibilidade. Plus Jakarta Sans e Nunito estão disponíveis como fontes de suporte para variações de estilo ou componentes específicos."
       >
         <div className="flex flex-col gap-10">
 
@@ -160,7 +160,7 @@ export default function StyleguidePage() {
                       className="text-sm"
                       style={{ fontWeight: [400, 500, 600, 700][i] }}
                     >
-                      {w} — Aa Bb Cc Dd 0123
+                      {w}, Aa Bb Cc Dd 0123
                     </span>
                   ))}
                 </div>
@@ -172,16 +172,16 @@ export default function StyleguidePage() {
 
           {/* Type scale */}
           <div>
-            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Escala tipográfica — Urbanist</p>
+            <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Escala tipográfica, Urbanist</p>
             <div className="flex flex-col gap-0.5">
               {[
-                { size: "text-4xl", weight: "font-bold", label: "Título 1 — 36px / 700", sample: "Cuidado Completo para Idosos" },
-                { size: "text-3xl", weight: "font-bold", label: "Título 2 — 30px / 700", sample: "Contratar Plano de Saúde" },
-                { size: "text-2xl", weight: "font-semibold", label: "Título 3 — 24px / 600", sample: "Sua Saúde, Nossa Prioridade" },
-                { size: "text-xl", weight: "font-semibold", label: "Título 4 — 20px / 600", sample: "Plano Bem-Estar Sênior" },
-                { size: "text-base", weight: "font-normal", label: "Corpo — 16px / 400", sample: "Acompanhamento personalizado com cuidadores especializados em geriatria e saúde do idoso." },
-                { size: "text-sm", weight: "font-normal", label: "Pequeno — 14px / 400", sample: "Clínica Geral · 8 anos de experiência" },
-                { size: "text-xs", weight: "font-medium", label: "Legenda — 12px / 500", sample: "Visita domiciliar disponível" },
+                { size: "text-4xl", weight: "font-bold", label: "Título 1, 36px / 700", sample: "Cuidado Completo para Idosos" },
+                { size: "text-3xl", weight: "font-bold", label: "Título 2, 30px / 700", sample: "Contratar Plano de Saúde" },
+                { size: "text-2xl", weight: "font-semibold", label: "Título 3, 24px / 600", sample: "Sua Saúde, Nossa Prioridade" },
+                { size: "text-xl", weight: "font-semibold", label: "Título 4, 20px / 600", sample: "Plano Bem-Estar Sênior" },
+                { size: "text-base", weight: "font-normal", label: "Corpo, 16px / 400", sample: "Acompanhamento personalizado com cuidadores especializados em geriatria e saúde do idoso." },
+                { size: "text-sm", weight: "font-normal", label: "Pequeno, 14px / 400", sample: "Clínica Geral · 8 anos de experiência" },
+                { size: "text-xs", weight: "font-medium", label: "Legenda, 12px / 500", sample: "Visita domiciliar disponível" },
               ].map(({ size, weight, label, sample }) => (
                 <div key={label} className="flex items-baseline gap-6 py-2.5 border-b border-border/40 last:border-0">
                   <span className="text-[10px] text-muted-foreground font-mono w-48 shrink-0">{label}</span>
@@ -200,7 +200,7 @@ export default function StyleguidePage() {
         description="Navy profundo (#374D72) ancora a paleta com confiança e dignidade. Verde sage (#79AB74) traz vitalidade e cura natural. Lavanda suave, pêssego âmbar e coral completam um sistema sereno, acolhedor e acessível."
       >
         <div className="flex flex-col gap-4">
-          {/* Row 1 — neutrals */}
+          {/* Row 1, neutrals */}
           <div className="grid grid-cols-5 gap-3">
             <div className="col-span-2">
               <PaletteSwatch hex="#1E2B42" label="Texto" cssVar="--foreground" />
@@ -210,17 +210,17 @@ export default function StyleguidePage() {
             <PaletteSwatch hex="#E8EBF5" cssVar="--muted" light />
           </div>
 
-          {/* Row 2 — brand */}
+          {/* Row 2, brand */}
           <div className="grid grid-cols-5 gap-3">
             <div className="col-span-2">
-              <PaletteSwatch hex="#374D72" label="Primário — Navy" cssVar="--primary" />
+              <PaletteSwatch hex="#374D72" label="Primário, Navy" cssVar="--primary" />
             </div>
-            <PaletteSwatch hex="#79AB74" label="Secundário — Sage" cssVar="--secondary" />
+            <PaletteSwatch hex="#79AB74" label="Secundário, Sage" cssVar="--secondary" />
             <PaletteSwatch hex="#D4CFE8" cssVar="--accent" light />
             <PaletteSwatch hex="#F4F5FA" cssVar="--background" light />
           </div>
 
-          {/* Row 3 — semantic */}
+          {/* Row 3, semantic */}
           <div className="grid grid-cols-5 gap-3">
             <div className="col-span-2">
               <PaletteSwatch hex="#79AB74" label="Verde / Sucesso" cssVar="--success" />
@@ -397,7 +397,7 @@ export default function StyleguidePage() {
                   <CardDescription>Cobertura completa para idosos</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-xs text-muted-foreground">Seg–Sex, 8:00–20:00</p>
+                  <p className="text-xs text-muted-foreground">Seg a Sex, 8:00 a 20:00</p>
                   <div className="flex gap-1 mt-2">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <span key={i} className="text-warning text-sm">★</span>
@@ -477,19 +477,19 @@ export default function StyleguidePage() {
           <CardContent className="pt-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-3">
               {[
-                ["Cor primária", "#374D72 — Navy Profundo"],
-                ["Cor secundária", "#79AB74 — Verde Sage"],
-                ["Acento", "oklch(0.895 0.040 290) — Lavanda Suave"],
-                ["Fundo", "oklch(0.982 0.006 255) — Branco azulado"],
-                ["Texto", "oklch(0.18 0.028 255) — Navy escuro"],
+                ["Cor primária", "#374D72, Navy Profundo"],
+                ["Cor secundária", "#79AB74, Verde Sage"],
+                ["Acento", "oklch(0.895 0.040 290), Lavanda Suave"],
+                ["Fundo", "oklch(0.982 0.006 255), Branco azulado"],
+                ["Texto", "oklch(0.18 0.028 255), Navy escuro"],
                 ["Fonte principal", "Urbanist (400 / 500 / 600 / 700 / 800)"],
                 ["Fontes de suporte", "Plus Jakarta Sans · Nunito"],
                 ["Estilo", "Sereno, Confiante, Acolhedor"],
                 ["Borda arredondada", "10px base (--radius: 0.625rem)"],
-                ["Sucesso", "#79AB74 — Verde Sage (idêntico ao secundário)"],
-                ["Alerta", "oklch(0.74 0.12 58) — Pêssego Âmbar"],
-                ["Destrutivo", "oklch(0.60 0.20 25) — Coral Suave"],
-                ["Verde (logotipo)", "#79AB74 — identidade visual"],
+                ["Sucesso", "#79AB74, Verde Sage (idêntico ao secundário)"],
+                ["Alerta", "oklch(0.74 0.12 58), Pêssego Âmbar"],
+                ["Destrutivo", "oklch(0.60 0.20 25), Coral Suave"],
+                ["Verde (logotipo)", "#79AB74, identidade visual"],
               ].map(([key, val]) => (
                 <div key={key} className="flex gap-3 py-2 border-b border-border/40 last:border-0">
                   <span className="text-xs font-medium text-muted-foreground w-36 shrink-0">{key}</span>

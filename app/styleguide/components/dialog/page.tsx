@@ -107,12 +107,12 @@ export default function DialogShowcasePage() {
               <DialogHeader>
                 <DialogTitle>DialogTitle</DialogTitle>
                 <DialogDescription>
-                  DialogDescription — texto de apoio abaixo do título que fornece
+                  DialogDescription, texto de apoio abaixo do título que fornece
                   contexto sobre a finalidade deste diálogo.
                 </DialogDescription>
               </DialogHeader>
               <div className="text-sm text-muted-foreground rounded-lg border border-dashed border-border p-4 text-center">
-                Corpo do DialogContent — coloque qualquer conteúdo aqui
+                Corpo do DialogContent, coloque qualquer conteúdo aqui
               </div>
               <DialogFooter showCloseButton>
                 <Button>Ação primária</Button>
@@ -213,7 +213,7 @@ export default function DialogShowcasePage() {
 {/* Adiciona botão "Fechar" no rodapé */}
 <DialogFooter showCloseButton>…</DialogFooter>
 
-{/* Sem botão X — força ação explícita */}
+{/* Sem botão X, força ação explícita */}
 <DialogContent showCloseButton={false}>…</DialogContent>`} />
         </div>
       </Section>
@@ -308,7 +308,7 @@ export default function DialogShowcasePage() {
       >
         <div className="flex flex-wrap gap-3">
 
-          {/* Contratar plano — multi-step */}
+          {/* Contratar plano, multi-step */}
           <Dialog onOpenChange={(o) => { if (o) setContratoStep(1) }}>
             <DialogTrigger asChild>
               <Button size="sm">Contratar Plano</Button>
@@ -590,13 +590,13 @@ export default function DialogShowcasePage() {
             </thead>
             <tbody className="divide-y divide-border">
               {[
-                ["Dialog", "open", "boolean", "—"],
-                ["Dialog", "onOpenChange", "(open: boolean) => void", "—"],
+                ["Dialog", "open", "boolean", ","],
+                ["Dialog", "onOpenChange", "(open: boolean) => void", ","],
                 ["Dialog", "defaultOpen", "boolean", "false"],
                 ["DialogContent", "showCloseButton", "boolean", "true"],
-                ["DialogContent", "className", "string", "—"],
+                ["DialogContent", "className", "string", ","],
                 ["DialogFooter", "showCloseButton", "boolean", "false"],
-                ["DialogFooter", "className", "string", "—"],
+                ["DialogFooter", "className", "string", ","],
                 ["DialogTrigger", "asChild", "boolean", "false"],
                 ["DialogClose", "asChild", "boolean", "false"],
               ].map(([comp, prop, type, def]) => (
@@ -615,7 +615,7 @@ export default function DialogShowcasePage() {
       {/* ── Accessibility ── */}
       <Section title="Acessibilidade">
         <div className="rounded-xl bg-muted border border-border p-5 flex flex-col gap-2 text-sm">
-          <p><strong>Bloqueio de foco:</strong> Quando um diálogo abre, o foco vai para dentro e fica preso — Tab e Shift+Tab circulam apenas pelos elementos focáveis dentro do diálogo.</p>
+          <p><strong>Bloqueio de foco:</strong> Quando um diálogo abre, o foco vai para dentro e fica preso, Tab e Shift+Tab circulam apenas pelos elementos focáveis dentro do diálogo.</p>
           <p><strong>Teclado:</strong> <kbd className="font-mono text-xs bg-background border rounded px-1">Esc</kbd> fecha o diálogo (exceto quando <code className="font-mono text-xs bg-background px-1 rounded border">showCloseButton={"{false}"}</code> sem ação de fechar).</p>
           <p><strong>Papéis ARIA:</strong> DialogContent renderiza como <code className="font-mono text-xs bg-background px-1 rounded border">role="dialog"</code> com <code className="font-mono text-xs bg-background px-1 rounded border">aria-modal="true"</code>. DialogTitle e DialogDescription são vinculados automaticamente via <code className="font-mono text-xs bg-background px-1 rounded border">aria-labelledby</code> / <code className="font-mono text-xs bg-background px-1 rounded border">aria-describedby</code>.</p>
           <p><strong>Bloqueio de scroll:</strong> O scroll da página é bloqueado enquanto o diálogo está aberto.</p>

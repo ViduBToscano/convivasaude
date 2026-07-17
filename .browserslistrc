@@ -1,0 +1,8 @@
+# Targets modernos: corta polyfills/transpile legacy desnecessario
+# (Lighthouse "Legacy JavaScript")
+chrome >= 111
+edge >= 111
+firefox >= 111
+safari >= 16.4
+ios >= 16.4
+not dead

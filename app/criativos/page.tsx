@@ -78,7 +78,7 @@ const criativosProduzidos = [
 
 // ── Briefings ─────────────────────────────────────────────────────────────────
 
-const briefingA1 = `CRIATIVO A1 — "Um novo jeito"
+const briefingA1 = `CRIATIVO A1, "Um novo jeito"
 Objetivo: Awareness / Apresentar a marca
 Formatos: Feed 4:5 (1080×1350px), Stories 9:16 (1080×1920px), Banner 16:9 (1920×1080px)
 
@@ -101,7 +101,7 @@ BANNER 16:9:
 - Direita (40%): foto de idosa sorrindo
 - Logo no canto inferior esquerdo`
 
-const briefingA2 = `CRIATIVO A2 — "Dona Irene"
+const briefingA2 = `CRIATIVO A2, "Dona Irene"
 Objetivo: Awareness / Humanizar a marca
 Formatos: Feed 4:5 (1080×1350px), Stories 9:16 (1080×1920px)
 
@@ -117,16 +117,16 @@ STORIES 9:16:
 - Caixa branca na parte inferior (40%) com bordas arredondadas
 - Dentro da caixa: headline azul escuro + caixa verde + logo`
 
-const briefingC1 = `CRIATIVO C1 — Preço em destaque
+const briefingC1 = `CRIATIVO C1, Preço em destaque
 Objetivo: Conversão / Gerar lead WhatsApp
 Formatos: Feed 4:5 (1080×1350px), Stories 9:16 (1080×1920px), Banner 16:9 (1920×1080px)
 
 FEED 4:5:
 - Fundo inteiro azul escuro #1E3A5F
-- Topo: "CONVIVA SAÚDE — BH E REGIÃO" azul médio #4A7FB5 uppercase pequeno
+- Topo: "CONVIVA SAÚDE, BH E REGIÃO" azul médio #4A7FB5 uppercase pequeno
 - Centro: "R$ 329" gigante (fonte ~120px) branco bold + "/mês" médio
-- Abaixo: "Para qualquer idade. 60, 70, 80 anos — mesmo valor." branco
-- Lista: ✓ Médico de referência / ✓ Pronto Cuidar 24h / ✓ Sem carência · Sem fidelidade (itens em verde #4A9B6F)
+- Abaixo: "Para qualquer idade. 60, 70, 80 anos, mesmo valor." branco
+- Lista: ✓ Médico de referência / ✓ Pronto Cuidar 24h / ✓ Sem carência · Sem reajuste por idade (itens em verde #4A9B6F)
 - Botão CTA verde com texto branco: "Falar pelo WhatsApp →"
 - Logo branca na base
 
@@ -140,7 +140,7 @@ BANNER 16:9:
 - Direita (50%): lista de benefícios + botão CTA
 - Logo centralizada na base`
 
-const briefingC2 = `CRIATIVO C2 — Comparação de preço
+const briefingC2 = `CRIATIVO C2, Comparação de preço
 Objetivo: Conversão / Quebrar objeção de preço
 Formatos: Feed 4:5 (1080×1350px), Stories 9:16 (1080×1920px)
 
@@ -162,7 +162,7 @@ STORIES 9:16:
 - Divisão horizontal (cima/baixo)
 - Cada metade ocupa 50% da altura`
 
-const briefingC3 = `CRIATIVO C3 — Para o filho decisor
+const briefingC3 = `CRIATIVO C3, Para o filho decisor
 Objetivo: Conversão / Persona filho 35-55 anos
 Formatos: Feed 4:5 (1080×1350px), Stories 9:16 (1080×1920px)
 
@@ -231,7 +231,7 @@ export default function CriativosPage() {
         {/* Header */}
         <div className="mb-10 pb-8 border-b border-border">
           <Badge className="mb-4" variant="outline">Documento interno · v1.0</Badge>
-          <h1 className="text-4xl font-bold tracking-tight mb-2">Criativos — Conviva Saúde</h1>
+          <h1 className="text-4xl font-bold tracking-tight mb-2">Criativos, Conviva Saúde</h1>
           <p className="text-muted-foreground mb-6">
             Mockups para apresentação ao designer. <strong>5 conceitos · 3 formatos cada.</strong>
           </p>
@@ -255,7 +255,7 @@ export default function CriativosPage() {
             </div>
             <div>
               <p className="text-xs font-semibold text-primary uppercase tracking-widest">Objetivo 1</p>
-              <h2 className="text-2xl font-bold">Awareness — Apresentar a marca</h2>
+              <h2 className="text-2xl font-bold">Awareness, Apresentar a marca</h2>
             </div>
           </div>
 
@@ -401,7 +401,7 @@ export default function CriativosPage() {
             </div>
             <div>
               <p className="text-xs font-semibold uppercase tracking-widest mb-0.5" style={{ color: "var(--secondary)" }}>Objetivo 2</p>
-              <h2 className="text-2xl font-bold">Conversão — Gerar lead e WhatsApp</h2>
+              <h2 className="text-2xl font-bold">Conversão, Gerar lead e WhatsApp</h2>
             </div>
           </div>
 
@@ -413,14 +413,14 @@ export default function CriativosPage() {
               {/* Feed 4:5 */}
               <div>
                 <div style={{ width: 270, height: 338, borderRadius: 12, boxShadow: "0 4px 20px rgba(0,0,0,0.12)", background: COLORS.navy, padding: "18px 16px", display: "flex", flexDirection: "column", justifyContent: "space-between", overflow: "hidden" }}>
-                  <p style={{ color: COLORS.blue, fontSize: 7.5, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600 }}>Conviva Saúde — BH e Região</p>
+                  <p style={{ color: COLORS.blue, fontSize: 7.5, letterSpacing: "0.12em", textTransform: "uppercase", fontWeight: 600 }}>Conviva Saúde, BH e Região</p>
                   <div style={{ textAlign: "center" }}>
                     <p style={{ color: "#fff", fontSize: 52, fontWeight: 800, lineHeight: 1, marginBottom: 0 }}>R$ 329</p>
                     <p style={{ color: "rgba(255,255,255,0.7)", fontSize: 14, marginBottom: 8 }}>/mês</p>
-                    <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 9.5, lineHeight: 1.4 }}>Para qualquer idade.<br />60, 70, 80 anos — mesmo valor.</p>
+                    <p style={{ color: "rgba(255,255,255,0.8)", fontSize: 9.5, lineHeight: 1.4 }}>Para qualquer idade.<br />60, 70, 80 anos, mesmo valor.</p>
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-                    {["Médico de referência", "Pronto Cuidar 24h", "Sem carência · Sem fidelidade"].map(item => (
+                    {["Médico de referência", "Pronto Cuidar 24h", "Sem carência · Sem reajuste por idade"].map(item => (
                       <div key={item} style={{ display: "flex", alignItems: "center", gap: 5 }}>
                         <span style={{ color: COLORS.green, fontSize: 9, fontWeight: 700 }}>✓</span>
                         <span style={{ color: "#fff", fontSize: 9 }}>{item}</span>
@@ -440,13 +440,13 @@ export default function CriativosPage() {
               {/* Stories 9:16 */}
               <div>
                 <div style={{ width: 180, height: 320, borderRadius: 12, boxShadow: "0 4px 20px rgba(0,0,0,0.12)", background: COLORS.navy, padding: "20px 14px", display: "flex", flexDirection: "column", justifyContent: "space-between", overflow: "hidden" }}>
-                  <p style={{ color: COLORS.blue, fontSize: 6.5, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600 }}>Conviva Saúde — BH e Região</p>
+                  <p style={{ color: COLORS.blue, fontSize: 6.5, letterSpacing: "0.1em", textTransform: "uppercase", fontWeight: 600 }}>Conviva Saúde, BH e Região</p>
                   <div style={{ textAlign: "center" }}>
                     <p style={{ color: "#fff", fontSize: 64, fontWeight: 800, lineHeight: 1 }}>329</p>
                     <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 12 }}>R$/mês · qualquer idade</p>
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-                    {["Médico de referência", "Pronto Cuidar 24h", "Sem carência · Sem fidelidade"].map(item => (
+                    {["Médico de referência", "Pronto Cuidar 24h", "Sem carência · Sem reajuste por idade"].map(item => (
                       <div key={item} style={{ display: "flex", alignItems: "center", gap: 5 }}>
                         <span style={{ color: COLORS.green, fontSize: 9, fontWeight: 700 }}>✓</span>
                         <span style={{ color: "#fff", fontSize: 9 }}>{item}</span>
@@ -474,7 +474,7 @@ export default function CriativosPage() {
                   {/* Right 50% */}
                   <div style={{ flex: 1, padding: "28px 24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-                      {["Médico de referência", "Pronto Cuidar 24h", "Sem carência · Sem fidelidade"].map(item => (
+                      {["Médico de referência", "Pronto Cuidar 24h", "Sem carência · Sem reajuste por idade"].map(item => (
                         <div key={item} style={{ display: "flex", alignItems: "center", gap: 6 }}>
                           <span style={{ color: COLORS.green, fontSize: 12, fontWeight: 700 }}>✓</span>
                           <span style={{ color: "#fff", fontSize: 12 }}>{item}</span>
@@ -626,12 +626,12 @@ export default function CriativosPage() {
           <p className="text-muted-foreground mb-6 text-sm">Termos de busca para bancos de imagem (Unsplash, Getty, Shutterstock, Adobe Stock).</p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
-              { uso: "A1 — Feed e Stories", termos: "elderly woman smiling home family, senior woman happy portrait", obs: "Rosto visível, sorriso genuíno, luz natural" },
-              { uso: "A1 — Banner", termos: "senior woman being cared home, elderly care home", obs: "Horizontal, espaço vazio no lado esquerdo para texto" },
-              { uso: "A2 — Seu João", termos: "elderly man doctor appointment, senior man medical consultation", obs: "Tom caloroso, não clínico demais" },
-              { uso: "C3 — Filha decisora", termos: "woman 40s phone relieved smiling, adult daughter caregiver phone", obs: "Mulher 35–50 anos, expressão de alívio ou tranquilidade" },
-              { uso: "Geral — casal 60+", termos: "senior couple walking outdoors happy, elderly couple lifestyle", obs: "Ativo, ao ar livre, BH-like (parques, calçadão)" },
-              { uso: "Geral — equipe médica", termos: "geriatric nurse elderly patient care, home care nurse elderly", obs: "Equipe diversa, relação de confiança e proximidade" },
+              { uso: "A1, Feed e Stories", termos: "elderly woman smiling home family, senior woman happy portrait", obs: "Rosto visível, sorriso genuíno, luz natural" },
+              { uso: "A1, Banner", termos: "senior woman being cared home, elderly care home", obs: "Horizontal, espaço vazio no lado esquerdo para texto" },
+              { uso: "A2, Seu João", termos: "elderly man doctor appointment, senior man medical consultation", obs: "Tom caloroso, não clínico demais" },
+              { uso: "C3, Filha decisora", termos: "woman 40s phone relieved smiling, adult daughter caregiver phone", obs: "Mulher 35 a 50 anos, expressão de alívio ou tranquilidade" },
+              { uso: "Geral, casal 60+", termos: "senior couple walking outdoors happy, elderly couple lifestyle", obs: "Ativo, ao ar livre, BH-like (parques, calçadão)" },
+              { uso: "Geral, equipe médica", termos: "geriatric nurse elderly patient care, home care nurse elderly", obs: "Equipe diversa, relação de confiança e proximidade" },
             ].map(({ uso, termos, obs }) => (
               <Card key={uso} className="p-4">
                 <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">{uso}</p>

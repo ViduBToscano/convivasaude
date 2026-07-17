@@ -187,10 +187,10 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts"`} />
       {/* ── ChartConfig ── */}
       <Section
         title="ChartConfig"
-        description="Mapeia as chaves dos seus dados para rótulos e cores. As cores referenciam variáveis CSS — se atualizam automaticamente no modo escuro."
+        description="Mapeia as chaves dos seus dados para rótulos e cores. As cores referenciam variáveis CSS, se atualizam automaticamente no modo escuro."
       >
         <CodeBlock code={`const chartConfig: ChartConfig = {
-  // Use variável CSS (recomendado — atualiza com modo escuro)
+  // Use variável CSS (recomendado, atualiza com modo escuro)
   visitas: { label: "Visitas", color: "var(--chart-1)" },
 
   // Use uma cor hexadecimal fixa
@@ -218,7 +218,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts"`} />
           <Card>
             <CardHeader>
               <CardTitle>Pressão Arterial Hoje</CardTitle>
-              <CardDescription>Sistólica e diastólica — visão geral de 24 horas</CardDescription>
+              <CardDescription>Sistólica e diastólica, visão geral de 24 horas</CardDescription>
             </CardHeader>
             <CardContent>
               <ChartContainer config={pressaoConfig} className="h-[200px]">
@@ -325,7 +325,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts"`} />
       </Section>
 
       {/* ── Area Chart ── */}
-      <Section title="Gráfico de Área" description="Como um gráfico de linha mas com regiões preenchidas — bom para volume ou dados cumulativos.">
+      <Section title="Gráfico de Área" description="Como um gráfico de linha mas com regiões preenchidas, bom para volume ou dados cumulativos.">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <Card>
             <CardHeader>
@@ -476,7 +476,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts"`} />
   </Pie>
 </PieChart>
 
-{/* Rosca — adicione innerRadius */}
+{/* Rosca, adicione innerRadius */}
 <Pie ... innerRadius={42} outerRadius={64} />`} />
         </div>
       </Section>
@@ -559,12 +559,12 @@ const data = [
       </Section>
 
       {/* ── Multi-line ── */}
-      <Section title="Gráfico de Múltiplas Linhas" description="Várias linhas com legenda e tooltip tracejado — ideal para acompanhamento de pressão arterial.">
+      <Section title="Gráfico de Múltiplas Linhas" description="Várias linhas com legenda e tooltip tracejado, ideal para acompanhamento de pressão arterial.">
         <Card>
           <CardHeader className="flex flex-row items-start justify-between">
             <div>
               <CardTitle>Acompanhamento de Pressão Arterial</CardTitle>
-              <CardDescription>Sistólica / diastólica / pulso — últimos 6 meses</CardDescription>
+              <CardDescription>Sistólica / diastólica / pulso, últimos 6 meses</CardDescription>
             </div>
             <div className="flex items-center gap-1 text-success text-xs font-medium">
               <TrendingDown className="size-3.5" />
@@ -590,7 +590,7 @@ const data = [
 
       {/* ── Dashboard grid ── */}
       <Section
-        title="Exemplo Real — Painel de Saúde do Idoso"
+        title="Exemplo Real, Painel de Saúde do Idoso"
         description="Visão geral de saúde do paciente combinando múltiplos tipos de gráfico em um grid de cards."
       >
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-4">
@@ -718,13 +718,13 @@ const data = [
             <tbody className="divide-y divide-border">
               {[
                 ["ChartContainer", "config", "ChartConfig", "obrigatório"],
-                ["ChartContainer", "className", "string", "—"],
+                ["ChartContainer", "className", "string", ","],
                 ["ChartContainer", "id", "string", "auto"],
                 ["ChartTooltipContent", "indicator", '"dot" | "line" | "dashed"', '"dot"'],
                 ["ChartTooltipContent", "hideLabel", "boolean", "false"],
                 ["ChartTooltipContent", "hideIndicator", "boolean", "false"],
-                ["ChartTooltipContent", "labelFormatter", "function", "—"],
-                ["ChartTooltipContent", "formatter", "function", "—"],
+                ["ChartTooltipContent", "labelFormatter", "function", ","],
+                ["ChartTooltipContent", "formatter", "function", ","],
                 ["ChartLegendContent", "hideIcon", "boolean", "false"],
                 ["ChartLegendContent", "verticalAlign", '"top" | "bottom"', '"bottom"'],
               ].map(([comp, prop, type, def]) => (

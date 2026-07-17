@@ -8,23 +8,25 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { formatPhone, cleanPhone, isValidPhone } from "@/lib/formatPhone"
+import { buildWhatsAppLink, submitContactLead } from "@/lib/site-config"
+import { isDataNascimentoValida, isValidEmail } from "@/lib/validators"
+import { collectClientContext } from "@/lib/lead-context"
 
 const STEP_LABELS = ["Início", "Sobre você", "Beneficiário", "Pacote", "Conclusão"]
 
 const FAIXAS = [
-  "60–65 anos", "66–70 anos", "71–75 anos",
-  "76–80 anos", "81–85 anos", "86–90 anos", "90+ anos",
+  "60 a 65 anos", "66 a 70 anos", "71 a 75 anos",
+  "76 a 80 anos", "81 a 85 anos", "86 a 90 anos", "90+ anos",
 ]
 
 const CONVENIOS_OPCOES = [
   { value: "Unimed BH",       label: "Unimed BH" },
-  { value: "Unimed Nacional", label: "Unimed Nacional" },
   { value: "Desban",          label: "Desban" },
   { value: "Fundaffemg",      label: "Fundaffemg" },
   { value: "Particular",      label: "Particular" },
   { value: "Outros",          label: "Outros" },
 ]
-const CONVENIOS_COM_CARTEIRA = new Set(["Unimed BH", "Unimed Nacional", "Desban", "Fundaffemg"])
+const CONVENIOS_COM_CARTEIRA = new Set(["Unimed BH", "Desban", "Fundaffemg"])
 
 const MESES = ["Janeiro","Fevereiro","Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
 const DIAS  = Array.from({ length: 31 }, (_, i) => String(i + 1).padStart(2, "0"))
@@ -38,7 +40,7 @@ const BENEFICIOS = [
   "Pronto Cuidar (pronto atendimento para a pessoa idosa)",
   "Acompanhamento preventivo e contínuo",
   "Suporte à família por WhatsApp",
-  "Sem carência · Sem fidelidade",
+  "Sem carência · Sem reajuste por idade",
 ]
 
 // Shared input style helpers
@@ -71,6 +73,8 @@ export default function ContratarPage() {
   const [convenio, setConvenio]       = useState("")
   const [numeroCarteira, setNumeroCarteira] = useState("")
   const [qualConvenio, setQualConvenio]     = useState("")
+  const [consent, setConsent]               = useState(false)
+  const [submitting, setSubmitting]         = useState(false)
 
   // Progressive field visibility (step 1)
   const [showEmail, setShowEmail]       = useState(false)
@@ -80,12 +84,16 @@ export default function ContratarPage() {
   // Derived
   const nomeValido     = nome.trim().split(/\s+/).filter(Boolean).length >= 2
   const whatsappValido = isValidPhone(whatsapp)
+  const emailValido    = isValidEmail(email)
+  const emailErro      = email !== "" && !emailValido
   const showCarteira      = CONVENIOS_COM_CARTEIRA.has(convenio)
   const showQualConvenio  = convenio === "Outros"
-  const dataNascValida    = diaNasc !== "" && mesNasc !== "" && anoNasc !== ""
+  const dataNascPreenchida = diaNasc !== "" && mesNasc !== "" && anoNasc !== ""
+  const dataNascValida    = isDataNascimentoValida(dataNasc)
+  const dataNascErro      = dataNascPreenchida && !dataNascValida
 
   const canContinue =
-    step === 1 ? nomeValido && whatsappValido :
+    step === 1 ? nomeValido && emailValido && whatsappValido :
     step === 2 ? faixaEtaria !== "" && dataNascValida && convenio !== "" :
     true
 
@@ -123,6 +131,30 @@ export default function ContratarPage() {
     if (step < 4) goTo(step + 1)
   }
 
+  async function handleFinalizar() {
+    if (!consent || submitting) return
+    setSubmitting(true)
+    try {
+      await submitContactLead({
+        nome,
+        telefone: whatsapp,
+        email,
+        dataNascimento: dataNasc,
+        convenio,
+        numeroCarteira,
+        qualConvenio,
+        faixaEtaria,
+        tipo: tipo === "mim" ? "Para mim mesmo" : "Para um familiar",
+        origem: "/contratar",
+        consentLGPD: consent,
+        ...collectClientContext(),
+      })
+    } finally {
+      setSubmitting(false)
+      goTo(4)
+    }
+  }
+
   function handleBack() {
     goTo(step - 1, "back")
   }
@@ -150,10 +182,10 @@ export default function ContratarPage() {
           <div className="h-16 flex items-center justify-between">
             {/* Logo */}
             <Link href="/" className="flex items-center shrink-0">
-              <img src="/logo.svg" alt="Conviva Saúde" className="h-12 w-auto" />
+              <img src="/logo.svg" alt="Conviva Saúde" width={120} height={56} className="h-12 w-auto" />
             </Link>
 
-            {/* Voltar ao site — visível em todos os tamanhos */}
+            {/* Voltar ao site, visível em todos os tamanhos */}
             <Link
               href="/"
               className="flex items-center gap-1.5 text-sm font-medium rounded-xl px-3 py-2 transition-colors hover:bg-muted"
@@ -351,14 +383,12 @@ export default function ContratarPage() {
                   </div>
                 </div>
 
-                {/* E-mail — progressive */}
+                {/* E-mail, progressive */}
                 {showEmail && (
-                  <div className="flex flex-col gap-1.5" style={{ animation: "cvWizardFade 0.35s ease both" }}>
+                  <div className="flex flex-col gap-1.5" style={{ animation: "wizardFade 0.35s ease both" }}>
                     <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--muted-foreground)" }}>
                       E-mail{" "}
-                      <span className="normal-case font-normal tracking-normal" style={{ color: "var(--muted-foreground)", opacity: 0.6 }}>
-                        (opcional)
-                      </span>
+                      <span style={{ color: "var(--destructive)" }} className="normal-case tracking-normal font-normal">*</span>
                     </label>
                     <input
                       type="email"
@@ -370,12 +400,15 @@ export default function ContratarPage() {
                       onFocus={onFocusInput}
                       onBlur={onBlurInput}
                     />
+                    {emailErro && (
+                      <span className="text-xs" style={{ color: "var(--destructive)" }}>Informe um e-mail válido.</span>
+                    )}
                   </div>
                 )}
 
-                {/* Número de telefone / WhatsApp — progressive */}
+                {/* Número de telefone / WhatsApp, progressive */}
                 {showWhatsapp && (
-                  <div className="flex flex-col gap-1.5" style={{ animation: "cvWizardFade 0.35s ease both" }}>
+                  <div className="flex flex-col gap-1.5" style={{ animation: "wizardFade 0.35s ease both" }}>
                     <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--muted-foreground)" }}>
                       Número de telefone / WhatsApp{" "}
                       <span style={{ color: "var(--destructive)" }} className="normal-case tracking-normal font-normal">*</span>
@@ -454,8 +487,8 @@ export default function ContratarPage() {
                   </div>
                 </div>
 
-                {/* Data de nascimento — seletor customizado Dia | Mês | Ano */}
-                <div className="flex flex-col gap-1.5" style={{ animation: "cvWizardFade 0.3s ease both" }}>
+                {/* Data de nascimento, seletor customizado Dia | Mês | Ano */}
+                <div className="flex flex-col gap-1.5" style={{ animation: "wizardFade 0.3s ease both" }}>
                   <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--muted-foreground)" }}>
                     Data de nascimento{" "}
                     <span style={{ color: "var(--destructive)" }} className="normal-case tracking-normal font-normal">*</span>
@@ -465,7 +498,7 @@ export default function ContratarPage() {
                     <div className="relative">
                       <select
                         value={diaNasc}
-                        onChange={(e) => setDiaNasc(e.target.value)}
+                        aria-label="Dia de nascimento"                        onChange={(e) => setDiaNasc(e.target.value)}
                         className="w-full rounded-xl px-3 py-3.5 text-sm outline-none transition-all bg-background appearance-none pr-7 cursor-pointer"
                         style={inputStyle}
                         onFocus={onFocusInput}
@@ -481,14 +514,14 @@ export default function ContratarPage() {
                     <div className="relative">
                       <select
                         value={mesNasc}
-                        onChange={(e) => setMesNasc(e.target.value)}
+                        aria-label="Mês de nascimento"                        onChange={(e) => setMesNasc(e.target.value)}
                         className="w-full rounded-xl px-3 py-3.5 text-sm outline-none transition-all bg-background appearance-none pr-7 cursor-pointer"
                         style={inputStyle}
                         onFocus={onFocusInput}
                         onBlur={onBlurInput}
                       >
                         <option value="">Mês</option>
-                        {MESES.map((m) => <option key={m} value={m}>{m}</option>)}
+                        {MESES.map((m, i) => <option key={m} value={String(i + 1).padStart(2, "0")}>{m}</option>)}
                       </select>
                       <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 size-3.5 pointer-events-none" style={{ color: "var(--muted-foreground)" }} />
                     </div>
@@ -497,7 +530,7 @@ export default function ContratarPage() {
                     <div className="relative">
                       <select
                         value={anoNasc}
-                        onChange={(e) => setAnoNasc(e.target.value)}
+                        aria-label="Ano de nascimento"                        onChange={(e) => setAnoNasc(e.target.value)}
                         className="w-full rounded-xl px-3 py-3.5 text-sm outline-none transition-all bg-background appearance-none pr-7 cursor-pointer"
                         style={inputStyle}
                         onFocus={onFocusInput}
@@ -509,9 +542,14 @@ export default function ContratarPage() {
                       <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 size-3.5 pointer-events-none" style={{ color: "var(--muted-foreground)" }} />
                     </div>
                   </div>
+                  {dataNascErro && (
+                    <p className="text-xs" style={{ color: "var(--destructive)" }}>
+                      Data de nascimento inválida.
+                    </p>
+                  )}
                 </div>
 
-                {/* Convênio — select */}
+                {/* Convênio, select */}
                 <div className="flex flex-col gap-1.5">
                   <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--muted-foreground)" }}>
                     Convênio de saúde <span style={{ color: "var(--destructive)" }}>*</span>
@@ -519,7 +557,7 @@ export default function ContratarPage() {
                   <div className="relative">
                     <select
                       value={convenio}
-                      onChange={(e) => handleConvenioChange(e.target.value)}
+                      aria-label="Convênio de saúde"                      onChange={(e) => handleConvenioChange(e.target.value)}
                       className={`${inputCls} appearance-none pr-10 cursor-pointer`}
                       style={inputStyle}
                       onFocus={onFocusInput}
@@ -537,9 +575,9 @@ export default function ContratarPage() {
                   </div>
                 </div>
 
-                {/* Número da carteirinha — condicional */}
+                {/* Número da carteirinha, condicional */}
                 {showCarteira && (
-                  <div className="flex flex-col gap-1.5" style={{ animation: "cvWizardFade 0.3s ease both" }}>
+                  <div className="flex flex-col gap-1.5" style={{ animation: "wizardFade 0.3s ease both" }}>
                     <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--muted-foreground)" }}>
                       Número da carteirinha{" "}
                       <span className="normal-case font-normal tracking-normal" style={{ color: "var(--muted-foreground)", opacity: 0.6 }}>
@@ -559,9 +597,9 @@ export default function ContratarPage() {
                   </div>
                 )}
 
-                {/* Qual convênio? — condicional para Outros */}
+                {/* Qual convênio?, condicional para Outros */}
                 {showQualConvenio && (
-                  <div className="flex flex-col gap-1.5" style={{ animation: "cvWizardFade 0.3s ease both" }}>
+                  <div className="flex flex-col gap-1.5" style={{ animation: "wizardFade 0.3s ease both" }}>
                     <label className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--muted-foreground)" }}>
                       Qual convênio?
                     </label>
@@ -631,20 +669,46 @@ export default function ContratarPage() {
                 </div>
 
                 <p className="text-xs pt-4" style={{ borderTop: "1px solid var(--border)", color: "var(--muted-foreground)" }}>
-                  O cuidado acontece nas clínicas da <strong>Mais60 Saúde</strong> — referência em geriatria em BH.
+                  O cuidado acontece nas clínicas da <strong>Mais60 Saúde</strong>, referência em geriatria em BH.
                 </p>
               </div>
 
-              <Button className="w-full" size="lg" onClick={handleContinue}>
-                Quero este pacote
-                <ArrowRight className="size-4" />
+              <label className="flex items-start gap-2 text-xs mb-4 cursor-pointer select-none" style={{ color: "var(--foreground)" }}>
+                <input
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 size-4 shrink-0 cursor-pointer accent-primary"
+                />
+                <span>
+                  Autorizo o uso dos meus dados para contato sobre o Conviva Saúde, conforme a{" "}
+                  <Link href="/privacidade" target="_blank" className="underline" style={{ color: "var(--primary)" }}>
+                    Política de Privacidade
+                  </Link>
+                  . <span style={{ color: "var(--destructive)" }}>*</span>
+                </span>
+              </label>
+
+              <Button
+                className="w-full"
+                size="lg"
+                onClick={handleFinalizar}
+                disabled={!consent || submitting}
+                loading={submitting}
+              >
+                {submitting ? "Enviando..." : (
+                  <>
+                    Quero este pacote
+                    <ArrowRight className="size-4" />
+                  </>
+                )}
               </Button>
             </div>
           )}
 
           {/* ── PASSO 4: Conclusão ──────────────────────────────────────── */}
           {step === 4 && (
-            <div className="text-center" style={{ animation: "cvWizardFade 0.4s ease both" }}>
+            <div className="text-center" style={{ animation: "wizardFade 0.4s ease both" }}>
               <div
                 className="size-20 rounded-full flex items-center justify-center mx-auto mb-6"
                 style={{ background: "color-mix(in oklch, var(--success) 15%, var(--background))" }}
@@ -653,10 +717,10 @@ export default function ContratarPage() {
               </div>
 
               <h1 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">
-                Pedido recebido!
+                Tudo pronto!
               </h1>
               <p className="text-base leading-relaxed mb-8 max-w-sm mx-auto" style={{ color: "var(--muted-foreground)" }}>
-                Recebemos seus dados e nossa equipe entrará em contato em até 24 horas pelo WhatsApp para finalizar a contratação.
+                Clique abaixo para falar com nossa equipe pelo WhatsApp. Seus dados já vão pré-preenchidos na mensagem para agilizar o atendimento.
               </p>
 
               {/* Resumo */}
@@ -686,7 +750,25 @@ export default function ContratarPage() {
 
               <div className="flex flex-col gap-3">
                 <Button size="lg" className="w-full" asChild>
-                  <a href="https://wa.me/5531999990000" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={buildWhatsAppLink(
+                      [
+                        `Olá! Quero contratar o pacote Conviva Saúde.`,
+                        ``,
+                        `Nome: ${nome}`,
+                        `WhatsApp: ${formatPhone(whatsapp)}`,
+                        email ? `E-mail: ${email}` : null,
+                        faixaEtaria ? `Faixa etária: ${faixaEtaria}` : null,
+                        dataNasc ? `Data de nasc.: ${dataNasc}` : null,
+                        convenio ? `Convênio: ${convenio}` : null,
+                        numeroCarteira ? `Nº carteirinha: ${numeroCarteira}` : null,
+                        qualConvenio ? `Qual convênio: ${qualConvenio}` : null,
+                        `Contratação: ${tipo === "mim" ? "Para mim mesmo" : "Para um familiar"}`,
+                      ].filter(Boolean).join("\n")
+                    )}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Phone className="size-4" />
                     Falar pelo WhatsApp agora
                   </a>
@@ -720,7 +802,7 @@ export default function ContratarPage() {
           }}
         >
           <div className="mx-auto max-w-lg px-6 py-4 flex items-center justify-between gap-4">
-            {/* Voltar — secondary outline, equal size, arrow animates left */}
+            {/* Voltar, secondary outline, equal size, arrow animates left */}
             <Button
               variant="outline"
               onClick={handleBack}
@@ -730,7 +812,7 @@ export default function ContratarPage() {
               Voltar
             </Button>
 
-            {/* Continuar — primary (step 3 tem CTA inline no pacote) */}
+            {/* Continuar, primary (step 3 tem CTA inline no pacote) */}
             {(step === 1 || step === 2) && (
               <Button onClick={handleContinue} disabled={!canContinue}>
                 Continuar
@@ -740,13 +822,6 @@ export default function ContratarPage() {
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes cvWizardFade {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   )
 }

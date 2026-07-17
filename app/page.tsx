@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import { SITE_URL } from "@/lib/site-config"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -75,40 +76,6 @@ const steps = [
   },
 ]
 
-const testimonials = [
-  {
-    quote:
-      "Minha mãe tem 71 anos e vivia com medo de precisar de atendimento e não ter para onde correr. Com a Conviva, sei que tem alguém cuidando dela — e sem pagar R$ 1.500 por mês.",
-    author: "Fernanda A.",
-    role: "Filha de paciente — BH",
-    initials: "FA",
-    stars: 5,
-  },
-  {
-    quote:
-      "Eu mesmo escolhi entrar na Conviva. Queria um médico que me conhecesse, não ficar esperando meses. Me sinto acompanhado, não só atendido quando fico doente.",
-    author: "Seu Geraldo, 74 anos",
-    role: "Paciente — Contagem, MG",
-    initials: "SG",
-    stars: 5,
-  },
-  {
-    quote:
-      "Trabalhar com foco no idoso faz toda a diferença. Os pacientes chegam com medo e saem confiantes. Isso é o que a Conviva propõe desde o início.",
-    author: "Enf. Patrícia R.",
-    role: "Equipe Conviva Saúde",
-    initials: "PR",
-    stars: 5,
-  },
-  {
-    quote:
-      "Meu pai precisava de acompanhamento após um susto de saúde. A Conviva resolveu rápido, com uma equipe que entende de idoso de verdade.",
-    author: "Ricardo M.",
-    role: "Filho de paciente — Nova Lima, MG",
-    initials: "RM",
-    stars: 5,
-  },
-]
 
 const stats = [
   { value: "Médico de Referência", label: "Acompanha sua saúde de forma contínua" },
@@ -127,7 +94,7 @@ export default function HomePage() {
     "@type": "MedicalBusiness",
     "name": "Conviva Saúde",
     "description": "Pacote de cuidado contínuo para idosos 60+ em Belo Horizonte. Médico de referência, equipe multidisciplinar e Pronto Cuidar.",
-    "url": "https://convivasaude.vercel.app",
+    "url": SITE_URL,
     "telephone": "+5531936182994",
     "email": "contato@convivasaude.com.br",
     "address": {
@@ -137,7 +104,8 @@ export default function HomePage() {
       "addressCountry": "BR"
     },
     "priceRange": "R$ 329/mês",
-    "areaServed": "Belo Horizonte e região metropolitana"
+    "areaServed": "Belo Horizonte e região metropolitana",
+    "sameAs": ["https://www.instagram.com/convivasaude/"]
   }
 
   return (
@@ -164,7 +132,7 @@ export default function HomePage() {
             <div>
               <Badge
                 className="mb-6 gap-1.5 px-3 py-1 text-xs font-medium"
-                style={{ background: "color-mix(in oklch, var(--primary) 12%, transparent)", color: "var(--primary)", border: "1px solid color-mix(in oklch, var(--primary) 25%, transparent)", animation: "cvFadeUp 0.5s ease both", animationDelay: "0ms" }}
+                style={{ background: "color-mix(in oklch, var(--primary) 12%, transparent)", color: "var(--primary)", border: "1px solid color-mix(in oklch, var(--primary) 25%, transparent)", animation: "fadeUp 0.5s ease both", animationDelay: "0ms" }}
               >
                 <Heart className="size-3" strokeWidth={2.5} />
                 Cuidado completo para quem tem 60+!
@@ -172,7 +140,7 @@ export default function HomePage() {
 
               <h1
                 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6"
-                style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "80ms" }}
+                style={{ animation: "fadeUp 0.55s ease both", animationDelay: "80ms" }}
               >
                 Mais cuidado no seu dia a dia. Com uma equipe{" "}
                 <span style={{ color: "var(--secondary)" }}>que acompanha a sua saúde!</span>
@@ -180,7 +148,7 @@ export default function HomePage() {
 
               <p
                 className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8"
-                style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "160ms" }}
+                style={{ animation: "fadeUp 0.55s ease both", animationDelay: "160ms" }}
               >
                 A Conviva Saúde é um pacote de cuidado contínuo para idosos. Tenha acesso a médico de referência, enfermeiros, equipe multidisciplinar e um Pronto Cuidar, um espaço de pronto atendimento para o idoso.{" "}
                 <strong>Tudo por R$ 329/mês, independente da idade.</strong>
@@ -188,7 +156,7 @@ export default function HomePage() {
 
               <div
                 className="flex flex-col sm:flex-row gap-3 mb-12"
-                style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "240ms" }}
+                style={{ animation: "fadeUp 0.55s ease both", animationDelay: "240ms" }}
               >
                 <Button size="lg" asChild>
                   <Link href="#contato">
@@ -206,7 +174,7 @@ export default function HomePage() {
               {/* Trust signals */}
               <div
                 className="flex flex-wrap items-center gap-x-6 gap-y-3"
-                style={{ animation: "cvFadeUp 0.55s ease both", animationDelay: "320ms" }}
+                style={{ animation: "fadeUp 0.55s ease both", animationDelay: "320ms" }}
               >
                 {[
                   { icon: Shield, text: "Sem carência" },
@@ -304,7 +272,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CTA Banner ──────────────────────────────────────────────────── */}
-      <section className="py-16 md:py-20" style={{ background: "var(--primary)" }}>
+      <section className="py-20 md:py-28" style={{ background: "var(--primary)" }}>
         <div className="mx-auto max-w-3xl px-6 text-center">
           <h2
             className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight leading-tight mb-4"
@@ -331,7 +299,7 @@ export default function HomePage() {
             </Button>
           </div>
           <p className="mt-4 text-xs" style={{ color: "color-mix(in oklch, var(--primary-foreground) 60%, transparent)" }}>
-            Atendimento rápido · Sem fidelidade · Cancelamento simples
+            Atendimento rápido · Sem carência · Sem reajuste por idade
           </p>
         </div>
       </section>
@@ -422,7 +390,7 @@ export default function HomePage() {
             {/* Steps à esquerda */}
             <div className="flex flex-col gap-8">
               {steps.map(({ number, title, description, icon: Icon }, i) => (
-                <div key={number} className="flex gap-5 items-start" style={{ animation: "cvFadeUp 0.5s ease both", animationDelay: `${i * 120}ms` }}>
+                <div key={number} className="flex gap-5 items-start" style={{ animation: "fadeUp 0.5s ease both", animationDelay: `${i * 120}ms` }}>
                   <div
                     className="size-16 rounded-2xl flex items-center justify-center shrink-0 relative"
                     style={{ background: "color-mix(in oklch, var(--primary) 10%, var(--background))", border: "2px solid color-mix(in oklch, var(--primary) 20%, transparent)" }}
@@ -477,7 +445,7 @@ export default function HomePage() {
               >
                 <img
                   src="https://mais60saude.com.br/wp-content/uploads/2023/07/logomais60.png"
-                  alt="Mais60 Saúde — parceira da Conviva"
+                  alt="Mais60 Saúde, parceira da Conviva"
                   className="h-10 w-auto object-contain"
                 />
               </a>
@@ -490,7 +458,7 @@ export default function HomePage() {
               </p>
             </div>
 
-            {/* Right column — 4 cards */}
+            {/* Right column, 4 cards */}
             <MobileCarousel desktopClass="md:grid md:grid-cols-2 md:gap-4">
               {[
                 {
@@ -536,50 +504,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Testimonials ────────────────────────────────────────────────── */}
-      <section id="depoimentos" className="py-20 md:py-28 bg-background">
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center mb-14">
-            <SectionLabel>Depoimentos</SectionLabel>
-            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-              Quem confia na Conviva Saúde
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Pacientes e familiares que compartilham suas experiências.
-            </p>
-          </div>
-
-          <MobileCarousel desktopClass="md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-4">
-            {testimonials.map(({ quote, author, role, initials, stars }, i) => (
-              <Card key={author} className="flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-lg" style={{ animation: "cvFadeUp 0.5s ease both", animationDelay: `${i * 80}ms` }}>
-                <CardContent className="pt-6 flex flex-col gap-4 flex-1">
-                  <div className="flex gap-0.5">
-                    {Array.from({ length: stars }).map((_, i) => (
-                      <Star key={i} className="size-3.5 fill-warning text-warning" />
-                    ))}
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">
-                    "{quote}"
-                  </p>
-                  <div className="flex items-center gap-3 pt-2 border-t border-border">
-                    <div
-                      className="size-9 rounded-full flex items-center justify-center text-xs font-bold shrink-0"
-                      style={{ background: "color-mix(in oklch, var(--primary) 15%, var(--muted))", color: "var(--primary)" }}
-                    >
-                      {initials}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold truncate">{author}</p>
-                      <p className="text-xs text-muted-foreground truncate">{role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </MobileCarousel>
-        </div>
-      </section>
-
       {/* ── FAQ ─────────────────────────────────────────────────────────── */}
       <section id="faq" className="py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
@@ -602,11 +526,11 @@ export default function HomePage() {
                 },
                 {
                   q: "Quanto custa e muda conforme a idade?",
-                  a: "R$ 329/mês para qualquer idade — 60, 70, 80, 90 anos. O valor é fixo e não sofre reajuste por faixa etária.",
+                  a: "R$ 329/mês para qualquer idade, 60, 70, 80, 90 anos. O valor é fixo e não sofre reajuste por faixa etária.",
                 },
                 {
                   q: "Tem carência ou fidelidade?",
-                  a: "Não tem nenhuma das duas. O cuidado começa imediatamente após a contratação e você pode cancelar quando quiser, sem multa.",
+                  a: "Não há carência: o cuidado começa imediatamente após a contratação. A fidelidade mínima é de 4 meses e, após esse período, você pode cancelar quando quiser, avisando com 30 dias de antecedência.",
                 },
                 {
                   q: "Posso contratar para um familiar sendo eu de outra cidade?",
@@ -633,7 +557,7 @@ export default function HomePage() {
                     {isOpen && (
                       <p
                         className="text-sm leading-relaxed pb-5 text-muted-foreground"
-                        style={{ animation: "cvFadeUp 0.2s ease both" }}
+                        style={{ animation: "fadeUp 0.2s ease both" }}
                       >
                         {a}
                       </p>
@@ -669,7 +593,7 @@ export default function HomePage() {
                   { icon: Phone, label: "Telefone / WhatsApp", value: "(31) 93618-2994" },
                   { icon: Mail, label: "E-mail", value: "contato@convivasaude.com.br" },
                   // { icon: MapPin, label: "Cobertura", value: "BH e região até 50km" },
-                  // { icon: Clock, label: "Atendimento", value: "Seg–Sex 7h–21h · Sáb 8h–18h" },
+                  // { icon: Clock, label: "Atendimento", value: "Seg a Sex 7h a 21h · Sáb 8h a 18h" },
                 ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="flex items-start gap-3">
                     <div className="size-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
@@ -694,13 +618,6 @@ export default function HomePage() {
       </section>
 
       <Footer />
-
-      <style>{`
-        @keyframes cvFadeUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   )
 }

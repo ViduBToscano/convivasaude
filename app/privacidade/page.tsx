@@ -1,14 +1,15 @@
 import type { Metadata } from "next"
+import { SITE_URL } from "@/lib/site-config"
 import { Shield } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Política de Privacidade | Conviva Saúde",
   description: "Política de privacidade e proteção de dados da Conviva Saúde. Saiba como tratamos suas informações com segurança.",
-  alternates: { canonical: "https://convivasaude.vercel.app/privacidade" },
+  alternates: { canonical: `${SITE_URL}/privacidade` },
   openGraph: {
     title: "Política de Privacidade | Conviva Saúde",
     description: "Política de privacidade e proteção de dados da Conviva Saúde. Saiba como tratamos suas informações com segurança.",
-    url: "https://convivasaude.vercel.app/privacidade",
+    url: `${SITE_URL}/privacidade`,
     siteName: "Conviva Saúde",
     locale: "pt_BR",
     type: "website",

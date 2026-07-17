@@ -12,44 +12,43 @@ import MobileCarousel from "@/components/MobileCarousel"
 const unidades = [
   {
     nome: "Barro Preto",
-    endereco: "R. Juiz de Fora, 1071 — Barro Preto, BH",
-    horario: "Seg–Sex: 7h às 22h · Sáb: 7h às 13h",
+    endereco: "R. Juiz de Fora, 1071, Barro Preto, BH",
+    horario: "Seg a Sex: 7h às 22h · Sáb: 7h às 13h",
     telefone: "(31) 2513-0552",
     maps: "https://maps.google.com/?q=R.+Juiz+de+Fora,+1071+Barro+Preto+BH",
   },
   {
     nome: "Santo Agostinho",
-    endereco: "R. Rio Grande do Sul, 1137 — Santo Agostinho, BH",
-    horario: "Seg–Sex: 7h às 19h",
+    endereco: "R. Rio Grande do Sul, 1137, Santo Agostinho, BH",
+    horario: "Seg a Sex: 7h às 19h",
     telefone: "(31) 2513-0552",
     maps: "https://maps.google.com/?q=R.+Rio+Grande+do+Sul,+1137+Santo+Agostinho+BH",
   },
   {
     nome: "Santa Efigênia",
-    endereco: "R. Padre Rolim, 850 — Santa Efigênia, BH",
-    horario: "Seg–Sex: 7h às 19h",
+    endereco: "R. Padre Rolim, 850, Santa Efigênia, BH",
+    horario: "Seg a Sex: 7h às 19h",
     telefone: "(31) 2513-0552",
     maps: "https://maps.google.com/?q=R.+Padre+Rolim,+850+Santa+Efigenia+BH",
   },
   {
     nome: "Pampulha",
-    endereco: "R. Arthur Itabirano, 262 — Pampulha, BH",
-    horario: "Seg–Sex: 8h às 18h",
+    endereco: "R. Arthur Itabirano, 262, Pampulha, BH",
+    horario: "Seg a Sex: 8h às 18h",
     telefone: "(31) 2513-0552",
     maps: "https://maps.google.com/?q=R.+Arthur+Itabirano,+262+Pampulha+BH",
   },
   {
     nome: "Betim",
-    endereco: "R. Mato Grosso, 926 — Betim, MG",
-    horario: "Seg–Sex: 7h às 19h",
+    endereco: "R. Mato Grosso, 926, Betim, MG",
+    horario: "Seg a Sex: 7h às 19h",
     telefone: "(31) 2513-0552",
     maps: "https://maps.google.com/?q=R.+Mato+Grosso,+926+Betim+MG",
   },
   {
     nome: "Pronto Cuidar",
-    endereco: "Av. Brasil, 1477 – Funcionários, Belo Horizonte",
-    // TODO: confirmar horário exato com a equipe
-    horario: "Seg–Sex: 7h às 19h",
+    endereco: "Av. Brasil, 1477, Funcionários, Belo Horizonte",
+    horario: "Seg a Sex: 7h às 19h",
     telefone: "(31) 2513-0552",
     maps: "https://maps.app.goo.gl/NHRkFKSvn1ji39MM7",
   },
@@ -71,8 +70,8 @@ export default function UnidadesPage() {
 
         {/* ── Hero ──────────────────────────────────────────────────────── */}
         <section
-          className="py-16 md:py-24"
-          style={{ animation: "unFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0s" }}
+          className="py-20 md:py-28"
+          style={{ animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0s" }}
         >
           <div className="mx-auto max-w-6xl px-6">
             <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--primary)" }}>
@@ -82,18 +81,18 @@ export default function UnidadesPage() {
               O cuidado Conviva acontece perto de você
             </h1>
             <p className="text-lg md:text-xl leading-relaxed max-w-2xl" style={{ color: "var(--muted-foreground)" }}>
-              Atendemos em BH e região metropolitana, nas clínicas da Mais60 Saúde — referência em geriatria em Minas Gerais.
+              Atendemos em BH e região metropolitana, nas clínicas da Mais60 Saúde, referência em geriatria em Minas Gerais.
             </p>
           </div>
         </section>
 
         {/* ── Parceria Mais60 ───────────────────────────────────────────── */}
         <section
-          className="py-16 md:py-24 relative overflow-hidden"
+          className="py-20 md:py-28 relative overflow-hidden"
           style={{
             borderTop: "1px solid var(--border)",
             background: "linear-gradient(135deg, color-mix(in oklch, var(--primary) 6%, var(--background)), color-mix(in oklch, var(--primary) 2%, var(--background)) 60%, var(--background))",
-            animation: "unFadeUp 0.6s ease forwards",
+            animation: "fadeUp 0.6s ease forwards",
             opacity: 0,
             animationDelay: "0.1s",
           }}
@@ -103,14 +102,14 @@ export default function UnidadesPage() {
             className="absolute -top-24 -right-24 w-96 h-96 rounded-full pointer-events-none"
             style={{
               background: "radial-gradient(circle, color-mix(in oklch, var(--primary) 18%, transparent), transparent 70%)",
-              animation: "unFloat 8s ease-in-out infinite",
+              animation: "float 8s ease-in-out infinite",
             }}
           />
           <div
             className="absolute bottom-0 -left-16 w-64 h-64 rounded-full pointer-events-none"
             style={{
               background: "radial-gradient(circle, color-mix(in oklch, var(--primary) 10%, transparent), transparent 70%)",
-              animation: "unFloat 11s ease-in-out infinite reverse",
+              animation: "float 11s ease-in-out infinite reverse",
             }}
           />
 
@@ -122,7 +121,7 @@ export default function UnidadesPage() {
                 <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--primary)" }}>
                   Nossa parceria
                 </p>
-                <h2 className="text-2xl md:text-3xl font-bold tracking-tight leading-snug mb-5">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-snug mb-5">
                   Nossos atendimentos acontecem nas clínicas da Mais60 Saúde
                 </h2>
                 <p className="text-base leading-relaxed mb-8" style={{ color: "var(--muted-foreground)" }}>
@@ -131,39 +130,27 @@ export default function UnidadesPage() {
                 <img
                   src="https://mais60saude.com.br/wp-content/uploads/2023/07/logomais60.png"
                   alt="Mais60 Saúde"
+                  width={160}
+                  height={48}
                   className="h-12 w-auto object-contain"
                 />
               </div>
 
               {/* Coluna de imagem */}
-              <div className="relative" style={{ animation: "unFloat 7s ease-in-out infinite" }}>
-                {/* Placeholder imagem principal */}
+              <div className="relative" style={{ animation: "float 7s ease-in-out infinite" }}>
+                {/* Imagem da unidade */}
                 <div
                   className="relative w-full overflow-hidden"
                   style={{
                     aspectRatio: "4/3",
                     borderRadius: "2.5rem 4rem 2rem 3.5rem",
-                    background: "linear-gradient(135deg, color-mix(in oklch, var(--primary) 30%, var(--muted)), color-mix(in oklch, var(--primary) 10%, var(--muted)) 60%, color-mix(in oklch, var(--primary) 20%, var(--muted)))",
                   }}
                 >
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      background: "linear-gradient(225deg, color-mix(in oklch, var(--primary) 15%, transparent) 0%, transparent 50%, color-mix(in oklch, var(--primary) 8%, transparent) 100%)",
-                      animation: "unGradientShift 8s ease-in-out infinite",
-                    }}
+                  <img
+                    src="/unidade-bh.jpg"
+                    alt="Unidade Mais60 Saúde em Belo Horizonte"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 flex flex-col items-center justify-center gap-3">
-                    <div
-                      className="size-16 rounded-2xl flex items-center justify-center"
-                      style={{ background: "color-mix(in oklch, var(--primary) 18%, white)", boxShadow: "0 4px 24px rgba(0,0,0,0.08)" }}
-                    >
-                      <MapPin className="size-8" style={{ color: "var(--primary)" }} />
-                    </div>
-                    <p className="text-sm font-medium text-center px-8" style={{ color: "color-mix(in oklch, var(--foreground) 55%, transparent)" }}>
-                      Clínicas da Mais60 Saúde<br />em BH e região metropolitana
-                    </p>
-                  </div>
                 </div>
 
                 {/* Círculos decorativos flutuantes */}
@@ -171,14 +158,14 @@ export default function UnidadesPage() {
                   className="absolute -bottom-5 -left-5 w-20 h-20 rounded-full"
                   style={{
                     background: "color-mix(in oklch, var(--primary) 18%, var(--muted))",
-                    animation: "unFloat 5s ease-in-out infinite reverse",
+                    animation: "float 5s ease-in-out infinite reverse",
                   }}
                 />
                 <div
                   className="absolute -top-5 -right-5 w-12 h-12 rounded-full"
                   style={{
                     background: "color-mix(in oklch, var(--primary) 28%, var(--muted))",
-                    animation: "unFloat 9s ease-in-out infinite",
+                    animation: "float 9s ease-in-out infinite",
                   }}
                 />
               </div>
@@ -188,15 +175,15 @@ export default function UnidadesPage() {
 
         {/* ── Lista de unidades ─────────────────────────────────────────── */}
         <section
-          className="py-16 md:py-20"
-          style={{ borderTop: "1px solid var(--border)", animation: "unFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.2s" }}
+          className="py-20 md:py-28"
+          style={{ borderTop: "1px solid var(--border)", animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.2s" }}
         >
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-10">
               <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--primary)" }}>
                 Onde atendemos
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-2">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-2">
                 Unidades disponíveis
               </h2>
               <p className="text-sm" style={{ color: "var(--muted-foreground)" }}>
@@ -256,15 +243,15 @@ export default function UnidadesPage() {
 
         {/* ── Como chegar ───────────────────────────────────────────────── */}
         <section
-          className="py-16 md:py-20"
-          style={{ borderTop: "1px solid var(--border)", background: "var(--muted)", animation: "unFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.3s" }}
+          className="py-20 md:py-28"
+          style={{ borderTop: "1px solid var(--border)", background: "var(--muted)", animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.3s" }}
         >
           <div className="mx-auto max-w-6xl px-6">
             <div className="mb-10">
               <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--primary)" }}>
                 Como funciona
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-3">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-3">
                 Como funciona o atendimento
               </h2>
               <p className="text-base leading-relaxed max-w-2xl" style={{ color: "var(--muted-foreground)" }}>
@@ -297,8 +284,8 @@ export default function UnidadesPage() {
 
         {/* ── CTA final ─────────────────────────────────────────────────── */}
         <section
-          className="py-16 md:py-20"
-          style={{ background: "var(--primary)", animation: "unFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.4s" }}
+          className="py-20 md:py-28"
+          style={{ background: "var(--primary)", animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.4s" }}
         >
           <div className="mx-auto max-w-2xl px-6 text-center">
             <h2
@@ -370,22 +357,6 @@ export default function UnidadesPage() {
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes unFadeUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes unFloat {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-12px); }
-        }
-        @keyframes unGradientShift {
-          0%, 100% { opacity: 0.6; }
-          50%       { opacity: 1; }
-        }
-      `}</style>
-
     </div>
   )
 }

@@ -141,7 +141,7 @@ export default function BrandGuidePage() {
           <Badge className="mb-4" variant="outline">Documento interno · v1.0</Badge>
           <h1 className="text-4xl font-bold tracking-tight mb-3">Brand Guide</h1>
           <p className="text-muted-foreground max-w-xl leading-relaxed">
-            Guia de referência da marca Conviva Saúde — para times de marketing,
+            Guia de referência da marca Conviva Saúde, para times de marketing,
             vendas, design e parceiros. Use este documento para garantir consistência
             em toda a comunicação da marca.
           </p>
@@ -153,7 +153,7 @@ export default function BrandGuidePage() {
             <div>
               <h3 className="text-base font-semibold mb-2">O que é a Conviva Saúde</h3>
               <p className="text-muted-foreground leading-relaxed">
-                A Conviva Saúde é um pacote completo de benefícios de saúde para pessoas com 60 anos ou mais em BH e região. Não somos um plano de saúde convencional — somos um novo jeito de cuidar da saúde após os 60, com médico de referência, enfermeiro dedicado, equipe multidisciplinar e Pronto Cuidar 24h, tudo por{" "}
+                A Conviva Saúde é um pacote completo de benefícios de saúde para pessoas com 60 anos ou mais em BH e região. Não somos um plano de saúde convencional, somos um novo jeito de cuidar da saúde após os 60, com médico de referência, enfermeiro dedicado, equipe multidisciplinar e Pronto Cuidar 24h, tudo por{" "}
                 <strong className="text-foreground">R$ 329/mês independente da idade.</strong>
               </p>
             </div>
@@ -162,11 +162,11 @@ export default function BrandGuidePage() {
               {[
                 {
                   label: "Propósito",
-                  text: "Oferecer ao idoso de BH um cuidado completo, humano e acessível — sem filas, sem burocracia e sem os reajustes abusivos dos planos convencionais.",
+                  text: "Oferecer ao idoso de BH um cuidado completo, humano e acessível, sem filas, sem burocracia e sem os reajustes abusivos dos planos convencionais.",
                 },
                 {
                   label: "Missão",
-                  text: "Ser o novo jeito de cuidar da saúde após os 60 — colocando o idoso no centro, com cuidado preventivo, contínuo e coordenado.",
+                  text: "Ser o novo jeito de cuidar da saúde após os 60, colocando o idoso no centro, com cuidado preventivo, contínuo e coordenado.",
                 },
                 {
                   label: "Visão",
@@ -218,7 +218,7 @@ export default function BrandGuidePage() {
             <div>
               <h3 className="text-base font-semibold mb-2">Proposta de valor central</h3>
               <p className="text-muted-foreground leading-relaxed">
-                Cuidado geriátrico completo por <strong className="text-foreground">R$ 329/mês</strong> — o mesmo valor para qualquer idade, sem fila, sem burocracia e sem reajuste abusivo.
+                Cuidado geriátrico completo por <strong className="text-foreground">R$ 329/mês</strong>, o mesmo valor para qualquer idade, sem fila, sem burocracia e sem reajuste abusivo.
               </p>
             </div>
 
@@ -227,7 +227,7 @@ export default function BrandGuidePage() {
               <div className="grid md:grid-cols-3 gap-4">
                 {[
                   { tipo: "Planos tradicionais", desc: "Caros (R$ 1.500+/mês para idosos), com reajuste por faixa etária e filas longas." },
-                  { tipo: "SUS", desc: "Acesso universal mas com espera de 3–4 meses por consulta em BH." },
+                  { tipo: "SUS", desc: "Acesso universal mas com espera de 3 a 4 meses por consulta em BH." },
                   { tipo: "Cartões de desconto", desc: "Baratos mas sem coordenação de cuidado nem especialização geriátrica." },
                 ].map(({ tipo, desc }) => (
                   <div key={tipo} className="p-4 rounded-xl border border-border bg-muted/30">
@@ -257,7 +257,7 @@ export default function BrandGuidePage() {
                   "10 especialidades em um único pacote",
                   "Pronto Cuidar 24h exclusivo para idosos",
                   "Operado nas clínicas da Mais60 Saúde (10+ anos de experiência geriátrica)",
-                  "Sem carência, sem fidelidade, sem surpresa",
+                  "Sem carência, sem surpresa",
                 ].map((item) => (
                   <div key={item} className="flex items-start gap-3 py-2.5 px-4 rounded-lg bg-muted/50">
                     <CheckCircle className="size-4 shrink-0 mt-0.5" style={{ color: "var(--success)" }} />
@@ -277,7 +277,7 @@ export default function BrandGuidePage() {
                 {
                   persona: "Persona 1",
                   nome: "O próprio idoso",
-                  detalhe: "60–74 anos",
+                  detalhe: "60 a 74 anos",
                   items: [
                     "Mora em BH ou RMBH, classe B ou C",
                     "Perdeu o convênio ou não consegue mais pagar",
@@ -296,7 +296,7 @@ export default function BrandGuidePage() {
                 {
                   persona: "Persona 2",
                   nome: "O filho decisor",
-                  detalhe: "35–55 anos",
+                  detalhe: "35 a 55 anos",
                   items: [
                     "Mora em BH ou cidades próximas",
                     "Trabalha, tem família, não consegue estar sempre presente",
@@ -352,7 +352,7 @@ export default function BrandGuidePage() {
         <BrandSection id="tom" icon={MessageSquare} label="04 · Comunicação" title="Tom de voz">
           <div className="flex flex-col gap-8">
             <p className="text-muted-foreground leading-relaxed">
-              Acolhedora, humana e direta. A Conviva fala como alguém de confiança que entende a situação — não como uma empresa fria de saúde.
+              Acolhedora, humana e direta. A Conviva fala como alguém de confiança que entende a situação, não como uma empresa fria de saúde.
             </p>
 
             <div className="grid md:grid-cols-2 gap-4">
@@ -372,7 +372,7 @@ export default function BrandGuidePage() {
                 {
                   pilar: "Confiável",
                   desc: "Sério sem ser frio.",
-                  certo: "Seu familiar terá um médico que o conhece de verdade — não só quando está doente.",
+                  certo: "Seu familiar terá um médico que o conhece de verdade, não só quando está doente.",
                   errado: "Garantimos atendimento médico de qualidade aos nossos clientes.",
                 },
                 {
@@ -473,7 +473,7 @@ export default function BrandGuidePage() {
                     <CheckCircle className="size-3.5 shrink-0 mt-0.5" style={{ color: "var(--success)" }} />
                     <div>
                       <span className="text-sm font-medium">{palavra}</span>
-                      {nota && <span className="text-xs text-muted-foreground ml-2">— {nota}</span>}
+                      {nota && <span className="text-xs text-muted-foreground ml-2">, {nota}</span>}
                     </div>
                   </div>
                 ))}
@@ -514,7 +514,7 @@ export default function BrandGuidePage() {
               },
               {
                 contexto: "Para quem não tem convênio",
-                msg: "Sem convênio de saúde? A Conviva oferece cuidado completo por R$ 329/mês — sem fila, sem carência, sem burocracia.",
+                msg: "Sem convênio de saúde? A Conviva oferece cuidado completo por R$ 329/mês, sem fila, sem carência, sem burocracia.",
               },
               {
                 contexto: "Para o filho preocupado",
@@ -522,11 +522,11 @@ export default function BrandGuidePage() {
               },
               {
                 contexto: "Contra os planos tradicionais",
-                msg: "Enquanto os planos cobram R$ 1.500+ para idosos e ainda têm fila, a Conviva entrega cuidado completo por R$ 329 — o mesmo valor para qualquer idade.",
+                msg: "Enquanto os planos cobram R$ 1.500+ para idosos e ainda têm fila, a Conviva entrega cuidado completo por R$ 329, o mesmo valor para qualquer idade.",
               },
               {
                 contexto: "Sobre a parceria com a Mais60",
-                msg: "O cuidado Conviva acontece nas clínicas da Mais60 Saúde — referência nacional em geriatria, com 10 anos de experiência e 6 unidades em BH.",
+                msg: "O cuidado Conviva acontece nas clínicas da Mais60 Saúde, referência nacional em geriatria, com 10 anos de experiência e 6 unidades em BH.",
               },
             ].map(({ contexto, msg, destaque }) => (
               <div
@@ -556,12 +556,12 @@ export default function BrandGuidePage() {
             />
             <VoiceExample
               channel="Post Instagram"
-              correct="Seu pai merece um médico que o conhece pelo nome — não só quando está doente. Conheça a Conviva Saúde."
+              correct="Seu pai merece um médico que o conhece pelo nome, não só quando está doente. Conheça a Conviva Saúde."
               wrong="Oferecemos serviços médicos especializados para a terceira idade."
             />
             <VoiceExample
-              channel="WhatsApp — primeiro contato"
-              correct="Oi! Vi que você quer saber mais sobre a Conviva. Me conta um pouquinho sobre seu familiar — assim posso te explicar como funciona da melhor forma 😊"
+              channel="WhatsApp, primeiro contato"
+              correct="Oi! Vi que você quer saber mais sobre a Conviva. Me conta um pouquinho sobre seu familiar, assim posso te explicar como funciona da melhor forma 😊"
               wrong="Olá! Somos a Conviva Saúde. Nosso plano oferece os seguintes benefícios para contratantes acima de 60."
             />
           </div>

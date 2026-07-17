@@ -46,8 +46,6 @@
   --color-green: var(--green);
   --color-green-foreground: var(--green-foreground);
   --font-sans: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
-  --font-jakarta: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
-  --font-nunito: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -59,7 +57,7 @@
 }
 
 /* ===================================================
-   CONVIVA SAÚDE — Design System Tokens
+   CONVIVA SAÚDE, Design System Tokens
    Paleta: Serenidade, Confiança e Força
    Primary: #374D72 (Navy Profundo) · Secondary: #79AB74 (Verde Sage)
    Accent: Lavanda Suave · Warning: Pêssego Âmbar · Destructive: Coral
@@ -68,9 +66,9 @@
 
 :root {
   /* === BASE === */
-  /* Branco azulado muito suave — arejado, não clínico */
+  /* Branco azulado muito suave, arejado, não clínico */
   --background: oklch(0.982 0.006 255);
-  /* Navy profundo — legível, digno, não agressivo */
+  /* Navy profundo, legível, digno, não agressivo */
   --foreground: oklch(0.18 0.028 255);
 
   /* === CARD === */
@@ -81,26 +79,26 @@
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.18 0.028 255);
 
-  /* === PRIMARY — #374D72 Navy Profundo === */
+  /* === PRIMARY, #374D72 Navy Profundo === */
   /* Confiança, profundidade e dignidade */
   --primary: oklch(0.36 0.09 255);
   --primary-foreground: oklch(0.985 0 0);
 
-  /* === SECONDARY — #79AB74 Verde Sage === */
+  /* === SECONDARY, #79AB74 Verde Sage === */
   /* Saúde natural, vitalidade, esperança */
   --secondary: oklch(0.67 0.088 143);
   --secondary-foreground: oklch(0.985 0 0);
 
-  /* === MUTED — Azul-cinza suave === */
+  /* === MUTED, Azul-cinza suave === */
   --muted: oklch(0.942 0.014 255);
-  --muted-foreground: oklch(0.52 0.035 258);
+  --muted-foreground: oklch(0.44 0.038 258);
 
-  /* === ACCENT — Lavanda suave === */
+  /* === ACCENT, Lavanda suave === */
   /* Acolhedor, calmante, complementa navy e sage */
   --accent: oklch(0.895 0.040 290);
   --accent-foreground: oklch(0.36 0.09 255);
 
-  /* === DESTRUCTIVE — Coral suave === */
+  /* === DESTRUCTIVE, Coral suave === */
   --destructive: oklch(0.60 0.20 25);
   --destructive-foreground: oklch(0.985 0 0);
 
@@ -109,7 +107,7 @@
   --input: oklch(0.91 0.010 255);
   --ring: oklch(0.36 0.09 255);
 
-  /* === BORDER RADIUS — 10px === */
+  /* === BORDER RADIUS, 10px === */
   --radius: 0.625rem;
 
   /* === CHART COLORS === */
@@ -130,16 +128,16 @@
   --sidebar-ring: oklch(0.36 0.09 255);
 
   /* === SEMANTIC COLORS === */
-  /* Verde sage — cura natural, positivo sem ser agressivo */
+  /* Verde sage, cura natural, positivo sem ser agressivo */
   --success: oklch(0.62 0.095 143);
   --success-foreground: oklch(0.985 0 0);
-  /* Pêssego âmbar — alerta amigável e visível */
+  /* Pêssego âmbar, alerta amigável e visível */
   --warning: oklch(0.74 0.12 58);
   --warning-foreground: oklch(0.15 0 0);
   /* Info usa o navy */
   --info: oklch(0.36 0.09 255);
   --info-foreground: oklch(0.985 0 0);
-  /* Verde identidade — #79AB74, cor do logotipo */
+  /* Verde identidade, #79AB74, cor do logotipo */
   --green: oklch(0.67 0.088 143);
   --green-foreground: oklch(0.985 0 0);
 }
@@ -157,17 +155,17 @@
   --popover: oklch(0.19 0.030 255);
   --popover-foreground: oklch(0.93 0.008 260);
 
-  /* === PRIMARY — navy mais claro para legibilidade no escuro === */
+  /* === PRIMARY, navy mais claro para legibilidade no escuro === */
   --primary: oklch(0.58 0.085 255);
   --primary-foreground: oklch(0.15 0.028 255);
 
-  /* === SECONDARY — sage mais claro no escuro === */
+  /* === SECONDARY, sage mais claro no escuro === */
   --secondary: oklch(0.72 0.082 143);
   --secondary-foreground: oklch(0.15 0.028 255);
 
   /* === MUTED === */
   --muted: oklch(0.23 0.030 258);
-  --muted-foreground: oklch(0.62 0.030 260);
+  --muted-foreground: oklch(0.70 0.030 260);
 
   /* === ACCENT === */
   --accent: oklch(0.28 0.045 285);
@@ -228,7 +226,7 @@
    cannot parse color-mix() inside box-shadow arbitrary values.
    ──────────────────────────────────────────────────────────────────────── */
 
-/* Primary — navy gradient, colored shadow, 3-D lift */
+/* Primary, navy gradient, colored shadow, 3-D lift */
 .cv-btn-primary {
   background: linear-gradient(
     175deg,
@@ -254,7 +252,7 @@
     inset 0 1px 0 color-mix(in oklch, white 22%, transparent);
 }
 
-/* Secondary (outline) — border turns primary on hover */
+/* Secondary (outline), border turns primary on hover */
 .cv-btn-secondary {
   background: transparent;
   color: var(--foreground);
@@ -271,7 +269,7 @@
   transform: scale(0.98);
 }
 
-/* Ghost — text only, subtle hover fill */
+/* Ghost, text only, subtle hover fill */
 .cv-btn-ghost {
   background: transparent;
   color: var(--primary);
@@ -285,7 +283,7 @@
   transform: scale(0.98);
 }
 
-/* Inverted — white bg on primary-colored sections */
+/* Inverted, white bg on primary-colored sections */
 .cv-btn-inverted {
   background: var(--primary-foreground);
   color: var(--primary);
@@ -305,7 +303,7 @@
   transform: translateY(1px);
 }
 
-/* Outline Inverted — transparent with white border on primary sections */
+/* Outline Inverted, transparent with white border on primary sections */
 .cv-btn-outline-inverted {
   background: transparent;
   color: var(--primary-foreground);
@@ -366,4 +364,33 @@
 .carousel-dot-active {
   width: 20px;
   background: var(--primary);
+}
+
+/* ──────────────────────────────────────────────────────────────────
+   Animations canônicas (use estas em todas as páginas)
+   ────────────────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  50%      { transform: translateY(-12px) translateX(6px); }
+}
+
+@keyframes gradientShift {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.6; }
+}
+
+@keyframes wizardFade {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
 }

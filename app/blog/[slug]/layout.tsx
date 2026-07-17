@@ -1,29 +1,35 @@
 import type { Metadata } from "next"
-import { BLOG_POSTS } from "@/lib/blog-data"
+import { getPostBySlugDb } from "@/lib/blog-db"
+import { SITE_URL } from "@/lib/site-config"
 
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const post = BLOG_POSTS.find((p) => p.slug === slug)
+  const post = getPostBySlugDb(slug)
   if (!post) {
     return { title: "Artigo não encontrado | Blog Conviva Saúde" }
   }
+  const url = `${SITE_URL}/blog/${slug}`
+  // Mantem o <title> <= 60 chars: so anexa a marca quando couber (limite Google).
+  const suffix = " | Conviva Saúde"
+  const pageTitle =
+    post.title.length + suffix.length <= 60 ? `${post.title}${suffix}` : post.title
   return {
-    title: `${post.title} | Blog Conviva Saúde`,
+    title: pageTitle,
     description: post.excerpt,
-    alternates: { canonical: `https://convivasaude.vercel.app/blog/${slug}` },
+    alternates: { canonical: url },
     openGraph: {
-      title: `${post.title} | Blog Conviva Saúde`,
+      title: pageTitle,
       description: post.excerpt,
-      url: `https://convivasaude.vercel.app/blog/${slug}`,
+      url,
       siteName: "Conviva Saúde",
       locale: "pt_BR",
       type: "article",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${post.title} | Blog Conviva Saúde`,
+      title: pageTitle,
       description: post.excerpt,
     },
   }

@@ -5,16 +5,15 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { Menu, X, MailIcon } from "lucide-react"
-import ContactForm from "@/components/ContactForm"
+import { Menu, X } from "lucide-react"
 
 const NAV_LINKS = [
   { label: "A Conviva Saúde", href: "/sobre" },
+  { label: "Como funciona", href: "/como-funciona" },
   { label: "Preço", href: "/#planos" },
   { label: "Unidades", href: "/unidades" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
-  { label: "Contato", href: "/#contato" },
 ] as const
 
 export default function Header() {
@@ -22,7 +21,6 @@ export default function Header() {
   const router = useRouter()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-  const [contactOpen, setContactOpen] = useState(false)
 
   useEffect(() => {
     function onScroll() {
@@ -36,8 +34,8 @@ export default function Header() {
     setMobileOpen(false)
   }, [pathname])
 
-  // Checkout flow has its own minimal header
-  if (pathname.startsWith("/contratar")) return null
+  // Checkout flow e admin tem layout proprio
+  if (pathname.startsWith("/contratar") || pathname.startsWith("/gestao-7k2f9")) return null
 
   function handleAnchor(href: string) {
     setMobileOpen(false)
@@ -58,7 +56,7 @@ export default function Header() {
     <>
       <header
         className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80 transition-shadow duration-200"
-        style={scrolled ? { boxShadow: "0 2px 16px rgba(0,0,0,0.08)" } : undefined}
+        style={scrolled ? { boxShadow: "0 2px 16px color-mix(in oklch, var(--foreground) 8%, transparent)" } : undefined}
       >
         <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
 
@@ -102,9 +100,6 @@ export default function Header() {
 
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-2 shrink-0">
-            <Button size="sm" variant="outline" onClick={() => setContactOpen(true)}>
-              Falar com a equipe
-            </Button>
             <Button size="sm" asChild>
               <Link href="/contratar">Contratar agora</Link>
             </Button>
@@ -148,13 +143,6 @@ export default function Header() {
                 )
               )}
               <div className="flex flex-col gap-2 mt-3 pt-3 border-t border-border">
-                <Button
-                  variant="outline"
-                  className="w-full"
-                  onClick={() => { setMobileOpen(false); setContactOpen(true) }}
-                >
-                  Falar com a equipe
-                </Button>
                 <Button className="w-full" asChild>
                   <Link href="/contratar">Contratar agora</Link>
                 </Button>
@@ -163,46 +151,6 @@ export default function Header() {
           </div>
         )}
       </header>
-
-      {/* Modal de contato do header */}
-      {contactOpen && (
-        <div
-          className="fixed inset-0 z-[60] flex items-center justify-center p-4"
-          style={{ background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)" }}
-          onClick={(e) => { if (e.target === e.currentTarget) setContactOpen(false) }}
-        >
-          <div
-            className="relative w-full max-w-lg rounded-2xl overflow-hidden"
-            style={{
-              background: "linear-gradient(145deg, color-mix(in oklch, var(--primary) 8%, var(--card)), color-mix(in oklch, var(--accent) 30%, var(--card)))",
-              border: "1px solid color-mix(in oklch, var(--primary) 20%, var(--border))",
-              boxShadow: "0 8px 48px rgba(0,0,0,0.2)",
-            }}
-          >
-            <div className="px-6 pt-6 pb-5 border-b border-border/50 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="size-10 rounded-xl bg-primary/15 flex items-center justify-center shrink-0">
-                  <MailIcon className="size-5 text-primary" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <p className="text-base font-semibold">Fale com nossa equipe</p>
-                  <p className="text-xs text-muted-foreground">Respondemos em até 2 horas úteis</p>
-                </div>
-              </div>
-              <button
-                type="button"
-                onClick={() => setContactOpen(false)}
-                className="size-8 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-              >
-                <X className="size-4" />
-              </button>
-            </div>
-            <div className="px-6 py-5 max-h-[70vh] overflow-y-auto">
-              <ContactForm showCard={false} />
-            </div>
-          </div>
-        </div>
-      )}
     </>
   )
 }

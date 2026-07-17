@@ -27,7 +27,7 @@ export default function SobrePage() {
       <main className="flex-1">
 
         {/* ── Hero ──────────────────────────────────────────────────────── */}
-        <section className="py-16 md:py-24" style={{ animation: "sbFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0s" }}>
+        <section className="py-20 md:py-28" style={{ animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0s" }}>
           <div className="mx-auto max-w-6xl px-6">
             <p
               className="text-xs font-semibold uppercase tracking-widest mb-4"
@@ -48,7 +48,7 @@ export default function SobrePage() {
               style={{
                 border: "2px solid color-mix(in oklch, var(--primary) 30%, transparent)",
                 background: "color-mix(in oklch, var(--primary) 5%, var(--background))",
-                animation: "sbFadeUp 0.6s ease forwards",
+                animation: "fadeUp 0.6s ease forwards",
                 opacity: 0,
                 animationDelay: "0.1s",
               }}
@@ -66,14 +66,14 @@ export default function SobrePage() {
             <div
               className="relative w-full rounded-2xl overflow-hidden h-72 md:h-[420px] mt-10"
               style={{
-                animation: "sbFadeUp 0.6s ease forwards",
+                animation: "fadeUp 0.6s ease forwards",
                 opacity: 0,
                 animationDelay: "0.2s",
               }}
             >
               <Image
                 src="/images/shutterstock_2169381397.jpg"
-                alt="Cuidado com idosos — Conviva Saúde"
+                alt="Cuidado com idosos, Conviva Saúde"
                 fill
                 className="object-cover object-center"
               />
@@ -82,7 +82,7 @@ export default function SobrePage() {
         </section>
 
         {/* ── Nossa história ────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20" style={{ borderTop: "1px solid var(--border)", animation: "sbFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.3s" }}>
+        <section className="py-20 md:py-28" style={{ borderTop: "1px solid var(--border)", animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.3s" }}>
           <div className="mx-auto max-w-6xl px-6">
             <div className="max-w-2xl">
               <p
@@ -91,7 +91,7 @@ export default function SobrePage() {
               >
                 Nossa história
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
                 Como a Conviva nasceu
               </h2>
               <div className="flex flex-col gap-5" style={{ color: "var(--muted-foreground)" }}>
@@ -189,7 +189,7 @@ export default function SobrePage() {
         </section>
 
         {/* ── Valores ───────────────────────────────────────────────────── */}
-        <section className="py-16 md:py-24" style={{ borderTop: "1px solid var(--border)", animation: "sbFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.4s" }}>
+        <section className="py-20 md:py-28" style={{ borderTop: "1px solid var(--border)", animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.4s" }}>
           <div className="mx-auto max-w-6xl px-6">
             <div className="text-center mb-12">
               <p
@@ -198,7 +198,7 @@ export default function SobrePage() {
               >
                 Nossos valores
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
                 O que nos guia
               </h2>
             </div>
@@ -228,8 +228,8 @@ export default function SobrePage() {
 
         {/* ── Parceria Mais60 ───────────────────────────────────────────── */}
         <section
-          className="py-16 md:py-24"
-          style={{ borderTop: "1px solid var(--border)", background: "var(--muted)", animation: "sbFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.5s" }}
+          className="py-20 md:py-28"
+          style={{ borderTop: "1px solid var(--border)", background: "var(--muted)", animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.5s" }}
         >
           <div className="mx-auto max-w-4xl px-6">
             <div className="text-center mb-10">
@@ -239,7 +239,7 @@ export default function SobrePage() {
               >
                 Nossa parceria
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                 O cuidado acontece na Mais60 Saúde
               </h2>
               <div className="flex flex-col gap-4 max-w-2xl mx-auto text-left" style={{ color: "var(--muted-foreground)" }}>
@@ -287,6 +287,8 @@ export default function SobrePage() {
               <img
                 src="https://mais60saude.com.br/wp-content/uploads/2023/07/logomais60.png"
                 alt="Mais60 Saúde"
+                width={213}
+                height={64}
                 className="h-16 w-auto object-contain mx-auto"
               />
               <div className="mt-5">
@@ -306,7 +308,7 @@ export default function SobrePage() {
         </section>
 
         {/* ── CTA final ─────────────────────────────────────────────────── */}
-        <section className="py-16 md:py-20" style={{ background: "var(--primary)" }}>
+        <section className="py-20 md:py-28" style={{ background: "var(--primary)" }}>
           <div className="mx-auto max-w-2xl px-6 text-center">
             <h2
               className="text-2xl sm:text-3xl font-bold tracking-tight mb-3"
@@ -379,13 +381,6 @@ export default function SobrePage() {
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes sbFadeUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   )
 }

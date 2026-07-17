@@ -38,7 +38,7 @@ const categories = [
     faqs: [
       {
         q: "Quanto custa o pacote Conviva?",
-        a: "R$ 329/mês — o mesmo valor para qualquer idade. Não importa se seu familiar tem 60, 70, 80 ou 90 anos: o valor é fixo e não sofre reajuste por faixa etária.",
+        a: "R$ 329/mês, o mesmo valor para qualquer idade. Não importa se seu familiar tem 60, 70, 80 ou 90 anos: o valor é fixo e não sofre reajuste por faixa etária.",
       },
       {
         q: "Como funciona o pagamento?",
@@ -50,11 +50,11 @@ const categories = [
       },
       {
         q: "Tem fidelidade mínima?",
-        a: "Não. Você pode cancelar quando quiser, sem multa, com 30 dias de antecedência.",
+        a: "Sim. A Conviva tem fidelidade mínima de 4 meses. Após esse período, você pode cancelar quando quiser, avisando nossa equipe com 30 dias de antecedência.",
       },
       {
         q: "Posso contratar para outra pessoa?",
-        a: "Sim! Você pode contratar para um familiar — pai, mãe, avó, cônjuge. O processo é feito pelo responsável ou familiar, de forma 100% digital.",
+        a: "Sim! Você pode contratar para um familiar, pai, mãe, avó, cônjuge. O processo é feito pelo responsável ou familiar, de forma 100% digital.",
       },
     ],
   },
@@ -75,7 +75,7 @@ const categories = [
       },
       {
         q: "Posso contratar morando fora de BH?",
-        a: "Sim, desde que seu familiar more em BH ou região e consiga se locomover para realizar as consultas em alguma unidade. O processo de contratação é 100% digital — você pode estar em qualquer cidade.",
+        a: "Sim, desde que seu familiar more em BH ou região e consiga se locomover para realizar as consultas em alguma unidade. O processo de contratação é 100% digital, você pode estar em qualquer cidade.",
       },
     ],
   },
@@ -92,7 +92,7 @@ const categories = [
       },
       {
         q: "Ainda tenho dúvidas. Como falo com vocês?",
-        a: "Fale com nossa equipe pelo WhatsApp — respondemos em até 24 horas. Você também pode preencher o formulário no site e entraremos em contato.",
+        a: "Fale com nossa equipe pelo WhatsApp, respondemos em até 24 horas. Você também pode preencher o formulário no site e entraremos em contato.",
       },
     ],
   },
@@ -129,8 +129,8 @@ export default function FaqPage() {
 
         {/* ── Hero ──────────────────────────────────────────────────────── */}
         <section
-          className="py-16 md:py-24"
-          style={{ animation: "faqFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0s" }}
+          className="py-20 md:py-28"
+          style={{ animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0s" }}
         >
           <div className="mx-auto max-w-3xl px-6">
             <p className="text-xs font-semibold uppercase tracking-widest mb-4" style={{ color: "var(--primary)" }}>
@@ -165,7 +165,7 @@ export default function FaqPage() {
         {/* ── FAQ por categorias ────────────────────────────────────────── */}
         <section
           className="pb-20"
-          style={{ animation: "faqFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.15s" }}
+          style={{ animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.15s" }}
         >
           <div className="mx-auto max-w-3xl px-6 flex flex-col gap-12">
             {categories.map((cat, ci) => (
@@ -209,7 +209,7 @@ export default function FaqPage() {
                             className="text-sm leading-relaxed pb-4"
                             style={{
                               color: "var(--muted-foreground)",
-                              animation: "faqFadeUp 0.2s ease both",
+                              animation: "fadeUp 0.2s ease both",
                             }}
                           >
                             {a}
@@ -226,8 +226,8 @@ export default function FaqPage() {
 
         {/* ── CTA final ─────────────────────────────────────────────────── */}
         <section
-          className="py-16 md:py-20"
-          style={{ background: "var(--primary)", animation: "faqFadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.3s" }}
+          className="py-20 md:py-28"
+          style={{ background: "var(--primary)", animation: "fadeUp 0.6s ease forwards", opacity: 0, animationDelay: "0.3s" }}
         >
           <div className="mx-auto max-w-2xl px-6 text-center">
             <h2
@@ -299,14 +299,6 @@ export default function FaqPage() {
           </div>
         </div>
       )}
-
-      <style>{`
-        @keyframes faqFadeUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-
     </div>
   )
 }

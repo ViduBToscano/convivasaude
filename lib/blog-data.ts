@@ -4,6 +4,7 @@ export type ContentBlock =
   | { type: "h3"; text: string }
   | { type: "blockquote"; text: string }
   | { type: "list"; items: string[] }
+  | { type: "image"; src: string; alt: string }
   | { type: "cta" }
 
 export interface BlogPost {
@@ -44,7 +45,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: [
       {
         type: "p",
-        text: "As quedas são a principal causa de lesões graves e morte por causas externas em pessoas com 60 anos ou mais. No Brasil, estima-se que cerca de 30% dos idosos caem pelo menos uma vez ao ano — e entre os que já sofreram uma queda, esse número sobe para 60%. O que muitas famílias não sabem é que a grande maioria dessas quedas é prevenível com medidas simples e acompanhamento médico adequado.",
+        text: "As quedas são a principal causa de lesões graves e morte por causas externas em pessoas com 60 anos ou mais. No Brasil, estima-se que cerca de 30% dos idosos caem pelo menos uma vez ao ano, e entre os que já sofreram uma queda, esse número sobe para 60%. O que muitas famílias não sabem é que a grande maioria dessas quedas é prevenível com medidas simples e acompanhamento médico adequado.",
       },
       {
         type: "h2",
@@ -72,11 +73,11 @@ export const BLOG_POSTS: BlogPost[] = [
         type: "list",
         items: [
           "Fraqueza muscular nas pernas e no core (sarcopenia)",
-          "Problemas de equilíbrio e marcha — passada instável ou arrastada",
+          "Problemas de equilíbrio e marcha, passada instável ou arrastada",
           "Dificuldades visuais não corrigidas ou mal corrigidas",
           "Hipotensão ortostática (tontura ao levantar da cama ou da cadeira)",
           "Doenças crônicas como Parkinson, diabetes e artrite reumatoide",
-          "Histórico de queda anterior — o maior fator de risco individual",
+          "Histórico de queda anterior, o maior fator de risco individual",
         ],
       },
       {
@@ -100,7 +101,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Certos medicamentos, especialmente em combinação, aumentam significativamente o risco de quedas. Sedativos, hipnóticos, antidepressivos, ansiolíticos, anti-hipertensivos e diuréticos estão entre os mais associados a esse risco. A polifarmácia — uso simultâneo de cinco ou mais medicamentos — é um dos principais fatores de risco modificáveis em idosos e deve ser avaliada regularmente por um médico geriatra.",
+        text: "Certos medicamentos, especialmente em combinação, aumentam significativamente o risco de quedas. Sedativos, hipnóticos, antidepressivos, ansiolíticos, anti-hipertensivos e diuréticos estão entre os mais associados a esse risco. A polifarmácia, uso simultâneo de cinco ou mais medicamentos, é um dos principais fatores de risco modificáveis em idosos e deve ser avaliada regularmente por um médico geriatra.",
       },
       {
         type: "h2",
@@ -122,7 +123,7 @@ export const BLOG_POSTS: BlogPost[] = [
           "Organizar fios elétricos e extensões para que não fiquem no chão",
           "Manter itens de uso frequente em locais acessíveis, sem precisar escalar cadeiras ou escadas",
           "Optar por cadeiras e sofás com altura adequada para facilitar o sentar e o levantar",
-          "Usar calçados fechados com solado antiderrapante dentro de casa — evitar meias ou chinelos lisos",
+          "Usar calçados fechados com solado antiderrapante dentro de casa, evitar meias ou chinelos lisos",
           "Instalar corrimão em escadas, dos dois lados quando possível",
         ],
       },
@@ -138,7 +139,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: "É fundamental que qualquer programa de exercícios para idosos seja prescrito por um profissional habilitado — preferencialmente um educador físico em conjunto com o médico geriatra e o fisioterapeuta. Exercícios mal executados ou inadequados para o condicionamento físico atual do idoso podem aumentar o risco ao invés de reduzi-lo.",
+        text: "É fundamental que qualquer programa de exercícios para idosos seja prescrito por um profissional habilitado, preferencialmente um educador físico em conjunto com o médico geriatra e o fisioterapeuta. Exercícios mal executados ou inadequados para o condicionamento físico atual do idoso podem aumentar o risco ao invés de reduzi-lo.",
       },
       {
         type: "h2",
@@ -147,11 +148,11 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: "A revisão periódica das medicações em uso é uma etapa essencial no cuidado geriátrico. O médico geriatra tem competência para avaliar cada medicamento quanto ao seu risco de queda, identificar interações medicamentosas perigosas e, quando possível, substituir ou reduzir doses. Muitos idosos tomam medicamentos prescritos por múltiplos especialistas que não se comunicam entre si — o médico de referência da Conviva Saúde atua exatamente como esse coordenador do cuidado.",
+        text: "A revisão periódica das medicações em uso é uma etapa essencial no cuidado geriátrico. O médico geriatra tem competência para avaliar cada medicamento quanto ao seu risco de queda, identificar interações medicamentosas perigosas e, quando possível, substituir ou reduzir doses. Muitos idosos tomam medicamentos prescritos por múltiplos especialistas que não se comunicam entre si, o médico de referência da Conviva Saúde atua exatamente como esse coordenador do cuidado.",
       },
       {
         type: "blockquote",
-        text: "A queda não precisa ser um destino inevitável. Com acompanhamento médico adequado, atividade física regular e pequenas adaptações no ambiente, é possível manter a independência e a segurança do idoso no dia a dia — e dar mais tranquilidade para toda a família.",
+        text: "A queda não precisa ser um destino inevitável. Com acompanhamento médico adequado, atividade física regular e pequenas adaptações no ambiente, é possível manter a independência e a segurança do idoso no dia a dia, e dar mais tranquilidade para toda a família.",
       },
       {
         type: "h2",
@@ -183,7 +184,7 @@ export const BLOG_POSTS: BlogPost[] = [
       },
       {
         type: "p",
-        text: "Se você tem um familiar idoso e quer começar agora, comece pelos itens de casa mais acessíveis — instalar barras de apoio no banheiro e remover tapetes soltos são mudanças simples com impacto imediato. Depois, marque uma consulta com um geriatra para uma avaliação completa do risco de quedas. Esse cuidado preventivo pode fazer toda a diferença.",
+        text: "Se você tem um familiar idoso e quer começar agora, comece pelos itens de casa mais acessíveis, instalar barras de apoio no banheiro e remover tapetes soltos são mudanças simples com impacto imediato. Depois, marque uma consulta com um geriatra para uma avaliação completa do risco de quedas. Esse cuidado preventivo pode fazer toda a diferença.",
       },
     ],
   },

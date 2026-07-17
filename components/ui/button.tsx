@@ -11,15 +11,15 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        // Primary CTA — navy gradient + colored shadow + 3-D lift
+        // Primary CTA, navy gradient + colored shadow + 3-D lift
         default: "cv-btn-primary",
-        // Secondary — outline that becomes primary on hover
+        // Secondary, outline that becomes primary on hover
         outline: "cv-btn-secondary",
-        // Ghost — subtle text button
+        // Ghost, subtle text button
         ghost: "cv-btn-ghost",
-        // Inverted — white on primary-colored backgrounds
+        // Inverted, white on primary-colored backgrounds
         inverted: "cv-btn-inverted",
-        // Outline Inverted — transparent/white border on primary backgrounds
+        // Outline Inverted, transparent/white border on primary backgrounds
         "outline-inverted": "cv-btn-outline-inverted",
         // Kept for internal shadcn component compatibility
         secondary:
